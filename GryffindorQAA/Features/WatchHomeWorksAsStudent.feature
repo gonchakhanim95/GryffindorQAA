@@ -14,5 +14,5 @@ Scenario: View list of homework as student
 	| "saidlifarid@mail.ru" | "salamsalam" |
 	And press  button sing in
 	And Should  entered into system
-	
+	When Select homeworks
 	Then View  homeworks

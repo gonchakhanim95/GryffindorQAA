@@ -103,12 +103,12 @@ namespace GryffindorQAA.StepDefinitions
             Thread.Sleep(1000);
         }
 
-        [When(@"Select  homeworks")]
-     /*   public void WhenSelectHomeworks()
+        [When(@"Select homeworks")]
+        public void WhenSelectHomeworks()
         {
-            string xpath = @"/html/body/div/div/aside/div/nav/a[3]/span";
+            string xpath = @"//span[text()='Домашние задания']";
             _driver.FindElement(By.XPath(xpath)).Click();
-        }*/
+        }
 
         [Then(@"View  homeworks")]
         public void ThenViewHomeworks()

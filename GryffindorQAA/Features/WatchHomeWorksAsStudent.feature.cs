@@ -127,7 +127,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "\"03.08.1999\"",
                             "\"salamsalam\"",
                             "\"salamsalam\"",
-                            "\"saidlifarii@mail.ru\"",
+                            "\"saidlifarid@mail.ru\"",
                             "\"+78885551122\""});
 #line 6
  testRunner.And("Fill  out form", ((string)(null)), table1, "And ");
@@ -145,7 +145,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "email",
                             "password"});
                 table2.AddRow(new string[] {
-                            "\"saidlifarii@mail.ru\"",
+                            "\"saidlifarid@mail.ru\"",
                             "\"salamsalam\""});
 #line 12
  testRunner.And("fill  form", ((string)(null)), table2, "And ");
@@ -155,6 +155,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 16
  testRunner.And("Should  entered into system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 17
+ testRunner.When("Select homeworks", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 18
  testRunner.Then("View  homeworks", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
