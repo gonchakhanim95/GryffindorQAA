@@ -1,18 +1,39 @@
-using System;
-using TechTalk.SpecFlow;
+using GryffindorQAA.Support;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using GryffindorQAA.Support;
-using System.IO;
-using Gherkin.Ast;
+using System;
+using TechTalk.SpecFlow;
 
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
     public class ViewListOfStudentsAsManagerStepDefinitions
     {
-        public IWebDriver _driver;
-        
+        private WebDriver _driver;
+        [Given(@"Registration as student")]
+        public void GivenRegistrationAsStudent(Table table)
+        {
+            throw new PendingStepException();
+        }
+
+        [Given(@"Auth as Admin")]
+        public void GivenAuthAsAdmin()
+        {
+            throw new PendingStepException();
+        }
+
+        [Given(@"Get all list students")]
+        public void GivenGetAllListStudents()
+        {
+            throw new PendingStepException();
+        }
+
+        [Given(@"Give the student the role of a manager")]
+        public void GivenGiveTheStudentTheRoleOfAManager()
+        {
+            throw new PendingStepException();
+        }
+
         [Given(@"Open auth page")]
         public void GivenOpenAuthPage()
         {
@@ -27,66 +48,22 @@ namespace GryffindorQAA.StepDefinitions
             button.Click();
         }
 
-        [When(@"Add email ""([^""]*)""")]
-        public void WhenAddEmail(string emailText)
+        [Given(@"Fill out form")]
+        public void GivenFillOutForm(Table table)
         {
-            string xpacth = @"/html/body/div/div/main/div[1]/form/div[1]/input";
-            IWebElement email= _driver.FindElement(By.XPath(xpacth));
-            email.SendKeys(emailText);
+            throw new PendingStepException();
         }
 
-        [When(@"Add password ""([^""]*)""")]
-        public void WhenAddPassword(string passwordText)
+        [Given(@"Click sing in")]
+        public void GivenClickSingIn()
         {
-            string xpacth = @"/html/body/div/div/main/div[1]/form/div[2]/input";
-            IWebElement passsword = _driver.FindElement(By.XPath(xpacth));
-            passsword.Clear();
-            passsword.SendKeys(passwordText);
+            throw new PendingStepException();
         }
 
-        [When(@"Click button sing in")]
-        public void WhenClickButtonSingIn() // ne menaet page
+        [When(@"Click")]
+        public void WhenClick()
         {
-            string xpacth = @"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']";
-            IWebElement button = _driver.FindElement(By.XPath(xpacth));
-            button.Click();
-        }
-
-        [Then(@"is included in the system")]
-        public void ThenIsIncludedInTheSystem() // ne raotaet
-        {
-            string expected = Urls.Page;
-            string actual = _driver.Url;
-            Assert.NotEqual(expected, actual);
-        }
-
-        [Given(@"Auth as Manage")]
-        public void GivenAuthAsManage() // neznayu kak pisat'
-        {
-        }
-
-        [When(@"Click to spisok studentov")]
-        public void WhenClickToSpisokStudentov()
-        {
-            string xpacth = @"//span[@class='links-name transition-styles']";
-            IWebElement list = _driver.FindElement(By.XPath(xpacth));
-            list.Click();
-        }
-
-        [When(@"Filter by vice versa")]
-        public void WhenFilterByLastname()
-        {
-            string xpacth = @"/html/body/div/div/main/div[1]/div[2]/div/div[1]/div/svg/path";
-            IWebElement filter = _driver.FindElement(By.XPath(xpacth));
-            filter.Click();
-        }
-
-        [Then(@"View a list of students")]
-        public void ThenViewAListOfStudents()
-        {
-            string expected = @"https://piter-education.ru:7074/students-list";
-            string actual = _driver.Url;
-            Assert.NotEqual(expected, actual);
+            throw new PendingStepException();
         }
     }
 }
