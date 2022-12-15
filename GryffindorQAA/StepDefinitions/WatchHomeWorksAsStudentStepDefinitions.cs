@@ -1,70 +1,83 @@
+using GryffindorQAA.Drivers;
+using GryffindorQAA.Pages;
 using GryffindorQAA.Support;
 using OpenQA.Selenium.Interactions;
+using TechTalk.SpecFlow.Assist;
+using GryffindorQAA.Models;
 
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
     public class WatchHomeWorksAsStudentStepDefinitions
     {
-        WebDriver _driver;
+        RegistrationPage _registrationPage;
+        AuthPage _authPage;
+
+        public WatchHomeWorksAsStudentStepDefinitions()
+        {
+            _registrationPage = new RegistrationPage();
+            _authPage = new AuthPage();
+        }
+
         [Given(@"open  registration page")]
         public void GivenOpenRegistrationPage()
         {
-            _driver = new ChromeDriver();
-            _driver.Manage().Window.Maximize();
-            _driver.Navigate().GoToUrl(Urls.RegistrationPage);
+            DriverStorage storage = DriverStorage.GetDriverStorage();
 
-            string xpath = @"/html/body/div/div[2]/button[3]"; // xpath kak pravilno pisat? class, name, id, ? ili mojno i to i druqoe. 
-            _driver.FindElement(By.XPath(xpath)).Click();
+            _registrationPage.Open();
+
+            string xpath = @"/html/body/div/div[2]/button[3]"; 
+            storage.Driver.FindElement(By.XPath(xpath)).Click();
             xpath = @"/html/body/div/div[3]/p[2]/a";
-            _driver.FindElement(By.XPath(xpath)).Click();
+            storage.Driver.FindElement(By.XPath(xpath)).Click();
 
             xpath = @"//a[@class='auth-link']";
-            _driver.FindElement(By.XPath(xpath)).Click();
+            storage.Driver.FindElement(By.XPath(xpath)).Click();
         }
 
-        [Given(@"Fill  out form")]
+        [Given(@"Fill out form")]
         public void GivenFillOutForm(Table table)
-        {  
-            string xpath = @"//input[@id='lastName']";
-            _driver.FindElement(By.XPath(xpath)).SendKeys("Saidli");
-            xpath = @"//input[@id='firstName']";
-            _driver.FindElement(By.XPath(xpath)).SendKeys("Farid");
-            xpath = @"//input[@name='patronymic']";
-            _driver.FindElement(By.XPath(xpath)).SendKeys("Ahmed");
+        {
 
-            xpath = @"//input[@class='form-control']";
-            IWebElement birthDateBar = _driver.FindElement(By.XPath(xpath));
-            Actions action = new Actions(_driver);
+            var tablica = table.CreateInstance<RegistrationModel>();
+            _registrationPage.EnterLastname(tablica.Lastname);
+            _registrationPage.EnterFirstname(tablica.Firstname);
+            _registrationPage.EnterParonymic(tablica.Paronymic);
+            _registrationPage.EnterBrithDate(tablica.BirtDate);
+            _registrationPage.EnterPassword(tablica.Password);
+            _registrationPage.EnterRepeatPassword(tablica.RepeatPassword);
+            _registrationPage.EnterEmail(tablica.Email);
+            _registrationPage.EnterPhoneNumb(tablica.PhoneNumber);
+
+            DriverStorage storage = DriverStorage.GetDriverStorage();
+
+            string xpath = @"//input[@class='form-control']";
+            IWebElement birthDateBar = storage.Driver.FindElement(By.XPath(xpath));
+            Actions action = new Actions(storage.Driver);
             action.DoubleClick(birthDateBar).Perform();
-            _driver.FindElement(By.XPath(xpath)).SendKeys("03.08.1999");
-
-            xpath = @"//input[@name='password']";
-            _driver.FindElement(By.XPath(xpath)).SendKeys("salamsalam");
-            xpath = @"//input[@name='confirmPassword']";
-            _driver.FindElement(By.XPath(xpath)).SendKeys("salamsalam");
-            xpath = @"//input[@name='email']";
-            _driver.FindElement(By.XPath(xpath)).SendKeys("saidlifarid@mail.ru");
-            xpath = @"//input[@name='phoneNumber']";
-            _driver.FindElement(By.XPath(xpath)).SendKeys("+78885551122");
         }
+
+
+      /*  [Given(@"Fill  out form")]
+        public void GivenFillOutForm(Table table)
+        {
+        }*/
 
         [Given(@"Click  button registered")]
         public void GivenClickButtonRegistered()
         {
-            string xpath = @"//label[@class='custom-checkbox']";
-            _driver.FindElement(By.XPath(xpath)).Click();
-
-            xpath = @"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']";
-            _driver.FindElement(By.XPath(xpath)).Click();
+            _registrationPage.ClickCheckButton();
+            _registrationPage.ClickButtonRegistration();
             Thread.Sleep(500);
         }
 
         [Given(@"Must  come out inscription ""([^""]*)""")]
         public void GivenMustComeOutInscription(string expected)
         {
+            DriverStorage storage = DriverStorage.GetDriverStorage();
+
             string xpath = @"//p[@class='notification-text']";
-            IWebElement button = _driver.FindElement(By.XPath(xpath));
+            IWebElement button =storage.Driver.FindElement(By.XPath(xpath));
             string actual = button.Text;
             Assert.Equal(expected, actual);
         }
@@ -72,26 +85,25 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Open  Auth as student")]
         public void GivenOpenAuthAsStudent()
         {
+            DriverStorage storage = DriverStorage.GetDriverStorage();
+
             string xpath = @"//a[@class='auth-link']";
-            _driver.FindElement(By.XPath(xpath)).Click();
+            storage.Driver.FindElement(By.XPath(xpath)).Click();
         }
 
         [Given(@"fill  form")]
         public void GivenFillForm(Table table)
         {
-            string xpath = @"//input[@name='email']";
-            _driver.FindElement(By.XPath(xpath)).SendKeys("saidlifarid@mail.ru");
-            xpath = @"//input[@name='password']";
-            _driver.FindElement(By.XPath(xpath)).Clear();
-            _driver.FindElement(By.XPath(xpath)).SendKeys("salamsalam");
+            var tablica = table.CreateInstance<AuthModel>();
+            _authPage.EnterLogin(tablica.LogIn);
+            _authPage.EnterPassword(tablica.PassWord);
 
         }
 
         [Given(@"press  button sing in")]
         public void GivenPressButtonSingIn()
         {
-            string xpath = @"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']";
-            _driver.FindElement(By.XPath(xpath)).Click();
+            _authPage.ClickButtonSingIn();
         }
 
         [Given(@"Should  entered into system")]
@@ -106,8 +118,10 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Select homeworks")]
         public void WhenSelectHomeworks()
         {
+            DriverStorage storage = DriverStorage.GetDriverStorage();
+
             string xpath = @"//span[text()='Домашние задания']";
-            _driver.FindElement(By.XPath(xpath)).Click();
+            storage.Driver.FindElement(By.XPath(xpath)).Click();
         }
 
         [Then(@"View  homeworks")]
@@ -117,5 +131,6 @@ namespace GryffindorQAA.StepDefinitions
             string actual = Urls.HomePage;
             Assert.NotEqual(expected, actual);
         }
+
     }
 }

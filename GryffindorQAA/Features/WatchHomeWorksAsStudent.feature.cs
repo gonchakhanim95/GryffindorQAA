@@ -113,7 +113,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "LastName",
-                            "FisrtName",
+                            "FirstName",
                             "Patronymic",
                             "Birth date",
                             "Password",
@@ -121,16 +121,16 @@ this.ScenarioInitialize(scenarioInfo);
                             "Email",
                             "Phone"});
                 table1.AddRow(new string[] {
-                            "\"Saidli\"",
-                            "\"Farid\"",
-                            "\"Axmed\"",
-                            "\"03.08.1999\"",
-                            "\"salamsalam\"",
-                            "\"salamsalam\"",
-                            "\"saidlifarid@mail.ru\"",
-                            "\"+78885551122\""});
+                            "Saidov",
+                            "Farid",
+                            "Axmed",
+                            "03.08.1999",
+                            "salamsalam",
+                            "salamsalam",
+                            "saidllifaridd@mail.ru",
+                            "+78885551122"});
 #line 6
- testRunner.And("Fill  out form", ((string)(null)), table1, "And ");
+ testRunner.And("Fill out form", ((string)(null)), table1, "And ");
 #line hidden
 #line 9
  testRunner.And("Click  button registered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -145,7 +145,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "email",
                             "password"});
                 table2.AddRow(new string[] {
-                            "\"saidlifarid@mail.ru\"",
+                            "saidlifarid@mail.ru",
                             "\"salamsalam\""});
 #line 12
  testRunner.And("fill  form", ((string)(null)), table2, "And ");
