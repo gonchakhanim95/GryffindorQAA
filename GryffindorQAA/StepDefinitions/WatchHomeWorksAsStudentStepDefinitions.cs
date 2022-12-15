@@ -43,11 +43,11 @@ namespace GryffindorQAA.StepDefinitions
             _registrationPage.EnterLastname(tablica.Lastname);
             _registrationPage.EnterFirstname(tablica.Firstname);
             _registrationPage.EnterParonymic(tablica.Paronymic);
-            _registrationPage.EnterBrithDate(tablica.BirtDate);
+            _registrationPage.EnterBirthDate(tablica.BirthDate);
             _registrationPage.EnterPassword(tablica.Password);
             _registrationPage.EnterRepeatPassword(tablica.RepeatPassword);
             _registrationPage.EnterEmail(tablica.Email);
-            _registrationPage.EnterPhoneNumb(tablica.PhoneNumber);
+            _registrationPage.EnterPhone(tablica.Phone);
 
             DriverStorage storage = DriverStorage.GetDriverStorage();
 

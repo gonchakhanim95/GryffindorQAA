@@ -11,7 +11,7 @@ namespace GryffindorQAA.Pages
         public IWebElement PasswordBox => _driver.FindElement(By.XPath(@"//input[@name='password']"));
         public IWebElement RepeatPasswordBox => _driver.FindElement(By.XPath(@"//input[@name='confirmPassword']"));
         public IWebElement EmailBox => _driver.FindElement(By.XPath(@"//input[@name='email']"));
-        public IWebElement PhoneNumbBox => _driver.FindElement(By.XPath(@"//input[@name='phoneNumber']"));
+        public IWebElement PhoneBox => _driver.FindElement(By.XPath(@"//input[@name='phoneNumber']"));
         public IWebElement CheckBox => _driver.FindElement(By.XPath(@"//label[@class='custom-checkbox']"));
         public IWebElement ButtonRegistration => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']"));
 
@@ -35,7 +35,7 @@ namespace GryffindorQAA.Pages
         {
             PatronymicBox.SendKeys(text);
         }
-        public void EnterBrithDate(string text)
+        public void EnterBirthDate(string text)
         {
             BirthDateBox.SendKeys(text);
         }
@@ -51,9 +51,9 @@ namespace GryffindorQAA.Pages
         {
             EmailBox.SendKeys(text);
         }
-        public void EnterPhoneNumb(string text)
+        public void EnterPhone(string text)
         {
-            PhoneNumbBox.SendKeys(text);
+            PhoneBox.SendKeys(text);
         }
         public void ClickButtonRegistration()
         {

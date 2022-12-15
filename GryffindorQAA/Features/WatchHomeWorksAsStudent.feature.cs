@@ -115,9 +115,9 @@ this.ScenarioInitialize(scenarioInfo);
                             "LastName",
                             "FirstName",
                             "Patronymic",
-                            "Birth date",
+                            "BirthDate",
                             "Password",
-                            "Repeat password",
+                            "RepeatPassword",
                             "Email",
                             "Phone"});
                 table1.AddRow(new string[] {
