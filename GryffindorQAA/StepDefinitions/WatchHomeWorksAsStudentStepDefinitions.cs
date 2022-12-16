@@ -12,11 +12,13 @@ namespace GryffindorQAA.StepDefinitions
     {
         RegistrationPage _registrationPage;
         AuthPage _authPage;
+        StudentPage _studentPage;
 
         public WatchHomeWorksAsStudentStepDefinitions()
         {
             _registrationPage = new RegistrationPage();
             _authPage = new AuthPage();
+            _studentPage= new StudentPage();
         }
 
         [Given(@"open  registration page")]
@@ -42,26 +44,15 @@ namespace GryffindorQAA.StepDefinitions
             var tablica = table.CreateInstance<RegistrationModel>();
             _registrationPage.EnterLastname(tablica.Lastname);
             _registrationPage.EnterFirstname(tablica.Firstname);
-            _registrationPage.EnterParonymic(tablica.Paronymic);
+            _registrationPage.EnterParonymic(tablica.Patronymic);
+            
             _registrationPage.EnterBirthDate(tablica.BirthDate);
             _registrationPage.EnterPassword(tablica.Password);
             _registrationPage.EnterRepeatPassword(tablica.RepeatPassword);
             _registrationPage.EnterEmail(tablica.Email);
             _registrationPage.EnterPhone(tablica.Phone);
-
-            DriverStorage storage = DriverStorage.GetDriverStorage();
-
-            string xpath = @"//input[@class='form-control']";
-            IWebElement birthDateBar = storage.Driver.FindElement(By.XPath(xpath));
-            Actions action = new Actions(storage.Driver);
-            action.DoubleClick(birthDateBar).Perform();
         }
 
-
-      /*  [Given(@"Fill  out form")]
-        public void GivenFillOutForm(Table table)
-        {
-        }*/
 
         [Given(@"Click  button registered")]
         public void GivenClickButtonRegistered()
@@ -85,18 +76,15 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Open  Auth as student")]
         public void GivenOpenAuthAsStudent()
         {
-            DriverStorage storage = DriverStorage.GetDriverStorage();
-
-            string xpath = @"//a[@class='auth-link']";
-            storage.Driver.FindElement(By.XPath(xpath)).Click();
+           _registrationPage.ClickChangeButtonToAuth();
         }
 
         [Given(@"fill  form")]
         public void GivenFillForm(Table table)
         {
             var tablica = table.CreateInstance<AuthModel>();
-            _authPage.EnterLogin(tablica.LogIn);
-            _authPage.EnterPassword(tablica.PassWord);
+            _authPage.EnterLogin(tablica.email);
+            _authPage.EnterPassword(tablica.password);
 
         }
 
@@ -118,10 +106,7 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Select homeworks")]
         public void WhenSelectHomeworks()
         {
-            DriverStorage storage = DriverStorage.GetDriverStorage();
-
-            string xpath = @"//span[text()='Домашние задания']";
-            storage.Driver.FindElement(By.XPath(xpath)).Click();
+            _studentPage.ClickHomeWork();
         }
 
         [Then(@"View  homeworks")]

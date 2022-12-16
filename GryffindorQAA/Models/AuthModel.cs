@@ -8,8 +8,8 @@ namespace GryffindorQAA.Models
 {
     public class AuthModel
     {
-        public string LogIn { get; set; }
-        public string PassWord { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
 
     }
 }

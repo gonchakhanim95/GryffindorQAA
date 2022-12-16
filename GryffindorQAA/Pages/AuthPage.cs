@@ -26,7 +26,8 @@ namespace GryffindorQAA.Pages
 
         public void EnterPassword(string text)
         {
-            Login.SendKeys(text);
+            Password.Clear();
+            Password.SendKeys(text);
         }
 
         public void ClickButtonSingIn()

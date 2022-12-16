@@ -127,7 +127,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "03.08.1999",
                             "salamsalam",
                             "salamsalam",
-                            "saidllifaridd@mail.ru",
+                            "saidlii@mail.ru",
                             "+78885551122"});
 #line 6
  testRunner.And("Fill out form", ((string)(null)), table1, "And ");
@@ -145,8 +145,8 @@ this.ScenarioInitialize(scenarioInfo);
                             "email",
                             "password"});
                 table2.AddRow(new string[] {
-                            "saidlifarid@mail.ru",
-                            "\"salamsalam\""});
+                            "saidlii@mail.ru",
+                            "salamsalam"});
 #line 12
  testRunner.And("fill  form", ((string)(null)), table2, "And ");
 #line hidden

@@ -6,10 +6,10 @@ namespace GryffindorQAA.Support
     [Binding]
     public sealed class Hooks1
     {
-       /* [AfterScenario]
+        [AfterScenario]
         public void AfterScenario()
         {
             DriverStorage.GetDriverStorage().Driver.Close();
-        }*/
+        }
     }
 }
