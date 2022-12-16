@@ -80,14 +80,14 @@ namespace GryffindorQAA.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Auth as Manager")]
+        [Xunit.SkippableFactAttribute(DisplayName="View List Students As Manager")]
         [Xunit.TraitAttribute("FeatureTitle", "ViewListOfStudentsAsManager")]
-        [Xunit.TraitAttribute("Description", "Auth as Manager")]
-        public virtual void AuthAsManager()
+        [Xunit.TraitAttribute("Description", "View List Students As Manager")]
+        public virtual void ViewListStudentsAsManager()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Auth as Manager", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View List Students As Manager", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -108,64 +108,51 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "FirstName",
+                            "LastName",
+                            "Patronymic",
+                            "Email",
+                            "Username",
+                            "Password",
+                            "City",
+                            "BrithDate",
+                            "GitHubAccount",
+                            "PhoneNumber"});
+                table1.AddRow(new string[] {
+                            "Daniel",
+                            "Martin",
+                            "Pitt",
+                            "asdfgbgjhjjkk@gmail.com",
+                            "Drep",
+                            "daniello",
+                            "SaintPetersburg",
+                            "23.03.2003",
+                            "@drep33",
+                            "+78884445454"});
 #line 6
- testRunner.Given("Open auth page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 7
- testRunner.When("Add email \"marina@example.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 8
- testRunner.And("Add password \"marinamarina\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("Registration as student", ((string)(null)), table1, "Given ");
 #line hidden
 #line 9
- testRunner.And("Click button sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Auth as Admin,Get all list students,Give the student the role of a manager", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
- testRunner.Then("is included in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("Open auth page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="View a list of students as Manager")]
-        [Xunit.TraitAttribute("FeatureTitle", "ViewListOfStudentsAsManager")]
-        [Xunit.TraitAttribute("Description", "View a list of students as Manager")]
-        public virtual void ViewAListOfStudentsAsManager()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View a list of students as Manager", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Email",
+                            "Password"});
+                table2.AddRow(new string[] {
+                            "asdfgbgjhllkk@gmail.com",
+                            "daniello"});
+#line 11
+ testRunner.And("Fill out form", ((string)(null)), table2, "And ");
+#line hidden
 #line 14
-this.ScenarioInitialize(scenarioInfo);
+ testRunner.And("Click sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
 #line 15
- testRunner.Given("Auth as Manage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 16
- testRunner.When("Click to spisok studentov", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 17
- testRunner.And("Filter by vice versa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 18
- testRunner.Then("View a list of students", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("Click", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             }
             this.ScenarioCleanup();
