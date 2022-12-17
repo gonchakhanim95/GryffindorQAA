@@ -10,7 +10,7 @@ namespace GryffindorQAA.StepDefinitions
     [Binding]
     public class ViewListOfStudentsAsManagerStepDefinitions
     {
-        ClientClient client;
+        ClientClient _client;
         AuthPage _authPage;
         ManagersPage _managersPage;
 
@@ -18,6 +18,7 @@ namespace GryffindorQAA.StepDefinitions
         {
             _authPage = new AuthPage();
             _managersPage = new ManagersPage();
+            _client = new ClientClient();
         }
         [Given(@"Registration as student and Auth as Admin and give the student the role of a manager")]
         public void GivenRegistrationAsStudentAndAuthAsAdminAndGiveTheStudentTheRoleOfAManager(Table table)
@@ -27,7 +28,7 @@ namespace GryffindorQAA.StepDefinitions
                 FirstName = "Daniel",
                 LastName = "Martin",
                 Patronymic = "Pitt",
-                Email = "pofoihhee@gmail.com",
+                Email = "dannhnell@gmail.com",
                 Username = "Drep",
                 Password = "daniello",
                 City = "SaintPetersburg",
@@ -35,14 +36,16 @@ namespace GryffindorQAA.StepDefinitions
                 GitHubAccount = "@drep33",
                 PhoneNumber = "+78884445454"
             };
-            string userId = client.RegistrationStudent(registrationRequestModel);
+            int userId = _client.RegistrationStudent(registrationRequestModel);
             AuthRequestModel auth = new AuthRequestModel()
             {
                 Email = "marina@example.com",
                 Password = "marina123456"
             };
-            string token = client.Auth(auth);
-            client.GiveRoleTeacher(token, userId);
+            string token = _client.Auth(auth);
+            //List<UserResponseModelId> users = _client.GetUsers(token);
+            //_client.GetUsers(token);
+            _client.GiveRoleTeacher(token, userId);
         }
 
         [Given(@"Open auth page for Manager")]
