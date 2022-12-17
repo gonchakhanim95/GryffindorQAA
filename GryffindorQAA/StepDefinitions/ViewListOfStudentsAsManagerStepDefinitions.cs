@@ -1,5 +1,9 @@
 using GryffindorQAA.BackModel;
 using GryffindorQAA.Client;
+using GryffindorQAA.Drivers;
+using GryffindorQAA.Models;
+using GryffindorQAA.Pages;
+using TechTalk.SpecFlow.Assist;
 
 namespace GryffindorQAA.StepDefinitions
 {
@@ -7,6 +11,16 @@ namespace GryffindorQAA.StepDefinitions
     public class ViewListOfStudentsAsManagerStepDefinitions
     {
         ClientClient client = new ClientClient();
+        RegistrationPage _registrationPage;
+        AuthPage _authPage;
+        //StudentPage _studentPage;
+
+        public ViewListOfStudentsAsManagerStepDefinitions()
+        {
+            _registrationPage = new RegistrationPage();
+            _authPage = new AuthPage();
+            //_studentPage = new StudentPage();
+        }
         [Given(@"Registration as student and Auth as Admin and give the student the role of a manager")]
         public void GivenRegistrationAsStudentAndAuthAsAdminAndGiveTheStudentTheRoleOfAManager(Table table)
         {
@@ -36,19 +50,26 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Open auth page for Manager")]
         public void GivenOpenAuthPageForManager()
         {
-            throw new PendingStepException();
+            DriverStorage storage = DriverStorage.GetDriverStorage();
+            _authPage.Open();
+            string xpath = @"/html/body/div/div[2]/button[3]";
+            storage.Driver.FindElement(By.XPath(xpath)).Click();
+            xpath = @"/html/body/div/div[3]/p[2]/a";
+            storage.Driver.FindElement(By.XPath(xpath)).Click();
         }
 
         [Given(@"Fill out form Auth")]
-        public void GivenFillOutFormAuth(Table table)
+        public void GivenFillOutFormAuth(Table tablle)
         {
-            throw new PendingStepException();
+            var tablica = tablle.CreateInstance<AuthModel>();
+            _authPage.EnterLogin(tablica.email);
+            _authPage.EnterPassword(tablica.password);
         }
 
         [Given(@"Click button Sing in")]
         public void GivenClickButtonSingIn()
         {
-            throw new PendingStepException();
+            _authPage.ClickButtonSingIn();
         }
 
         [When(@"Click botton list Students")]
