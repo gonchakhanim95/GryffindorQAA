@@ -74,7 +74,7 @@ namespace GryffindorQAA.Client
              HttpRequestMessage message = new HttpRequestMessage()
              {
                  Method = HttpMethod.Get,
-                 RequestUri = new System.Uri($"https://piter-education.ru:7070/api/Users/?"),
+                 RequestUri = new System.Uri($"https://piter-education.ru:7070/api/Users"),
              };
 
              HttpResponseMessage responseMessage = client.Send(message);

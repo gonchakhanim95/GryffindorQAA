@@ -1,15 +1,36 @@
-using System;
-using TechTalk.SpecFlow;
+using GryffindorQAA.BackModel;
+using GryffindorQAA.Client;
 
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
     public class ViewListOfStudentsAsManagerStepDefinitions
     {
+        ClientClient client = new ClientClient();
         [Given(@"Registration as student and Auth as Admin and give the student the role of a manager")]
         public void GivenRegistrationAsStudentAndAuthAsAdminAndGiveTheStudentTheRoleOfAManager(Table table)
         {
-            throw new PendingStepException();
+            RegistrationRequestModel registrationRequestModel = new RegistrationRequestModel()
+            {
+                FirstName = "Daniel",
+                LastName = "Martin",
+                Patronymic = "Pitt",
+                Email = "pofoihhee@gmail.com",
+                Username = "Drep",
+                Password = "daniello",
+                City = "SaintPetersburg",
+                BirthDate = "23.03.2003",
+                GitHubAccount = "@drep33",
+                PhoneNumber = "+78884445454"
+            };
+            string userId = client.RegistrationStudent(registrationRequestModel);
+            AuthRequestModel auth = new AuthRequestModel()
+            {
+                Email = "marina@example.com",
+                Password = "marina123456"
+            };
+            string token = client.Auth(auth);
+            client.GiveRoleTeacher(token, userId);
         }
 
         [Given(@"Open auth page for Manager")]
