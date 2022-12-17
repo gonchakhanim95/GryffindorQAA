@@ -10,16 +10,14 @@ namespace GryffindorQAA.StepDefinitions
     [Binding]
     public class ViewListOfStudentsAsManagerStepDefinitions
     {
-        ClientClient client = new ClientClient();
-        RegistrationPage _registrationPage;
+        ClientClient client;
         AuthPage _authPage;
-        //StudentPage _studentPage;
+        ManagersPage _managersPage;
 
         public ViewListOfStudentsAsManagerStepDefinitions()
         {
-            _registrationPage = new RegistrationPage();
             _authPage = new AuthPage();
-            //_studentPage = new StudentPage();
+            _managersPage = new ManagersPage();
         }
         [Given(@"Registration as student and Auth as Admin and give the student the role of a manager")]
         public void GivenRegistrationAsStudentAndAuthAsAdminAndGiveTheStudentTheRoleOfAManager(Table table)
@@ -75,7 +73,9 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Click botton list Students")]
         public void WhenClickBottonListStudents()
         {
-            throw new PendingStepException();
+            _managersPage.ClickButtonListStudents();
+            _managersPage.ClickFilterStudents();
+            _managersPage.ClickButtonChangeFilter();
         }
     }
 }
