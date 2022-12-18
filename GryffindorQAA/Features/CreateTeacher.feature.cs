@@ -127,7 +127,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "Федор",
                             "23.12.1992",
                             "салам1салам",
-                            "maksimuska@gmail.ru",
+                            "maksimuska@gmail.com",
                             "+75553332255",
                             "mmaksimm",
                             "SaintPetersburg",
@@ -157,7 +157,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "Email",
                             "Password"});
                 table3.AddRow(new string[] {
-                            "maksimuska@gmail.ru",
+                            "maksimuska@gmail.com",
                             "салам1салам"});
 #line 15
  testRunner.And("Fill sign in form as teacher", ((string)(null)), table3, "And ");

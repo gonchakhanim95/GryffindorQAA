@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace GryffindorQAA.Pages
 {
     public class AuthPage:AbstractPage
+    { 
         public IWebElement EmailBox => _driver.FindElement(By.XPath(@"//input[@name='email']"));
         public IWebElement PasswordBox => _driver.FindElement(By.XPath(@"//input[@name='password']"));
         public IWebElement SignButton => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']"));
@@ -47,12 +48,6 @@ namespace GryffindorQAA.Pages
         {
             Login.Clear();
             Login.SendKeys(text);
-        }
-
-        public void EnterPassword(string text)
-        {
-            Password.Clear();
-            Password.SendKeys(text);
         }
 
         public void ClickButtonSingIn()

@@ -1,4 +1,5 @@
-﻿using GryffindorQAA.Models;
+﻿using GryffindorQAA.BackModel;
+using GryffindorQAA.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,7 +69,7 @@ namespace GryffindorQAA.Client
 
         }
 
-        public List<GetUsersModel> GetAllUsers(string token)
+       /* public List<GetUsersModel> GetAllUsers(string token)
         {
             HttpStatusCode expectedCode = HttpStatusCode.OK;
 
@@ -92,7 +93,7 @@ namespace GryffindorQAA.Client
             List<GetUsersModel> allUsers = JsonSerializer.Deserialize<List<GetUsersModel>>(responseMessage.Content.ReadAsStringAsync().Result);
 
             return allUsers;
-        }
+        }*/
 
         public void GiveRoleToTheTeacher(int id,string token)
         {

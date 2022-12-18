@@ -1,3 +1,4 @@
+using GryffindorQAA.BackModel;
 using GryffindorQAA.Client;
 using GryffindorQAA.Drivers;
 using GryffindorQAA.Models;
@@ -22,7 +23,7 @@ namespace GryffindorQAA.StepDefinitions
     {
         AuthPage _authPage;
 
-        public  string Email;
+        public static string Email;
         private string _adminToken;
         private int _idTeacher;
 

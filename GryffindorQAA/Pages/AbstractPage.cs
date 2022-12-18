@@ -1,4 +1,3 @@
-        public abstract void Open();
 ﻿using GryffindorQAA.Drivers;
 using System;
 using System.Collections.Generic;
