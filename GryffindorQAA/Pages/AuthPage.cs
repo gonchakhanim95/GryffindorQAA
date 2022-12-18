@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 namespace GryffindorQAA.Pages
 {
     public class AuthPage:AbstractPage
-    {
         public IWebElement EmailBox => _driver.FindElement(By.XPath(@"//input[@name='email']"));
         public IWebElement PasswordBox => _driver.FindElement(By.XPath(@"//input[@name='password']"));
         public IWebElement SignButton => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']"));
         public IWebElement RoleDropDown => _driver.FindElement(By.XPath(@"//div[@class='drop-down-filter  left']"));
         public IWebElement SwitchRole => _driver.FindElement(By.XPath(@"/ html / body / div / div / aside / div / div[1] / div[2] / div / div / div / div[2] / ul / li[2]"));
+        public IWebElement Login => _driver.FindElement(By.XPath(@"//input[@name='email']"));
+        public IWebElement Password => _driver.FindElement(By.XPath(@"//input[@name='password']"));
+        public IWebElement ButtonSingIn => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']"));
         public override void Open()
         {
             _driver.Navigate().GoToUrl(Urls.AuthPage);
@@ -40,6 +42,22 @@ namespace GryffindorQAA.Pages
             SwitchRole.Click();
 
             return RoleDropDown.Text;
+        }
+        public void EnterLogin(string text)
+        {
+            Login.Clear();
+            Login.SendKeys(text);
+        }
+
+        public void EnterPassword(string text)
+        {
+            Password.Clear();
+            Password.SendKeys(text);
+        }
+
+        public void ClickButtonSingIn()
+        {
+            ButtonSingIn.Click();
         }
     }
 }
