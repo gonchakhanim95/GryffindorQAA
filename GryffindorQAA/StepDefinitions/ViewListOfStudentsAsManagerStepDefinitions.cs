@@ -28,16 +28,16 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Registration as student")]
         public void GivenRegistrationAsStudent(Table table)
         {
-            var tablica = table.CreateInstance<RegistrationRequestModel>();
-            Email= tablica.Email;
-            _idManager = _client.RegistrationStudent(tablica);
+            var tablica = table.CreateSet<RegistrationRequestModel>().ToList();
+            Email= tablica[0].Email;
+            _idManager = _client.RegistrationStudent(tablica[0]);
         }
 
         [Given(@"Auth as Admin")]
         public void GivenAuthAsAdmin(Table table)
         {
-            var tablica = table.CreateInstance<AuthRequestModel>();
-            _adminToken = _client.Auth(tablica);
+            var tablica = table.CreateSet<AuthRequestModel>().ToList();
+            _adminToken = _client.Auth(tablica[0]);
         }
 
         [Given(@"Give the student the role of a manager")]
@@ -49,7 +49,7 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Open auth page for Manager")]
         public void GivenOpenAuthPageForManager()
         {
-            DriverStorage storage = DriverStorage.GetDriverStorage();
+            DriverStorage storage = DriverStorage.GetInstance();
             _authPage.Open();
             string xpath = @"/html/body/div/div[2]/button[3]";
             storage.Driver.FindElement(By.XPath(xpath)).Click();
@@ -61,8 +61,8 @@ namespace GryffindorQAA.StepDefinitions
         public void GivenFillOutFormAuth(Table table)
         {
             var tablica = table.CreateInstance<AuthModel>();
-            _authPage.EnterLogin(tablica.email);
-            _authPage.EnterPassword(tablica.password);
+            _authPage.EnterLogin(tablica.Email);
+            _authPage.EnterPassword(tablica.Password);
         }
 
         [Given(@"Click button Sing in")]
@@ -92,7 +92,7 @@ namespace GryffindorQAA.StepDefinitions
         [Then(@"View Studets List")]
         public void ThenViewStudetsList()
         {
-            DriverStorage storage = DriverStorage.GetDriverStorage();
+            DriverStorage storage = DriverStorage.GetInstance();
             string expected = Urls.StudentListPage;
             string actual = storage.Driver.Url;
             Assert.Equal(expected, actual);
