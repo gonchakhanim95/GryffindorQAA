@@ -19,7 +19,7 @@ namespace GryffindorQAA.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class WatchHomeWorksAsStudentFeature : object, Xunit.IClassFixture<WatchHomeWorksAsStudentFeature.FixtureData>, System.IDisposable
+    public partial class CreateTeacherFeature : object, Xunit.IClassFixture<CreateTeacherFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -28,10 +28,10 @@ namespace GryffindorQAA.Features
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "WatchHomeWorksAsStudent.feature"
+#line 1 "CreateTeacher.feature"
 #line hidden
         
-        public WatchHomeWorksAsStudentFeature(WatchHomeWorksAsStudentFeature.FixtureData fixtureData, GryffindorQAA_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public CreateTeacherFeature(CreateTeacherFeature.FixtureData fixtureData, GryffindorQAA_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +40,7 @@ namespace GryffindorQAA.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "WatchHomeWorksAsStudent", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "CreateTeacher", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -80,15 +80,17 @@ namespace GryffindorQAA.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="View list of homework as student")]
-        [Xunit.TraitAttribute("FeatureTitle", "WatchHomeWorksAsStudent")]
-        [Xunit.TraitAttribute("Description", "View list of homework as student")]
-        public virtual void ViewListOfHomeworkAsStudent()
+        [Xunit.SkippableFactAttribute(DisplayName="Create Teacher")]
+        [Xunit.TraitAttribute("FeatureTitle", "CreateTeacher")]
+        [Xunit.TraitAttribute("Description", "Create Teacher")]
+        [Xunit.TraitAttribute("Category", "admistrator")]
+        public virtual void CreateTeacher()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "admistrator"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View list of homework as student", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 4
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Teacher", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -108,59 +110,63 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 5
- testRunner.Given("Open  registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "LastName",
                             "FirstName",
                             "Patronymic",
                             "BirthDate",
                             "Password",
-                            "RepeatPassword",
                             "Email",
-                            "Phone"});
-                table4.AddRow(new string[] {
-                            "Saidov",
-                            "Farid",
-                            "Axmed",
-                            "03.08.1999",
-                            "salamsalam",
-                            "salamsalam",
-                            "saidliiii@mail.ru",
-                            "+78885551122"});
+                            "PhoneNumber",
+                            "Username",
+                            "City",
+                            "GitHubAccount"});
+                table1.AddRow(new string[] {
+                            "Галкин",
+                            "Максим",
+                            "Федор",
+                            "23.12.1992",
+                            "салам1салам",
+                            "maksimuska@gmail.com",
+                            "+75553332255",
+                            "mmaksimm",
+                            "SaintPetersburg",
+                            "MaksGit"});
 #line 6
- testRunner.And("Fill out form", ((string)(null)), table4, "And ");
+ testRunner.Given("Registration new User", ((string)(null)), table1, "Given ");
 #line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Email",
+                            "Password"});
+                table2.AddRow(new string[] {
+                            "marina@example.com",
+                            "marina123456"});
 #line 9
- testRunner.And("Click  button registered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("Authoraized as admin", ((string)(null)), table2, "And ");
 #line hidden
-#line 10
- testRunner.And("Must  come out inscription \"Добро пожаловать!!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 11
- testRunner.And("Open  Auth as student", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                            "email",
-                            "password"});
-                table5.AddRow(new string[] {
-                            "saidliiii@mail.ru",
-                            "salamsalam"});
 #line 12
- testRunner.And("Fill out form for Auth", ((string)(null)), table5, "And ");
+ testRunner.And("Give role teacher to the new User", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+#line 13
+ testRunner.When("Open auuthorization page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 14
+ testRunner.And("Skip bezopasnost", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Email",
+                            "Password"});
+                table3.AddRow(new string[] {
+                            "maksimuska@gmail.com",
+                            "салам1салам"});
 #line 15
- testRunner.And("Press button sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 16
- testRunner.And("Should  entered into system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 17
- testRunner.When("Select homeworks", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Fill sign in form as teacher", ((string)(null)), table3, "And ");
 #line hidden
 #line 18
- testRunner.Then("View  homeworks", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("Click sign button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 19
+ testRunner.Then("Login as a teacher", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -173,12 +179,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                WatchHomeWorksAsStudentFeature.FeatureSetup();
+                CreateTeacherFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                WatchHomeWorksAsStudentFeature.FeatureTearDown();
+                CreateTeacherFeature.FeatureTearDown();
             }
         }
     }
