@@ -45,7 +45,7 @@ namespace GryffindorQAA.Pages
         }
         public void EnterBrithDate(string text)
         {
-            DriverStorage storage = DriverStorage.GetDriverStorage();
+            DriverStorage storage = DriverStorage.GetInstance();
 
             string xpath = @"//input[@class='form-control']";
             IWebElement birthDateBar = storage.Driver.FindElement(By.XPath(xpath));

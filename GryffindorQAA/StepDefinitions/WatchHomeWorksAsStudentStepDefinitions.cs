@@ -21,14 +21,14 @@ namespace GryffindorQAA.StepDefinitions
             _studentPage= new StudentPage();
         }
 
-        [Given(@"open  registration page")]
+        [Given(@"Open  registration page")]
         public void GivenOpenRegistrationPage()
         {
-            DriverStorage storage = DriverStorage.GetDriverStorage();
+            DriverStorage storage = DriverStorage.GetInstance();
 
             _registrationPage.Open();
 
-            string xpath = @"/html/body/div/div[2]/button[3]"; 
+            string xpath = @"/html/body/div/div[2]/button[3]";
             storage.Driver.FindElement(By.XPath(xpath)).Click();
             xpath = @"/html/body/div/div[3]/p[2]/a";
             storage.Driver.FindElement(By.XPath(xpath)).Click();
@@ -46,7 +46,7 @@ namespace GryffindorQAA.StepDefinitions
             _registrationPage.EnterFirstname(tablica.Firstname);
             _registrationPage.EnterParonymic(tablica.Patronymic);
             
-            _registrationPage.EnterBirthDate(tablica.BirthDate);
+            _registrationPage.EnterBrithDate(tablica.BirthDate);
             _registrationPage.EnterPassword(tablica.Password);
             _registrationPage.EnterRepeatPassword(tablica.RepeatPassword);
             _registrationPage.EnterEmail(tablica.Email);
@@ -65,7 +65,7 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Must  come out inscription ""([^""]*)""")]
         public void GivenMustComeOutInscription(string expected)
         {
-            DriverStorage storage = DriverStorage.GetDriverStorage();
+            DriverStorage storage = DriverStorage.GetInstance();
 
             string xpath = @"//p[@class='notification-text']";
             IWebElement button =storage.Driver.FindElement(By.XPath(xpath));
@@ -79,16 +79,15 @@ namespace GryffindorQAA.StepDefinitions
            _registrationPage.ClickChangeButtonToAuth();
         }
 
-        [Given(@"fill  form")]
-        public void GivenFillForm(Table table)
+        [Given(@"Fill out form for Auth")]
+        public void GivenFillOutFormForAuth(Table table)
         {
             var tablica = table.CreateInstance<AuthModel>();
-            _authPage.EnterLogin(tablica.email);
-            _authPage.EnterPassword(tablica.password);
-
+            _authPage.EnterEmail(tablica.Email);
+            _authPage.EnterPassword(tablica.Password);
         }
 
-        [Given(@"press  button sing in")]
+        [Given(@"Press button sing in")]
         public void GivenPressButtonSingIn()
         {
             _authPage.ClickButtonSingIn();
