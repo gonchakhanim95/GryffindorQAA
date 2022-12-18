@@ -87,7 +87,7 @@ namespace GryffindorQAA.Client
             return users;
         }*/
 
-        public void GiveRoleTeacher (string token, int userId)
+        public void GiveRoleManager (string token, int userId)
         {
             
             HttpStatusCode expectedCode = HttpStatusCode.NoContent;
@@ -95,14 +95,13 @@ namespace GryffindorQAA.Client
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             HttpClient client = new HttpClient(clientHandler);
-            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             HttpRequestMessage message = new HttpRequestMessage()
             {
                 Method = HttpMethod.Post,
-                RequestUri = new System.Uri($"https://piter-education.ru:7070/api/Users/={userId}/role/Manager")
+                RequestUri = new System.Uri($"https://piter-education.ru:7070/api/Users/{userId}/role/Manager")
             };
             HttpResponseMessage responseMessage = client.Send(message);
-
             HttpStatusCode actualCode = responseMessage.StatusCode;
             Assert.Equal(expectedCode, actualCode);
         }

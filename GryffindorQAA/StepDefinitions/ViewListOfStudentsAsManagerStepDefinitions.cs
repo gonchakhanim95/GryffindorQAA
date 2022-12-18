@@ -4,6 +4,7 @@ using GryffindorQAA.Drivers;
 using GryffindorQAA.Models;
 using GryffindorQAA.Pages;
 using TechTalk.SpecFlow.Assist;
+using GryffindorQAA.Support;
 
 namespace GryffindorQAA.StepDefinitions
 {
@@ -13,6 +14,9 @@ namespace GryffindorQAA.StepDefinitions
         ClientClient _client;
         AuthPage _authPage;
         ManagersPage _managersPage;
+        public static string Email;
+        private string _adminToken;
+        private int _idManager;
 
         public ViewListOfStudentsAsManagerStepDefinitions()
         {
@@ -20,32 +24,26 @@ namespace GryffindorQAA.StepDefinitions
             _managersPage = new ManagersPage();
             _client = new ClientClient();
         }
-        [Given(@"Registration as student and Auth as Admin and give the student the role of a manager")]
-        public void GivenRegistrationAsStudentAndAuthAsAdminAndGiveTheStudentTheRoleOfAManager(Table table)
+
+        [Given(@"Registration as student")]
+        public void GivenRegistrationAsStudent(Table table)
         {
-            RegistrationRequestModel registrationRequestModel = new RegistrationRequestModel()
-            {
-                FirstName = "Daniel",
-                LastName = "Martin",
-                Patronymic = "Pitt",
-                Email = "dannhnell@gmail.com",
-                Username = "Drep",
-                Password = "daniello",
-                City = "SaintPetersburg",
-                BirthDate = "23.03.2003",
-                GitHubAccount = "@drep33",
-                PhoneNumber = "+78884445454"
-            };
-            int userId = _client.RegistrationStudent(registrationRequestModel);
-            AuthRequestModel auth = new AuthRequestModel()
-            {
-                Email = "marina@example.com",
-                Password = "marina123456"
-            };
-            string token = _client.Auth(auth);
-            //List<UserResponseModelId> users = _client.GetUsers(token);
-            //_client.GetUsers(token);
-            _client.GiveRoleTeacher(token, userId);
+            var tablica = table.CreateInstance<RegistrationRequestModel>();
+            Email= tablica.Email;
+            _idManager = _client.RegistrationStudent(tablica);
+        }
+
+        [Given(@"Auth as Admin")]
+        public void GivenAuthAsAdmin(Table table)
+        {
+            var tablica = table.CreateInstance<AuthRequestModel>();
+            _adminToken = _client.Auth(tablica);
+        }
+
+        [Given(@"Give the student the role of a manager")]
+        public void GivenGiveTheStudentTheRoleOfAManager()
+        {
+            _client.GiveRoleManager(_adminToken, _idManager);
         }
 
         [Given(@"Open auth page for Manager")]
@@ -60,9 +58,9 @@ namespace GryffindorQAA.StepDefinitions
         }
 
         [Given(@"Fill out form Auth")]
-        public void GivenFillOutFormAuth(Table tablle)
+        public void GivenFillOutFormAuth(Table table)
         {
-            var tablica = tablle.CreateInstance<AuthModel>();
+            var tablica = table.CreateInstance<AuthModel>();
             _authPage.EnterLogin(tablica.email);
             _authPage.EnterPassword(tablica.password);
         }
@@ -71,14 +69,34 @@ namespace GryffindorQAA.StepDefinitions
         public void GivenClickButtonSingIn()
         {
             _authPage.ClickButtonSingIn();
+            Thread.Sleep(1000);
+            _managersPage.ClickOnRole();
+            Thread.Sleep(1000);
+            _managersPage.ClickButtongChangeRoleManager();
         }
 
         [When(@"Click botton list Students")]
         public void WhenClickBottonListStudents()
         {
             _managersPage.ClickButtonListStudents();
+        }
+
+        [When(@"Filter the list")]
+        public void WhenFilterTheList()
+        {
             _managersPage.ClickFilterStudents();
+            Thread.Sleep(1000);
             _managersPage.ClickButtonChangeFilter();
         }
+
+        [Then(@"View Studets List")]
+        public void ThenViewStudetsList()
+        {
+            DriverStorage storage = DriverStorage.GetDriverStorage();
+            string expected = Urls.StudentListPage;
+            string actual = storage.Driver.Url;
+            Assert.Equal(expected, actual);
+        }
+
     }
 }

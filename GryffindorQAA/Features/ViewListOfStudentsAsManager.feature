@@ -3,12 +3,18 @@
 A short summary of the feature
 
 Scenario: View List Students As Manager
-	Given Registration as student and Auth as Admin and give the student the role of a manager
-	| FirstName | LastName | Patronymic | Email               | Username | Password | City            | BrithDate  | GitHubAccount | PhoneNumber  |
-	| Daniel    | Martin   | Pitt       | dannhnell@gmail.com | Drep     | daniello | SaintPetersburg | 23.03.2003 | @drep33       | +78884445454 |
+	Given Registration as student 
+	| FirstName | LastName | Patronymic | Email                | Username | Password | City            | BirthDate  | GitHubAccount | PhoneNumber  |
+	| Daniel    | Martin   | Pitt       | danimartin@gmail.com | Drep     | daniello | SaintPetersburg | 23.03.2003 | @drep33       | +78884445454 |
+	And Auth as Admin 
+	| email              | password     |
+	| marina@example.com | marina123456 |
+	And Give the student the role of a manager
 	And Open auth page for Manager
 	And Fill out form Auth 
-	| email               | password |
-	| dannhnell@gmail.com | daniello |
+	| email                | password |
+	| danimartin@gmail.com | daniello |
 	And Click button Sing in
 	When Click botton list Students
+	And Filter the list
+	Then View Studets List

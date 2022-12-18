@@ -3,7 +3,7 @@ using TechTalk.SpecFlow;
 
 namespace GryffindorQAA.Support
 {
-    /*[Binding]
+    [Binding]
     public sealed class Hooks1
     {
         [AfterScenario]
@@ -11,5 +11,5 @@ namespace GryffindorQAA.Support
         {
             DriverStorage.GetDriverStorage().Driver.Close();
         }
-    }*/
+    }
 }
