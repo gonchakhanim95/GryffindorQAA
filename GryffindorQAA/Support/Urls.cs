@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace GryffindorQAA.Support
 {
-    internal class Urls
+    public class Urls
     {
+        public const string RegistrationPage = "https://piter-education.ru:7074/register";
+        public const string AuthPage = "https://piter-education.ru:7074/login";
+
+
     }
 }
