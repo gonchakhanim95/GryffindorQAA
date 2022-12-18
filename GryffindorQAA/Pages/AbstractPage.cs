@@ -1,3 +1,4 @@
+        public abstract void Open();
 ﻿using GryffindorQAA.Drivers;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,9 @@ namespace GryffindorQAA.Pages
     public abstract class AbstractPage
     {
         protected WebDriver _driver;
-
         public AbstractPage()
         {
-            _driver = DriverStorage.GetDriverStorage().Driver;
+            _driver = DriverStorage.GetInstance().Driver;
         }
 
         public void Refresh()
@@ -21,5 +21,6 @@ namespace GryffindorQAA.Pages
             _driver.Navigate().Refresh();
         }
         public abstract void Open();
+
     }
 }

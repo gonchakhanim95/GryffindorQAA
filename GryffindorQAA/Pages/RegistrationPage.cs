@@ -1,5 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+﻿using GryffindorQAA.Support;
 ﻿using GryffindorQAA.Drivers;
-using GryffindorQAA.Support;
 using OpenQA.Selenium.Interactions;
 
 namespace GryffindorQAA.Pages
@@ -13,10 +18,12 @@ namespace GryffindorQAA.Pages
         public IWebElement PasswordBox => _driver.FindElement(By.XPath(@"//input[@name='password']"));
         public IWebElement RepeatPasswordBox => _driver.FindElement(By.XPath(@"//input[@name='confirmPassword']"));
         public IWebElement EmailBox => _driver.FindElement(By.XPath(@"//input[@name='email']"));
+        public IWebElement PhoneNumbBox => _driver.FindElement(By.XPath(@"//input[@name='phoneNumber']"));
         public IWebElement PhoneBox => _driver.FindElement(By.XPath(@"//input[@name='phoneNumber']"));
         public IWebElement CheckBox => _driver.FindElement(By.XPath(@"//label[@class='custom-checkbox']"));
         public IWebElement ButtonRegistration => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']"));
         public IWebElement ChangeButtonToAuth => _driver.FindElement(By.XPath(@"//a[@class='auth-link']"));
+        
         public override void Open()
         {
             _driver.Navigate().GoToUrl(Urls.RegistrationPage);
@@ -32,12 +39,11 @@ namespace GryffindorQAA.Pages
         {
             FirstnameBox.SendKeys(text);
         }
-
         public void EnterParonymic(string text)
         {
             PatronymicBox.SendKeys(text);
         }
-        public void EnterBirthDate(string text)
+        public void EnterBrithDate(string text)
         {
             DriverStorage storage = DriverStorage.GetDriverStorage();
 
@@ -59,6 +65,10 @@ namespace GryffindorQAA.Pages
         {
             EmailBox.SendKeys(text);
         }
+        public void EnterPhoneNumb(string text)
+        {
+            PhoneNumbBox.SendKeys(text);
+        }
         public void EnterPhone(string text)
         {
             PhoneBox.SendKeys(text);
@@ -66,6 +76,10 @@ namespace GryffindorQAA.Pages
         public void ClickButtonRegistration()
         {
             ButtonRegistration.Click();
+        }
+        public void ClickCheckBoxButton()
+        {
+            CheckBox.Click();
         }
         public void ClickCheckButton()
         {
