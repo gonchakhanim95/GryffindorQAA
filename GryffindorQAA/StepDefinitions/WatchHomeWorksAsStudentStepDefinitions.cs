@@ -13,7 +13,7 @@ namespace GryffindorQAA.StepDefinitions
         RegistrationPage _registrationPage;
         AuthPage _authPage;
         StudentPage _studentPage;
-
+        public static string Email;
         public WatchHomeWorksAsStudentStepDefinitions()
         {
             _registrationPage = new RegistrationPage();
@@ -51,6 +51,8 @@ namespace GryffindorQAA.StepDefinitions
             _registrationPage.EnterRepeatPassword(tablica.RepeatPassword);
             _registrationPage.EnterEmail(tablica.Email);
             _registrationPage.EnterPhone(tablica.Phone);
+
+            Email = tablica.Email;
         }
 
 

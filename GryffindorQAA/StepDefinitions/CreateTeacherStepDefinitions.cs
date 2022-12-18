@@ -23,7 +23,7 @@ namespace GryffindorQAA.StepDefinitions
     {
         AuthPage _authPage;
 
-        public  string Email;
+        public static string Email;
         private string _adminToken;
         private int _idTeacher;
 
