@@ -11,9 +11,12 @@ Scenario: Add new Group as Admin
 	| Email          | Password     |
 	| marina@example | marina123456 |
 	And Give role Admin to the new user
-	And Auth as new admin
+	And Auth as new Admin
+	| Email            | Password   |
+	| hogwarts@mail.ru | helloworld |
 	And Create new group Slyzerin
-	When Auth as our Admin
+	When Open auth Web page
+	And Auth as our admin
 	| Email            | Password   |
 	| hogwarts@mail.ru | helloworld |
 	And Change mine role on Admin

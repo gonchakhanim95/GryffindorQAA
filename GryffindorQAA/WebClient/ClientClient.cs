@@ -17,7 +17,6 @@ namespace GryffindorQAA.Client
         {
             HttpStatusCode expectedCode = HttpStatusCode.Created;
             string json = JsonSerializer.Serialize<RegistrationRequestModel>(model);
-
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
 
@@ -34,7 +33,6 @@ namespace GryffindorQAA.Client
 
             var userRegistrationResponseModel = responseMessage.Content.ReadFromJsonAsync<UserRegistrationResponseModel>().Result;
             return userRegistrationResponseModel.Id;
-
         }
         public string Auth(AuthRequestModel model)
         {
@@ -105,5 +103,27 @@ namespace GryffindorQAA.Client
             HttpStatusCode actualCode = responseMessage.StatusCode;
             Assert.Equal(expectedCode, actualCode);
         }
+        public int CreateGroup(RegistrationRequestModel model)
+        {
+            HttpStatusCode expectedCode = HttpStatusCode.Created;
+            string json = JsonSerializer.Serialize<RegistrationRequestModel>(model);
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            HttpClient client = new HttpClient(clientHandler);
+            HttpRequestMessage message = new HttpRequestMessage()
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new System.Uri($"https://piter-education.ru:7070/api/Groups"),
+                Content = new StringContent(json, Encoding.UTF8, "application/json")
+            };
+            HttpResponseMessage responseMessage = client.Send(message);
+            HttpStatusCode actualCode = responseMessage.StatusCode;
+            Assert.Equal(expectedCode, actualCode);
+
+            var userRegistrationResponseModel = responseMessage.Content.ReadFromJsonAsync<UserRegistrationResponseModel>().Result;
+            return userRegistrationResponseModel.Id;
+        }
+
     }
 }
