@@ -1,45 +1,70 @@
-using System;
-using TechTalk.SpecFlow;
+using GryffindorQAA.BackModel;
+using GryffindorQAA.Client;
+using GryffindorQAA.Models;
+using GryffindorQAA.Pages;
+using TechTalk.SpecFlow.Assist;
 
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
     public class AddNewGroupStepDefinitions
     {
+        ClientClient _client;
+        AuthPage _authPage;
+        ManagersPage _managersPage;
+        AdminPage _adminPage;
+        public static string Email;
+        private string _adminToken;
+        private int _idTutor;
+        private int _idTeacher;
+
+        public AddNewGroupStepDefinitions()
+        {
+            _authPage = new AuthPage();
+            _managersPage = new ManagersPage();
+            _client = new ClientClient();
+            _adminPage = new AdminPage();
+        }
         [Given(@"Created new user")]
         public void GivenCreatedNewUser(Table table)
         {
-            throw new PendingStepException();
+            var tablica = table.CreateSet<RegistrationRequestModel>().ToList();
+            Email = tablica[0].Email;
+            _idTutor = _client.Registration(tablica[0]);
+            Email = tablica[1].Email;
+            _idTeacher = _client.Registration(tablica[1]);
         }
 
         [Given(@"Auth as admin")]
         public void GivenAuthAsAdmin(Table table)
         {
-            throw new PendingStepException();
+            var tablica = table.CreateSet<AuthRequestModel>().ToList();
+            _adminToken = _client.Auth(tablica[0]);
         }
 
         [Given(@"Give role Teacher to the new user")]
         public void GivenGiveRoleTeacherToTheNewUser()
         {
-            throw new PendingStepException();
+            _client.GiveRoleTeacher(_adminToken, _idTeacher);
         }
 
         [Given(@"Give role Tutor to the new user")]
         public void GivenGiveRoleTutorToTheNewUser()
         {
-            throw new PendingStepException();
+            _client.GiveRoleTutor(_adminToken, _idTutor);
         }
 
         [Given(@"Open auth Web page")]
         public void GivenOpenAuthWebPage()
         {
-            throw new PendingStepException();
+            _authPage.Open();
         }
 
         [Given(@"Fill out form for manager")]
         public void GivenFillOutFormForManager(Table table)
         {
-            throw new PendingStepException();
+            var tablica = table.CreateSet<AuthModel>().ToList();
+            
         }
 
         [Given(@"Click sig in button")]
