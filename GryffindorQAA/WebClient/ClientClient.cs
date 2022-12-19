@@ -103,10 +103,10 @@ namespace GryffindorQAA.Client
             HttpStatusCode actualCode = responseMessage.StatusCode;
             Assert.Equal(expectedCode, actualCode);
         }
-        public int CreateGroup(RegistrationRequestModel model)
+        public int CreateGroup(GroupRequestModel model)
         {
             HttpStatusCode expectedCode = HttpStatusCode.Created;
-            string json = JsonSerializer.Serialize<RegistrationRequestModel>(model);
+            string json = JsonSerializer.Serialize<GroupRequestModel>(model);
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
 
