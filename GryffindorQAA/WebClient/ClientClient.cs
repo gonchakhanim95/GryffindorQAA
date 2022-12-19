@@ -121,8 +121,8 @@ namespace GryffindorQAA.Client
             HttpStatusCode actualCode = responseMessage.StatusCode;
             Assert.Equal(expectedCode, actualCode);
 
-            var userRegistrationResponseModel = responseMessage.Content.ReadFromJsonAsync<UserRegistrationResponseModel>().Result;
-            return userRegistrationResponseModel.Id;
+            var GroupResponseModel = responseMessage.Content.ReadFromJsonAsync<UserRegistrationResponseModel>().Result;
+            return GroupResponseModel.Id;
         }
 
     }

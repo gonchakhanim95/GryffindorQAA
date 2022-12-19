@@ -1,7 +1,6 @@
 using GryffindorQAA.Drivers;
 using GryffindorQAA.Pages;
 using GryffindorQAA.Support;
-using OpenQA.Selenium.Interactions;
 using TechTalk.SpecFlow.Assist;
 using GryffindorQAA.Models;
 
@@ -40,12 +39,10 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Fill out form")]
         public void GivenFillOutForm(Table table)
         {
-
             var tablica = table.CreateInstance<RegistrationModel>();
             _registrationPage.EnterLastname(tablica.Lastname);
             _registrationPage.EnterFirstname(tablica.Firstname);
             _registrationPage.EnterParonymic(tablica.Patronymic);
-            
             _registrationPage.EnterBrithDate(tablica.BirthDate);
             _registrationPage.EnterPassword(tablica.Password);
             _registrationPage.EnterRepeatPassword(tablica.RepeatPassword);
@@ -61,7 +58,7 @@ namespace GryffindorQAA.StepDefinitions
         {
             _registrationPage.ClickCheckButton();
             _registrationPage.ClickButtonRegistration();
-            Thread.Sleep(500);
+            Thread.Sleep(500);                                    //nujno menyat
         }
 
         [Given(@"Must  come out inscription ""([^""]*)""")]

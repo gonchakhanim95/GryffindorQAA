@@ -10,14 +10,11 @@ namespace GryffindorQAA.Pages
 {
     public class AuthPage:AbstractPage
     { 
-        public IWebElement EmailBox => _driver.FindElement(By.XPath(@"//input[@name='email']"));
-        public IWebElement PasswordBox => _driver.FindElement(By.XPath(@"//input[@name='password']"));
-        public IWebElement SignButton => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']"));
-        public IWebElement RoleDropDown => _driver.FindElement(By.XPath(@"//div[@class='drop-down-filter  left']"));
-        public IWebElement SwitchRole => _driver.FindElement(By.XPath(@"/ html / body / div / div / aside / div / div[1] / div[2] / div / div / div / div[2] / ul / li[2]"));
-        public IWebElement Login => _driver.FindElement(By.XPath(@"//input[@name='email']"));
-        public IWebElement Password => _driver.FindElement(By.XPath(@"//input[@name='password']"));
+        public IWebElement TextBoxEmail => _driver.FindElement(By.XPath(@"//input[@name='email']"));
+        public IWebElement TextBoxPassword => _driver.FindElement(By.XPath(@"//input[@name='password']"));
         public IWebElement ButtonSingIn => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']"));
+        public IWebElement TextBoxRoleDropDown => _driver.FindElement(By.XPath(@"//div[@class='drop-down-filter  left']"));
+        public IWebElement SwitchRole => _driver.FindElement(By.XPath(@"/ html / body / div / div / aside / div / div[1] / div[2] / div / div / div / div[2] / ul / li[2]"));
         public override void Open()
         {
             _driver.Navigate().GoToUrl(Urls.AuthPage);
@@ -26,23 +23,23 @@ namespace GryffindorQAA.Pages
 
         public void EnterEmail(string text)
         {
-            EmailBox.SendKeys(text);
+            TextBoxEmail.SendKeys(text);
         }
         public void EnterPassword(string text)
         {
-            PasswordBox.Clear();
-            PasswordBox.SendKeys(text);
+            TextBoxPassword.Clear();
+            TextBoxPassword.SendKeys(text);
         }
         public void ClickSignButton()
         {
-            SignButton.Click();
+            ButtonSingIn.Click();
         }
         public string GetTextDropDownRole()
         {
-            RoleDropDown.Click();
+            TextBoxRoleDropDown.Click();
             SwitchRole.Click();
 
-            return RoleDropDown.Text;
+            return TextBoxRoleDropDown.Text;
         }
         public void EnterLogin(string text)
         {
