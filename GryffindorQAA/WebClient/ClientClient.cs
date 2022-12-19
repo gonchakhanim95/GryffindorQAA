@@ -13,7 +13,7 @@ namespace GryffindorQAA.Client
 {
     public class ClientClient
     {
-        public int RegistrationStudent(RegistrationRequestModel model)
+        public int Registration(RegistrationRequestModel model)
         {
             HttpStatusCode expectedCode = HttpStatusCode.Created;
             string json = JsonSerializer.Serialize<RegistrationRequestModel>(model);
