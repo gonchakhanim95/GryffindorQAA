@@ -19,7 +19,7 @@ namespace GryffindorQAA.Support
             emails.Add(WatchHomeWorksAsStudentStepDefinitions.Email);
             emails.Add(ViewListOfStudentsAsManagerStepDefinitions.Email);
 
-            DriverStorage.GetInstance().Driver.Close();
+            //DriverStorage.GetInstance().Driver.Close();
 
             foreach (var item in emails)
             {

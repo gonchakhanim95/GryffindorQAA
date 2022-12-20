@@ -152,7 +152,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "Email",
                             "Password"});
                 table6.AddRow(new string[] {
-                            "daniemartin@gmail.com",
+                            "danimartin@gmail.com",
                             "daniello"});
 #line 14
  testRunner.And("Fill out form Auth", ((string)(null)), table6, "And ");

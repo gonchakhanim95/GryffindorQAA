@@ -1,59 +1,36 @@
-﻿using Microsoft.VisualStudio.DebuggerVisualizers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace GryffindorQAA.Pages
+﻿namespace GryffindorQAA.Pages
 {
-    // TODO: добавьте следующее к определению SomeType, чтобы видеть этот визуализатор при отладке экземпляров SomeType:
-    // 
-    //  [DebuggerVisualizer(typeof(ManagerPage))]
-    //  [Serializable]
-    //  public class SomeType
-    //  {
-    //   ...
-    //  }
-    // 
-    /// <summary>
-    /// Визуализатор для SomeType.  
-    /// </summary>
-    public class ManagerPage : DialogDebuggerVisualizer
+    public class ManagerPage:AbstractPage
     {
-        protected override void Show(IDialogVisualizerService windowService, IVisualizerObjectProvider objectProvider)
+        public IWebElement ButtonListStudents => _driver.FindElement(By.XPath(@"//span[text()='Список студентов']"));
+        public IWebElement ButtonFilterStudents => _driver.FindElement(By.XPath(@"//div[text()='Сортировать по фамилии']"));
+        public IWebElement ButtonChangeFilter => _driver.FindElement(By.XPath(@"//li[text()='Сортировать обратно']"));
+        public IWebElement DropDownRole => _driver.FindElement(By.XPath(@"//div[@class='drop-down-filter  left']"));
+        public IWebElement SwitchRole => _driver.FindElement(By.XPath(@"//li[text()='Менеджер']"));
+        public override void Open()
         {
-            if (windowService == null)
-                throw new ArgumentNullException("windowService");
-            if (objectProvider == null)
-                throw new ArgumentNullException("objectProvider");
-
-            // TODO: получите объект, для которого нужно отобразить визуализатор.
-            //       Выполните приведение результата objectProvider.GetObject() 
-            //       к типу визуализируемого объекта.
-            object data = (object)objectProvider.GetObject();
-
-            // TODO: отобразите свое представление объекта.
-            //       Замените displayForm на свой объект Form или Control.
-            using (Form displayForm = new Form())
-            {
-                displayForm.Text = data.ToString();
-                windowService.ShowDialog(displayForm);
-            }
+            _driver.Navigate().GoToUrl(Urls.HomePage);
         }
 
-        // TODO: добавьте следующее к своему коду тестирования для тестирования визуализатора:
-        // 
-        //    ManagerPage.TestShowVisualizer(new SomeType());
-        // 
-        /// <summary>
-        /// Тестирует визуализатор, разместив его вне отладчика.
-        /// </summary>
-        /// <param name="objectToVisualize">Объект для отображения в визуализаторе.</param>
-        public static void TestShowVisualizer(object objectToVisualize)
+        public void ClickButtonListStudents()
         {
-            VisualizerDevelopmentHost visualizerHost = new VisualizerDevelopmentHost(objectToVisualize, typeof(ManagerPage));
-            visualizerHost.ShowVisualizer();
+            ButtonListStudents.Click();
+        }
+        public void ClickFilterStudents()
+        {
+            ButtonFilterStudents.Click();
+        }
+        public void ClickButtonChangeFilter()
+        {
+            ButtonChangeFilter.Click();
+        }
+        public void ClickOnRole()
+        {
+            DropDownRole.Click();
+        }
+        public void ClickButtongChangeRoleManager()
+        {
+            SwitchRole.Click();
         }
     }
 }
