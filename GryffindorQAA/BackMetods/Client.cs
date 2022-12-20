@@ -1,6 +1,6 @@
 ﻿namespace GryffindorQAA.BackMetods
 {
-    public class Client
+    public class Clientt
     {
         private const string HOST = "https://piter-education.ru:7070";
         public int RegistrationStudent(RequestRegistrationModel model)

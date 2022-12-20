@@ -6,7 +6,7 @@ namespace GryffindorQAA.StepDefinitions
         public static string Email;
         private string _adminToken;
         private int _idManager;
-        Client _client;
+        Clientt _client;
         AuthPage _authPage;
         ManagerPage _managerPage;
 
@@ -14,7 +14,7 @@ namespace GryffindorQAA.StepDefinitions
         {
             _authPage = new AuthPage();
             _managerPage = new ManagerPage();
-            _client = new Client();
+            _client = new Clientt();
         }
 
         [Given(@"Registration as student")]
@@ -22,7 +22,7 @@ namespace GryffindorQAA.StepDefinitions
         {
             var tablica = table.CreateSet<RequestRegistrationModel>().ToList();
             Email= tablica[0].Email;
-            _idManager = _client.Registration(tablica[0]);
+            _idManager = _client.RegistrationStudent(tablica[0]);
         }
 
         [Given(@"Auth as Admin")]

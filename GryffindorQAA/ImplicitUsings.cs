@@ -18,5 +18,7 @@ global using System.Net.Http.Headers;
 global using System.Net.Http.Json;
 global using System.Text;
 global using System.Text.Json;
+global using OpenQA.Selenium.Support.UI;
+global using SeleniumExtras.WaitHelpers;
 
 [assembly: Xunit.CollectionBehavior(DisableTestParallelization = true)]

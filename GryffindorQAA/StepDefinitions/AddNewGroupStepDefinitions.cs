@@ -1,115 +1,112 @@
-using GryffindorQAA.BackModel;
-using GryffindorQAA.Client;
-using GryffindorQAA.Models;
-using GryffindorQAA.Pages;
-using TechTalk.SpecFlow.Assist;
-
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
     public class AddNewGroupStepDefinitions
     {
-        ClientClient _client;
+        Clientt _client;
         AuthPage _authPage;
-        ManagersPage _managersPage;
+        ManagerPage _managersPage;
         AdminPage _adminPage;
-        public static string Email;
+        public static string Email1;
+        public static string Email2;
         private string _adminToken;
         private int _idTutor;
         private int _idTeacher;
-
         public AddNewGroupStepDefinitions()
         {
             _authPage = new AuthPage();
-            _managersPage = new ManagersPage();
-            _client = new ClientClient();
+            _managersPage = new ManagerPage();
+            _client = new Clientt();
             _adminPage = new AdminPage();
         }
 
         [Given(@"Created new user")]
         public void GivenCreatedNewUser(Table table)
         {
-            var tablica = table.CreateSet<RegistrationRequestModel>().ToList();
-            Email = tablica[0].Email;
-            _idTutor = _client.Registration(tablica[0]);
-            Email = tablica[1].Email;
-            _idTeacher = _client.Registration(tablica[1]);
+            var tablica = table.CreateSet<RequestRegistrationModel>().ToList();
+            Email1 = tablica[0].Email;
+            _idTutor = _client.RegistrationStudent(tablica[0]);
+            Email2 = tablica[1].Email;
+            _idTeacher = _client.RegistrationStudent(tablica[1]);
         }
 
         [Given(@"Auth as admin")]
         public void GivenAuthAsAdmin(Table table)
         {
-            var tablica = table.CreateSet<AuthRequestModel>().ToList();
-            _adminToken = _client.Auth(tablica[0]);
+            var tablica = table.CreateInstance<AuthRequestModel>();
+            _adminToken = _client.Auth(tablica);
         }
 
         [Given(@"Give role Teacher to the new user")]
         public void GivenGiveRoleTeacherToTheNewUser()
         {
-            _client.GiveRoleTeacher(_adminToken, _idTeacher);
+            _client.GiveRole(_adminToken, _idTeacher, "Teacher");
         }
 
         [Given(@"Give role Tutor to the new user")]
         public void GivenGiveRoleTutorToTheNewUser()
         {
-            _client.GiveRoleTutor(_adminToken, _idTutor);
+            _client.GiveRole(_adminToken, _idTutor, "Tutor");
         }
 
         [Given(@"Open auth Web page")]
         public void GivenOpenAuthWebPage()
         {
             _authPage.Open();
+            _authPage.SkipSecure();
         }
 
-        [Given(@"Fill out form for manager")]
-        public void GivenFillOutFormForManager(Table table)
+        [When(@"Fill out form for Admin")]
+        public void WhenFillOutFormForAdmin(Table table)
         {
             var tablica = table.CreateSet<AuthModel>().ToList();
             _authPage.EnterEmail(tablica[0].Email);
             _authPage.EnterPassword(tablica[0].Password);
-                  
         }
 
-        [Given(@"Click sig in button")]
-        public void GivenClickSigInButton()
+        [When(@"Click sing in")]
+        public void WhenClickSingIn()
         {
-            _authPage.ClickSignButton();
+            _authPage.ClickButtonSignIn();
         }
 
         [When(@"Click button create group")]
         public void WhenClickButtonCreateGroup()
         {
-            
+            _adminPage.ClickButtonCreatGroup();
         }
 
-        [When(@"Enter group name")]
-        public void WhenEnterGroupName()
+        [When(@"Enter group name ""([^""]*)""")]
+        public void WhenEnterGroupName(string nameGroup)
         {
-            throw new PendingStepException();
+            _adminPage.EnterNameGroup(nameGroup);
         }
 
-        [When(@"Select Tutor and select Teacher")]
-        public void WhenSelectTutorAndSelectTeacher()
+        [When(@"Select Tutor and Teacher")]
+        public void WhenSelectTutorAndTeacher()
         {
-            throw new PendingStepException();
+            _adminPage.ClickCheckSelectTutor();
+            _adminPage.ClickCheckSelectTeacher();
         }
 
-        [When(@"Click button save")]
-        public void WhenClickButtonSave()
+        [When(@"Click Save")]
+        public void WhenClickSave()
         {
-            throw new PendingStepException();
+            _adminPage.ClickButtonSaveGroup();
         }
 
-        [When(@"Open groups")]
-        public void WhenOpenGroups()
+        [When(@"Click Groups")]
+        public void WhenClickGroups()
         {
-            throw new PendingStepException();
+            _adminPage.ClickButtonGroup();
         }
 
         [Then(@"View group Slyzerin")]
         public void ThenViewGroupSlyzerin()
         {
-            throw new PendingStepException();
+            string expected = "Slyzerin";
+            string actual = _adminPage.GetNameGroup();
+            Assert.Equal(expected, actual);
         }
     }
 }
