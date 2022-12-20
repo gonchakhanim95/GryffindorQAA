@@ -1,10 +1,3 @@
-using GryffindorQAA.Drivers;
-using GryffindorQAA.Pages;
-using GryffindorQAA.Support;
-using OpenQA.Selenium.Interactions;
-using TechTalk.SpecFlow.Assist;
-using GryffindorQAA.Models;
-
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
@@ -24,42 +17,31 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Open  registration page")]
         public void GivenOpenRegistrationPage()
         {
-            DriverStorage storage = DriverStorage.GetInstance();
-
             _registrationPage.Open();
-
-            string xpath = @"/html/body/div/div[2]/button[3]";
-            storage.Driver.FindElement(By.XPath(xpath)).Click();
-            xpath = @"/html/body/div/div[3]/p[2]/a";
-            storage.Driver.FindElement(By.XPath(xpath)).Click();
-
-            xpath = @"//a[@class='auth-link']";
-            storage.Driver.FindElement(By.XPath(xpath)).Click();
+            _authPage.SkipSecure();
+            _authPage.ClickButtonChangePage();
         }
 
         [Given(@"Fill out form")]
         public void GivenFillOutForm(Table table)
         {
+            var tablica = table.CreateSet<RegistrationModel>().ToList();
+            _registrationPage.EnterLastName(tablica[0].LastName);
+            _registrationPage.EnterFirstName(tablica[0].FirstName);
+            _registrationPage.EnterParonymic(tablica[0].Patronymic);
+            _registrationPage.EnterBrithDate(tablica[0].BirthDate);
+            _registrationPage.EnterPassword(tablica[0].Password);
+            _registrationPage.EnterRepeatPassword(tablica[0].RepeatPassword);
+            _registrationPage.EnterEmail(tablica[0].Email);
+            _registrationPage.EnterPhoneNumber(tablica[0].Phone);
 
-            var tablica = table.CreateInstance<RegistrationModel>();
-            _registrationPage.EnterLastname(tablica.Lastname);
-            _registrationPage.EnterFirstname(tablica.Firstname);
-            _registrationPage.EnterParonymic(tablica.Patronymic);
-            
-            _registrationPage.EnterBrithDate(tablica.BirthDate);
-            _registrationPage.EnterPassword(tablica.Password);
-            _registrationPage.EnterRepeatPassword(tablica.RepeatPassword);
-            _registrationPage.EnterEmail(tablica.Email);
-            _registrationPage.EnterPhone(tablica.Phone);
-
-            Email = tablica.Email;
+            Email = tablica[0].Email;
         }
-
 
         [Given(@"Click  button registered")]
         public void GivenClickButtonRegistered()
         {
-            _registrationPage.ClickCheckButton();
+            _registrationPage.ClickButtonCheckBox();
             _registrationPage.ClickButtonRegistration();
             Thread.Sleep(500);
         }
@@ -68,7 +50,6 @@ namespace GryffindorQAA.StepDefinitions
         public void GivenMustComeOutInscription(string expected)
         {
             DriverStorage storage = DriverStorage.GetInstance();
-
             string xpath = @"//p[@class='notification-text']";
             IWebElement button =storage.Driver.FindElement(By.XPath(xpath));
             string actual = button.Text;
@@ -78,7 +59,7 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Open  Auth as student")]
         public void GivenOpenAuthAsStudent()
         {
-           _registrationPage.ClickChangeButtonToAuth();
+            _authPage.Open();
         }
 
         [Given(@"Fill out form for Auth")]
@@ -92,7 +73,7 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Press button sing in")]
         public void GivenPressButtonSingIn()
         {
-            _authPage.ClickButtonSingIn();
+            _authPage.ClickButtonSignIn();
         }
 
         [Given(@"Should  entered into system")]
@@ -101,7 +82,7 @@ namespace GryffindorQAA.StepDefinitions
             string expected = Urls.HomePage;
             string actual = Urls.AuthPage;
             Assert.NotEqual(expected, actual);
-            Thread.Sleep(1000);
+            Thread.Sleep(1000); // sil
         }
 
         [When(@"Select homeworks")]
@@ -117,6 +98,5 @@ namespace GryffindorQAA.StepDefinitions
             string actual = Urls.HomePage;
             Assert.NotEqual(expected, actual);
         }
-
     }
 }

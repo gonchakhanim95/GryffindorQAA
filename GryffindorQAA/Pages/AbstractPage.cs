@@ -1,11 +1,4 @@
-﻿using GryffindorQAA.Drivers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GryffindorQAA.Pages
+﻿namespace GryffindorQAA.Pages
 {
     public abstract class AbstractPage
     {

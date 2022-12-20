@@ -4,7 +4,7 @@
 @admistrator
 Scenario: Create Teacher
 	Given Registration new User
-	| LastName | FirstName | Patronymic | BirthDate  | Password    | Email               | PhoneNumber  | Username | City            | GitHubAccount |
+	| LastName | FirstName | Patronymic | BirthDate  | Password    | Email                | PhoneNumber  | Username | City            | GitHubAccount |
 	| Галкин   | Максим    | Федор      | 23.12.1992 | салам1салам | maksimuska@gmail.com | +75553332255 | mmaksimm | SaintPetersburg | MaksGit       |
     And Authoraized as admin 
 	| Email                 | Password         |

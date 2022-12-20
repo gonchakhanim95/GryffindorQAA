@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-
-namespace GryffindorQAA.BackModel
+﻿namespace GryffindorQAA.BackModel
 {
-    public class UserResponseModelId
+    public class ResponseUserModel
     {
         public class Course
         {

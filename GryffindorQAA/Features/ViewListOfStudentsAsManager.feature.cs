@@ -108,7 +108,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                             "FirstName",
                             "LastName",
                             "Patronymic",
@@ -119,7 +119,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "BirthDate",
                             "GitHubAccount",
                             "PhoneNumber"});
-                table1.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "Daniel",
                             "Martin",
                             "Pitt",
@@ -131,16 +131,16 @@ this.ScenarioInitialize(scenarioInfo);
                             "@drep33",
                             "+78884445454"});
 #line 6
- testRunner.Given("Registration as student", ((string)(null)), table1, "Given ");
+ testRunner.Given("Registration as student", ((string)(null)), table4, "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                            "email",
-                            "password"});
-                table2.AddRow(new string[] {
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Email",
+                            "Password"});
+                table5.AddRow(new string[] {
                             "marina@example.com",
                             "marina123456"});
 #line 9
- testRunner.And("Auth as Admin", ((string)(null)), table2, "And ");
+ testRunner.And("Auth as Admin", ((string)(null)), table5, "And ");
 #line hidden
 #line 12
  testRunner.And("Give the student the role of a manager", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -148,14 +148,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 13
  testRunner.And("Open auth page for Manager", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                            "email",
-                            "password"});
-                table3.AddRow(new string[] {
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Email",
+                            "Password"});
+                table6.AddRow(new string[] {
                             "danimartin@gmail.com",
                             "daniello"});
 #line 14
- testRunner.And("Fill out form Auth", ((string)(null)), table3, "And ");
+ testRunner.And("Fill out form Auth", ((string)(null)), table6, "And ");
 #line hidden
 #line 17
  testRunner.And("Click button Sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

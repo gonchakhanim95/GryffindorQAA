@@ -17,8 +17,9 @@ namespace GryffindorQAA.Support
             List<string> emails = new List<string>();
             emails.Add(CreateTeacherStepDefinitions.Email);
             emails.Add(WatchHomeWorksAsStudentStepDefinitions.Email);
+            emails.Add(ViewListOfStudentsAsManagerStepDefinitions.Email);
 
-            DriverStorage.GetInstance().Driver.Close();
+            //DriverStorage.GetInstance().Driver.Close();
 
             foreach (var item in emails)
             {
