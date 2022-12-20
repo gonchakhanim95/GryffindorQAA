@@ -12,6 +12,7 @@ namespace GryffindorQAA.Pages
         public IWebElement TextBoxPhone => _driver.FindElement(By.XPath(@"//input[@name='phoneNumber']"));
         public IWebElement CheckBox => _driver.FindElement(By.XPath(@"//label[@class='custom-checkbox']"));
         public IWebElement ButtonRegistration => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']"));
+        public IWebElement ButtonChangeToAuth => _driver.FindElement(By.XPath(@"//a[@class='auth-link']"));
         
         public override void Open()
         {
@@ -66,6 +67,10 @@ namespace GryffindorQAA.Pages
         {
             CheckBox.Click();
         }
-        
+
+        public void ClickChangeButtonToAuth()
+        {
+            ButtonChangeToAuth.Click();
+        }
     }
 }

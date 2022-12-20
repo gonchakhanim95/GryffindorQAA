@@ -18,6 +18,8 @@ namespace GryffindorQAA.Support
             emails.Add(CreateTeacherStepDefinitions.Email);
             emails.Add(WatchHomeWorksAsStudentStepDefinitions.Email);
             emails.Add(ViewListOfStudentsAsManagerStepDefinitions.Email);
+            emails.Add(AddNewGroupStepDefinitions.Email1);
+            emails.Add(AddNewGroupStepDefinitions.Email2);
 
             //DriverStorage.GetInstance().Driver.Close();
 

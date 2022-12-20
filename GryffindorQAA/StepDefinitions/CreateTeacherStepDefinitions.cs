@@ -8,13 +8,13 @@ namespace GryffindorQAA.StepDefinitions
         private int _idTeacher;
         TeacherPage _teacherPage;
         AuthPage _authPage;
-        Client _client;
+        Clientt _client;
 
         public CreateTeacherStepDefinitions()
         {
             _authPage = new AuthPage();
             _teacherPage = new TeacherPage();
-            _client = new Client();
+            _client = new Clientt();
         }
 
         [Given(@"Registration new User")]
@@ -68,7 +68,6 @@ namespace GryffindorQAA.StepDefinitions
         [Then(@"Login as a teacher")]
         public void ThenLoginAsATeacher()
         {
-
             string expected = "Преподаватель";
             string actual =  _teacherPage.GetTextDropDownRole();
             Assert.Equal(expected, actual);

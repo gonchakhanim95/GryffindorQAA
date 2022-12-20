@@ -12,8 +12,8 @@ Scenario: View List Students As Manager
 	And Give the student the role of a manager
 	And Open auth page for Manager
 	And Fill out form Auth 
-	| Email                | Password |
-	| danimartin@gmail.com | daniello |
+	| Email                 | Password |
+	| daniemartin@gmail.com | daniello |
 	And Click button Sing in
 	When Click botton list Students
 	And Filter the list

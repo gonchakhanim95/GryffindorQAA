@@ -43,7 +43,7 @@ namespace GryffindorQAA.StepDefinitions
         {
             _registrationPage.ClickButtonCheckBox();
             _registrationPage.ClickButtonRegistration();
-            Thread.Sleep(500);
+            Thread.Sleep(500);                                    //nujno menyat
         }
 
         [Given(@"Must  come out inscription ""([^""]*)""")]
