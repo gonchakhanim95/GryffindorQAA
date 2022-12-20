@@ -1,20 +1,16 @@
-using GryffindorQAA.Support;
-﻿using GryffindorQAA.Drivers;
-using OpenQA.Selenium.Interactions;
-
 namespace GryffindorQAA.Pages
 {
     public class RegistrationPage : AbstractPage
     {
-        public IWebElement TextBoxLastname => _driver.FindElement(By.XPath(@"//input[@name='lastName']"));
-        public IWebElement TextBoxFirstname => _driver.FindElement(By.XPath(@"//input[@name='firstName']"));
+        public IWebElement TextBoxLastName => _driver.FindElement(By.XPath(@"//input[@name='lastName']"));
+        public IWebElement TextBoxFirstName => _driver.FindElement(By.XPath(@"//input[@name='firstName']"));
         public IWebElement TextBoxPatronymic => _driver.FindElement(By.XPath(@"//input[@name='patronymic']"));
         public IWebElement TextBoxBirthDate => _driver.FindElement(By.XPath(@"//input[@class='form-control']"));
         public IWebElement TextBoxPassword => _driver.FindElement(By.XPath(@"//input[@name='password']"));
         public IWebElement TextBoxRepeatPassword => _driver.FindElement(By.XPath(@"//input[@name='confirmPassword']"));
         public IWebElement TextBoxEmail => _driver.FindElement(By.XPath(@"//input[@name='email']"));
-        public IWebElement TextBoxPhoneNumb => _driver.FindElement(By.XPath(@"//input[@name='phoneNumber']"));
-        public IWebElement TextCheckBox => _driver.FindElement(By.XPath(@"//label[@class='custom-checkbox']"));
+        public IWebElement TextBoxPhone => _driver.FindElement(By.XPath(@"//input[@name='phoneNumber']"));
+        public IWebElement CheckBox => _driver.FindElement(By.XPath(@"//label[@class='custom-checkbox']"));
         public IWebElement ButtonRegistration => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']"));
         public IWebElement ButtonChangeToAuth => _driver.FindElement(By.XPath(@"//a[@class='auth-link']"));
         
@@ -23,15 +19,15 @@ namespace GryffindorQAA.Pages
             _driver.Navigate().GoToUrl(Urls.RegistrationPage);
         }
 
-        public void EnterLastname(string text)
+        public void EnterLastName(string text)
         {
 
-            TextBoxLastname.SendKeys(text);
+            TextBoxLastName.SendKeys(text);
         }
 
-        public void EnterFirstname(string text)
+        public void EnterFirstName(string text)
         {
-            TextBoxFirstname.SendKeys(text);
+            TextBoxFirstName.SendKeys(text);
         }
         public void EnterParonymic(string text)
         {
@@ -59,25 +55,17 @@ namespace GryffindorQAA.Pages
         {
             TextBoxEmail.SendKeys(text);
         }
-        public void EnterPhoneNumb(string text)
+        public void EnterPhoneNumber(string text)
         {
-            TextBoxPhoneNumb.SendKeys(text);
-        }
-        public void EnterPhone(string text)
-        {
-            TetxBoxPhone.SendKeys(text);
+            TextBoxPhone.SendKeys(text);
         }
         public void ClickButtonRegistration()
         {
             ButtonRegistration.Click();
         }
-        public void ClickCheckBoxButton()
+        public void ClickButtonCheckBox()
         {
-            TextCheckBox.Click();
-        }
-        public void ClickCheckButton()
-        {
-            TextCheckBox.Click();
+            CheckBox.Click();
         }
 
         public void ClickChangeButtonToAuth()

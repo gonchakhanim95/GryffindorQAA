@@ -1,34 +1,26 @@
-using GryffindorQAA.BackModel;
-using GryffindorQAA.Client;
-using GryffindorQAA.Drivers;
-using GryffindorQAA.Models;
-using GryffindorQAA.Pages;
-using TechTalk.SpecFlow.Assist;
-using GryffindorQAA.Support;
-
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
     public class ViewListOfStudentsAsManagerStepDefinitions
     {
-        ClientClient _client;
-        AuthPage _authPage;
-        ManagersPage _managersPage;
         public static string Email;
         private string _adminToken;
         private int _idManager;
+        Client _client;
+        AuthPage _authPage;
+        ManagerPage _managerPage;
 
         public ViewListOfStudentsAsManagerStepDefinitions()
         {
             _authPage = new AuthPage();
-            _managersPage = new ManagersPage();
-            _client = new ClientClient();
+            _managerPage = new ManagerPage();
+            _client = new Client();
         }
 
         [Given(@"Registration as student")]
         public void GivenRegistrationAsStudent(Table table)
         {
-            var tablica = table.CreateSet<RegistrationRequestModel>().ToList();
+            var tablica = table.CreateSet<RequestRegistrationModel>().ToList();
             Email= tablica[0].Email;
             _idManager = _client.Registration(tablica[0]);
         }
@@ -43,50 +35,46 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Give the student the role of a manager")]
         public void GivenGiveTheStudentTheRoleOfAManager()
         {
-            _client.GiveRoleManager(_adminToken, _idManager);
+            _client.GiveRole(_adminToken, _idManager,"Manager");
         }
 
         [Given(@"Open auth page for Manager")]
         public void GivenOpenAuthPageForManager()
         {
-            DriverStorage storage = DriverStorage.GetInstance();
             _authPage.Open();
-            string xpath = @"/html/body/div/div[2]/button[3]";
-            storage.Driver.FindElement(By.XPath(xpath)).Click();
-            xpath = @"/html/body/div/div[3]/p[2]/a";
-            storage.Driver.FindElement(By.XPath(xpath)).Click();
+            _authPage.SkipSecure();
         }
 
         [Given(@"Fill out form Auth")]
         public void GivenFillOutFormAuth(Table table)
         {
             var tablica = table.CreateInstance<AuthModel>();
-            _authPage.EnterLogin(tablica.Email);
+            _authPage.EnterEmail(tablica.Email);
             _authPage.EnterPassword(tablica.Password);
         }
 
         [Given(@"Click button Sing in")]
         public void GivenClickButtonSingIn()
         {
-            _authPage.ClickButtonSingIn();
+            _authPage.ClickButtonSignIn();
             Thread.Sleep(1000); // sil
-            _managersPage.ClickOnRole();
-            Thread.Sleep(1000);
-            _managersPage.ClickButtongChangeRoleManager();
+            _managerPage.ClickOnRole();
+            Thread.Sleep(1000); // sil
+            _managerPage.ClickButtongChangeRoleManager();
         }
 
         [When(@"Click botton list Students")]
         public void WhenClickBottonListStudents()
         {
-            _managersPage.ClickButtonListStudents();
+            _managerPage.ClickButtonListStudents();
         }
 
         [When(@"Filter the list")]
         public void WhenFilterTheList()
         {
-            _managersPage.ClickFilterStudents();
+            _managerPage.ClickFilterStudents();
             Thread.Sleep(1000);
-            _managersPage.ClickButtonChangeFilter();
+            _managerPage.ClickButtonChangeFilter();
         }
 
         [Then(@"View Studets List")]
@@ -97,6 +85,5 @@ namespace GryffindorQAA.StepDefinitions
             string actual = storage.Driver.Url;
             Assert.Equal(expected, actual);
         }
-
     }
 }

@@ -1,49 +1,41 @@
-using GryffindorQAA.BackModel;
-using GryffindorQAA.Client;
-using GryffindorQAA.Drivers;
-using GryffindorQAA.Models;
-using GryffindorQAA.Pages;
-using TechTalk.SpecFlow.Assist;
-
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
     public class CreateTeacherStepDefinitions
     {
-        AuthPage _authPage;
-
         public static string Email;
         private string _adminToken;
         private int _idTeacher;
-
-        MetodsForSwagger client = new MetodsForSwagger();
+        TeacherPage _teacherPage;
+        AuthPage _authPage;
+        Client _client;
 
         public CreateTeacherStepDefinitions()
         {
             _authPage = new AuthPage();
+            _teacherPage = new TeacherPage();
+            _client = new Client();
         }
-
 
         [Given(@"Registration new User")]
         public void GivenRegistrationNewUser(Table table)
         {
             var tab = table.CreateSet<RequestRegistrationModel>().ToList();
             Email = tab[0].Email;
-            _idTeacher = client.RegistrationNewUser(tab[0]);
+            _idTeacher = _client.RegistrationStudent(tab[0]);
         }
 
         [Given(@"Authoraized as admin")]
         public void GivenAuthoraizedAsAdmin(Table table)
         {
-            var tab = table.CreateSet<AuthModel>().ToList();
-
-            _adminToken = client.AuthAsAdmin(tab[0]);
+            var tab = table.CreateSet<AuthRequestModel>().ToList();
+            _adminToken = _client.Auth(tab[0]);
         }
 
         [Given(@"Give role teacher to the new User")]
         public void GivenGiveRoleTeacherToTheNewUser()
         {
-            client.GiveRoleToTheTeacher(_idTeacher,_adminToken);
+            _client.GiveRole(_adminToken,_idTeacher, "Teacher");
         }
 
         [When(@"Open auuthorization page")]
@@ -55,18 +47,13 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Skip bezopasnost")]
         public void WhenSkipBezopasnost()
         {
-            string xpath = @"/html/body/div/div[2]/button[3]";
-            DriverStorage.GetInstance().Driver.FindElement(By.XPath(xpath)).Click();
-            xpath = @"/html/body/div/div[3]/p[2]/a";
-            DriverStorage.GetInstance().Driver.FindElement(By.XPath(xpath)).Click();
+            _authPage.SkipSecure();
         }
-
 
         [When(@"Fill sign in form as teacher")]
         public void WhenFillSignInFormAsTeacher(Table table)
         {
             var tab = table.CreateSet<AuthModel>().ToList();
-
             _authPage.EnterEmail(tab[0].Email);
             _authPage.EnterPassword(tab[0].Password);
         }
@@ -74,16 +61,16 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Click sign button")]
         public void WhenClickSignButton()
         {
-            _authPage.ClickSignButton();
-            Thread.Sleep(1500);
-            
+            _authPage.ClickButtonSignIn();
+            Thread.Sleep(1000);
         }
 
         [Then(@"Login as a teacher")]
         public void ThenLoginAsATeacher()
         {
+
             string expected = "Преподаватель";
-            string actual = _authPage.GetTextDropDownRole();
+            string actual =  _teacherPage.GetTextDropDownRole();
             Assert.Equal(expected, actual);
         }
     }

@@ -142,8 +142,8 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("Open  Auth as student", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
-                            "email",
-                            "password"});
+                            "Email",
+                            "Password"});
                 table8.AddRow(new string[] {
                             "saidliiii@mail.ru",
                             "salamsalam"});
