@@ -89,6 +89,7 @@ namespace GryffindorQAA.StepDefinitions
         public void WhenSelectHomeworks()
         {
             _studentPage.ClickHomeWork();
+            Thread.Sleep(500);
         }
 
         [Then(@"View  homeworks")]

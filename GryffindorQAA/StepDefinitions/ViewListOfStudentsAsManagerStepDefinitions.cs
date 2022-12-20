@@ -28,8 +28,8 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Auth as Admin")]
         public void GivenAuthAsAdmin(Table table)
         {
-            var tablica = table.CreateInstance<AuthRequestModel>();
-            _adminToken = _client.Auth(tablica);
+            var tablica = table.CreateSet<AuthRequestModel>().ToList();
+            _adminToken = _client.Auth(tablica[0]);
         }
 
         [Given(@"Give the student the role of a manager")]

@@ -123,7 +123,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "Daniel",
                             "Martin",
                             "Pitt",
-                            "danimartin@gmail.com",
+                            "daniemartin@gmail.com",
                             "Drep",
                             "daniello",
                             "SaintPetersburg",
