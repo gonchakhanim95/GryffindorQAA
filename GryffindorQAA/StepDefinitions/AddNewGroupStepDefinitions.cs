@@ -25,6 +25,7 @@ namespace GryffindorQAA.StepDefinitions
             _client = new ClientClient();
             _adminPage = new AdminPage();
         }
+
         [Given(@"Created new user")]
         public void GivenCreatedNewUser(Table table)
         {
@@ -64,19 +65,21 @@ namespace GryffindorQAA.StepDefinitions
         public void GivenFillOutFormForManager(Table table)
         {
             var tablica = table.CreateSet<AuthModel>().ToList();
-            
+            _authPage.EnterEmail(tablica[0].Email);
+            _authPage.EnterPassword(tablica[0].Password);
+                  
         }
 
         [Given(@"Click sig in button")]
         public void GivenClickSigInButton()
         {
-            throw new PendingStepException();
+            _authPage.ClickSignButton();
         }
 
         [When(@"Click button create group")]
         public void WhenClickButtonCreateGroup()
         {
-            throw new PendingStepException();
+            
         }
 
         [When(@"Enter group name")]

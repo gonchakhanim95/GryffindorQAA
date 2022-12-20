@@ -124,6 +124,47 @@ namespace GryffindorQAA.Client
             var GroupResponseModel = responseMessage.Content.ReadFromJsonAsync<UserRegistrationResponseModel>().Result;
             return GroupResponseModel.Id;
         }
+        public void GiveRoleTeacher(string token,int id)
+        {
+            HttpStatusCode expectedCode = HttpStatusCode.NoContent;
 
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            HttpClient client = new HttpClient(clientHandler);
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            HttpRequestMessage message = new HttpRequestMessage()
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new System.Uri($"https://piter-education.ru:7070/api/Users/{id}/role/Teacher")
+            };
+
+            HttpResponseMessage responseMessage = client.Send(message);
+            HttpStatusCode actuaLCode = responseMessage.StatusCode;
+            Assert.Equal(expectedCode, actuaLCode);
+        }
+        public void GiveRoleTutor(string token,int id)
+        {
+            HttpStatusCode expectedCode = HttpStatusCode.NoContent;
+
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            HttpClient client = new HttpClient(clientHandler);
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            HttpRequestMessage message = new HttpRequestMessage()
+            {
+                Method = HttpMethod.Post,
+                RequestUri = new System.Uri($"https://piter-education.ru:7070/api/Users/{id}/role/Tutor")
+            };
+
+            HttpResponseMessage responseMessage = client.Send(message);
+            HttpStatusCode actuaLCode = responseMessage.StatusCode;
+            Assert.Equal(expectedCode, actuaLCode);
+        }
     }
 }
