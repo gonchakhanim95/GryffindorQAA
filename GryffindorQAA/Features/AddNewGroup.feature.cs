@@ -122,10 +122,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "GitHubAccount",
                             "PhoneNumber"});
                 table1.AddRow(new string[] {
-                            "Agglbvvuccs",
-                            "Daaughmbleldore",
+                            "Albus",
+                            "Dumbledore",
                             "Rowling",
-                            "hogcvwarcxhhhhjxftaggas@mail.com",
+                            "alnwick@gmail.com",
                             "Professor",
                             "helloworld",
                             "SaintPetersburg",
@@ -133,10 +133,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "@albus",
                             "+78885555555"});
                 table1.AddRow(new string[] {
-                            "Sjebveggrus",
-                            "Shognzape",
+                            "Severus",
+                            "Snape",
                             "Basilisk",
-                            "sevdfeegxdfklerjus@mail.com",
+                            "snape@gmail.com",
                             "Snake",
                             "helloworld",
                             "SaintPetersburg",
