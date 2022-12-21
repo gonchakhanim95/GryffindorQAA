@@ -1,9 +1,6 @@
-﻿using GryffindorQAA.Drivers;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using TechTalk.SpecFlow;
 using Dapper;
-using GryffindorQAA.StepDefinitions;
 
 namespace GryffindorQAA.Support
 {
@@ -20,8 +17,9 @@ namespace GryffindorQAA.Support
             emails.Add(ViewListOfStudentsAsManagerStepDefinitions.Email);
             emails.Add(AddNewGroupStepDefinitions.Email1);
             emails.Add(AddNewGroupStepDefinitions.Email2);
+            emails.Add(EditCoursesAsMethodologistStepDefinitions.Email);
 
-            //DriverStorage.GetInstance().Driver.Close();
+            DriverStorage.GetInstance().Driver.Close();
 
             foreach (var item in emails)
             {

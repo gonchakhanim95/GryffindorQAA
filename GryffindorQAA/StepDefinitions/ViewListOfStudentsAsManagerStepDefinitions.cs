@@ -57,9 +57,7 @@ namespace GryffindorQAA.StepDefinitions
         public void GivenClickButtonSingIn()
         {
             _authPage.ClickButtonSignIn();
-            Thread.Sleep(1000); // sil
             _managerPage.ClickOnRole();
-            Thread.Sleep(1000); // sil
             _managerPage.ClickButtongChangeRoleManager();
         }
 
