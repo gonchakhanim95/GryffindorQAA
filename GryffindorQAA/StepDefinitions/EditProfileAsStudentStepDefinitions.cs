@@ -1,4 +1,5 @@
 using System;
+using GryffindorQAA.Drivers;
 using GryffindorQAA.Pages;
 using TechTalk.SpecFlow;
 
@@ -9,12 +10,18 @@ namespace GryffindorQAA.StepDefinitions
     public class EditProfileAsStudentStepDefinitions
     {
         RegistrationPage _registrationPage;
+        SettingPage _settingPage;
         AuthPage _authPage;
+        StudentPage _studentPage;
+        List<RegistrationModel> _table;
         public static string Email;
-        public EditProfileAsStudentStepDefinitions()
+        public EditProfileAsStudentStepDefinitions(Table table)
         {
             _registrationPage = new RegistrationPage();
+            _settingPage = new SettingPage();
             _authPage = new AuthPage();
+            _studentPage = new StudentPage();
+            _table = table.CreateSet<RegistrationModel>().ToList();
         }
 
         [Given(@"Open registration page")]
@@ -33,74 +40,91 @@ namespace GryffindorQAA.StepDefinitions
             Thread.Sleep(500);
         }
 
-        [Given(@"You have message Добро пожаловать!")]
-        public void GivenYouHaveMessageДоброПожаловать()
+        [Given(@"You have message ""([^""]*)""")]
+        public void GivenYouHaveMessage(string expected)
         {
-            throw new PendingStepException();
+            DriverStorage storage = DriverStorage.GetInstance();
+            string xpath = @"//p[@class='notification-text']";
+            IWebElement button = storage.Driver.FindElement(By.XPath(xpath));
+            string actual = button.Text;
+            Assert.Equal(expected, actual);
         }
 
         [Given(@"Open autorization page")]
         public void GivenOpenAutorizationPage()
         {
-            throw new PendingStepException();
+            _authPage.Open();
+            _registrationPage.ClickChangeButtonToAuth();
         }
 
         [Given(@"Click to button Войти")]
         public void GivenClickToButtonВойти()
         {
-            throw new PendingStepException();
+            _authPage.ClickButtonSignIn();
+
         }
 
         [When(@"Click to button Настройки")]
         public void WhenClickToButtonНастройки()
         {
-            throw new PendingStepException();
+            _studentPage.ClickSetting();
         }
 
         [When(@"Fill out form")]
-        public void WhenFillOutForm(Table table)
+        public void WhenFillOutForm()
         {
-            var tablica = table.CreateSet<RegistrationModel>().ToList();
-            _registrationPage.EnterLastName(tablica[0].LastName);
-            _registrationPage.EnterFirstName(tablica[0].FirstName);
-            _registrationPage.EnterParonymic(tablica[0].Patronymic);
-            _registrationPage.EnterBrithDate(tablica[0].BirthDate);
-            _registrationPage.EnterPassword(tablica[0].Password);
-            _registrationPage.EnterRepeatPassword(tablica[0].RepeatPassword);
-            _registrationPage.EnterEmail(tablica[0].Email);
-            _registrationPage.EnterPhoneNumber(tablica[0].Phone);
-
-            Email = tablica[0].Email;
+            _settingPage.EnterLastName(_table[2].LastName);
+            _settingPage.EnterFirstName(_table[2].FirstName);
+            _settingPage.EnterParonymic(_table[2].Patronymic);
+            _settingPage.EnterBirthDate(_table[2].BirthDate);
+            _settingPage.EnterOldPassword(_table[2].Password);
+            _settingPage.EnterNewPassword(_table[2].Password);
+            _settingPage.EnterRepeateNewPassword(_table[2].Password);
+            _settingPage.EnterEmail(_table[2].Email);
+            _settingPage.EnterGitHub(_table[2].GitHub);
+            _settingPage.EnterPhone(_table[2].Phone);
         }
 
-        [When(@"Click to password")]
-        public void WhenClickToPassword()
+        [When(@"Click to change password")]
+        public void WhenClickToChangePassword()
         {
-            throw new PendingStepException();
+            _settingPage.EnterChangeToPassword();
         }
 
         [When(@"Click to old password")]
         public void WhenClickToOldPassword()
         {
-            throw new PendingStepException();
+            _settingPage.EnterOldPassword(_table[2].OldPassword);
         }
 
         [When(@"Click new password")]
         public void WhenClickNewPassword()
         {
-            throw new PendingStepException();
+            _settingPage.EnterNewPassword(_table[2].NewPassword);
         }
 
         [When(@"Click repeat new password")]
         public void WhenClickRepeatNewPassword()
         {
-            throw new PendingStepException();
+            _settingPage.EnterNewPassword(_table[2].NewPassword);
+        }
+
+        [When(@"Click to button Сохранить Password")]
+        public void WhenClickToButtonСохранитьPassword()
+        {
+            _settingPage.EnterSave();
+        }
+
+        [When(@"Click to button Back")]
+        public void ClickToButtonBack()
+        {
+            _settingPage.EnterSave();
         }
 
         [When(@"Click to button Сохранить")]
         public void WhenClickToButtonСохранить()
         {
-            throw new PendingStepException();
+            _settingPage.EnterSave();
         }
 
         [Then(@"Must to change")]
