@@ -19,7 +19,7 @@ namespace GryffindorQAA.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class AuthorizationStudentFeature : object, Xunit.IClassFixture<AuthorizationStudentFeature.FixtureData>, System.IDisposable
+    public partial class RegistrationStudentFeature : object, Xunit.IClassFixture<RegistrationStudentFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -28,10 +28,10 @@ namespace GryffindorQAA.Features
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "AuthorizationStudent.feature"
+#line 1 "RegistrationStudent.feature"
 #line hidden
         
-        public AuthorizationStudentFeature(AuthorizationStudentFeature.FixtureData fixtureData, GryffindorQAA_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public RegistrationStudentFeature(RegistrationStudentFeature.FixtureData fixtureData, GryffindorQAA_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +40,7 @@ namespace GryffindorQAA.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "AuthorizationStudent", "A short summary of the feature", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "RegistrationStudent", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -80,15 +80,17 @@ namespace GryffindorQAA.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Authorization As student")]
-        [Xunit.TraitAttribute("FeatureTitle", "AuthorizationStudent")]
-        [Xunit.TraitAttribute("Description", "Authorization As student")]
-        public virtual void AuthorizationAsStudent()
+        [Xunit.SkippableFactAttribute(DisplayName="Registration")]
+        [Xunit.TraitAttribute("FeatureTitle", "RegistrationStudent")]
+        [Xunit.TraitAttribute("Description", "Registration")]
+        [Xunit.TraitAttribute("Category", "tag1")]
+        public virtual void Registration()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "tag1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Authorization As student", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Registration", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -108,50 +110,35 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 6
- testRunner.Given("Open web registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 5
+ testRunner.Given("Open registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                            "LastName",
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                             "FirstName",
+                            "LastName",
                             "Patronymic",
                             "BirthDate",
                             "Password",
                             "RepeatPassword",
                             "Email",
-                            "Phone"});
-                table4.AddRow(new string[] {
-                            "Jafarova",
-                            "Leyla",
-                            "Rufat",
-                            "25.01.2001",
-                            "12345678n",
-                            "12345678n",
-                            "nika4@gmail.com",
-                            "+79995584567"});
-#line 7
- testRunner.When("Fill out form", ((string)(null)), table4, "When ");
+                            "PhoneNumber"});
+                table12.AddRow(new string[] {
+                            "Axmedova",
+                            "Mina",
+                            "Arif",
+                            "01.04.1996",
+                            "mina0104",
+                            "mina0104",
+                            "mina@gmail.com",
+                            "+79991234567"});
+#line 6
+ testRunner.When("Fill out forms", ((string)(null)), table12, "When ");
+#line hidden
+#line 9
+ testRunner.And("Click to button Registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
- testRunner.And("Click button registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 11
- testRunner.And("Open auth page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Email",
-                            "Password"});
-                table5.AddRow(new string[] {
-                            "\"nika4@gmail.com",
-                            "\"12345678n\""});
-#line 12
- testRunner.And("Fill auth form", ((string)(null)), table5, "And ");
-#line hidden
-#line 15
- testRunner.And("Click button sign in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 16
- testRunner.Then("Authorization completed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("You have successfully registreted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -164,12 +151,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                AuthorizationStudentFeature.FeatureSetup();
+                RegistrationStudentFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                AuthorizationStudentFeature.FeatureTearDown();
+                RegistrationStudentFeature.FeatureTearDown();
             }
         }
     }
