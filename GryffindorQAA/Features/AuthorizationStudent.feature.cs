@@ -135,9 +135,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 10
  testRunner.And("Click button registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 11
- testRunner.And("Registration complete \"Добро пожаловать!!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
 #line 12
  testRunner.And("Open auth page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

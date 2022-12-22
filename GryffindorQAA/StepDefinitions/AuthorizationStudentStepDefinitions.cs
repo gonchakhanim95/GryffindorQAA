@@ -47,21 +47,10 @@ namespace GryffindorQAA.StepDefinitions
             _registrationPage.ClickButtonRegistration();
         }
 
-        [When(@"Registration complete ""([^""]*)""")]
-        public void WhenRegistrationComplete(string expected)
-        {
-            DriverStorage storage = DriverStorage.GetInstance();
-            string xpath = @"//p[@class='notification-text']";
-            IWebElement button = storage.Driver.FindElement(By.XPath(xpath));
-            string actual = button.Text;
-            Assert.Equal(expected, actual);
-        }
-
         [When(@"Open auth page")]
         public void WhenOpenAuthPage()
         {
             _authPage.Open();
-            _registrationPage.ClickChangeButtonToAuth();
         }
 
         [When(@"Fill auth form")]
