@@ -20,7 +20,8 @@ namespace GryffindorQAA.Pages
         public IWebElement TextBoxPhone => _driver.FindElement(By.XPath(@"//input[@name='phoneNumber']"));
         public IWebElement ButtonSave => _driver.FindElement(By.XPath(@"//button[text()='Сохранить']"));
         public IWebElement ButtonChangeToPassword => _driver.FindElement(By.XPath(@"//a[@href='/change-password']"));
-       
+        public IWebElement ButtonBack => _driver.FindElement(By.XPath(@"//div[text()='Назад']"));
+    
         public override void Open()
         {
             _driver.Navigate().GoToUrl(Urls.SettingPage);
@@ -84,5 +85,9 @@ namespace GryffindorQAA.Pages
         {
             ButtonSave.Click();
         }
-    }
+        public void ClickButtonBack()
+        {
+            ButtonBack.Click();
+        }
+    } 
 }

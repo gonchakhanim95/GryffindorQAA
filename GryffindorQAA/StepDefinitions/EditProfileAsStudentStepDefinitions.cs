@@ -37,7 +37,6 @@ namespace GryffindorQAA.StepDefinitions
         {
             _registrationPage.ClickButtonCheckBox();
             _registrationPage.ClickButtonRegistration();
-            Thread.Sleep(500);
         }
 
         [Given(@"You have message ""([^""]*)""")]
@@ -54,7 +53,6 @@ namespace GryffindorQAA.StepDefinitions
         public void GivenOpenAutorizationPage()
         {
             _authPage.Open();
-            _registrationPage.ClickChangeButtonToAuth();
         }
 
         [Given(@"Click to button Войти")]
@@ -118,7 +116,7 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Click to button Back")]
         public void ClickToButtonBack()
         {
-            _settingPage.EnterSave();
+            _settingPage.ClickButtonBack();
         }
 
         [When(@"Click to button Сохранить")]
@@ -127,10 +125,10 @@ namespace GryffindorQAA.StepDefinitions
             _settingPage.EnterSave();
         }
 
-        [Then(@"Must to change")]
-        public void ThenMustToChange()
-        {
-            throw new PendingStepException();
-        }
+        //[Then(@"Must to change")]
+        //public void ThenMustToChange()
+        //{
+        //    throw new PendingStepException();
+        //}
     }
 }
