@@ -6,22 +6,27 @@ namespace GryffindorQAA.StepDefinitions
     [Binding]
     public class AddProfilePhotoStepDefinitions
     {
+        SettingPage _settingPage;
+        public AddProfilePhotoStepDefinitions()
+        {
+            _settingPage = new SettingPage();
+        }
         [When(@"Open setting")]
         public void WhenOpenSetting()
         {
-            throw new PendingStepException();
+            _settingPage.ClickButtonPesronalDatas();
         }
 
         [When(@"Click on profile photo")]
         public void WhenClickOnProfilePhoto()
         {
-            throw new PendingStepException();
+            _settingPage.ClickButtonPhotoProfile();
         }
 
         [When(@"Select photo")]
         public void WhenSelectPhoto()
         {
-            throw new PendingStepException();
+            _settingPage.ClickButtonSelectPhoto();
         }
 
         [When(@"Change profile photo")]
