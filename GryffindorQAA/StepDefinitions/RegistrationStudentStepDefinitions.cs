@@ -9,8 +9,20 @@ namespace GryffindorQAA.StepDefinitions
     {
         RegistrationPage _registrationPage;
         AuthPage _authPage;
-        StudentPage _studentPage;
+        public static string Email;
 
+        public RegistrationStudentStepDefinitions()
+        {
+            _registrationPage = new RegistrationPage();
+            _authPage = new AuthPage();
+        }
+        [Given(@"Open registration page")]
+        public void GivenOpenRegistrationPage()
+        {
+            _registrationPage.Open();
+            _authPage.SkipSecure();
+            _authPage.ClickButtonChangePage();
+        }
 
         [When(@"Fill out forms")]
         public void WhenFillOutForms(Table table)
@@ -24,6 +36,7 @@ namespace GryffindorQAA.StepDefinitions
             _registrationPage.EnterRepeatPassword(tablica[0].RepeatPassword);
             _registrationPage.EnterEmail(tablica[0].Email);
             _registrationPage.EnterPhoneNumber(tablica[0].Phone);
+            Email = tablica[0].Email;
         }
 
         [When(@"Click to button Registration")]
@@ -31,7 +44,6 @@ namespace GryffindorQAA.StepDefinitions
         {
             _registrationPage.ClickButtonCheckBox();
             _registrationPage.ClickButtonRegistration();
-            Thread.Sleep(500);
         }
 
         [Then(@"You have successfully registreted")]

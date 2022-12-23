@@ -121,7 +121,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "Password",
                             "RepeatPassword",
                             "Email",
-                            "PhoneNumber"});
+                            "Phone"});
                 table12.AddRow(new string[] {
                             "Axmedova",
                             "Mina",
