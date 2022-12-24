@@ -48,11 +48,11 @@ namespace GryffindorQAA.Support
             emails.Add(AddNewGroupStepDefinitions.Email2);
             emails.Add(EditCoursesAsMethodologistStepDefinitions.Email);
             emails.AddRange(CreateHomeworkStepDefinitions.Emails);
-            DriverStorage.GetInstance().Driver.Close();
+            //DriverStorage.GetInstance().Driver.Close();
             string connectionString = @"Data Source = 80.78.240.16; Initial Catalog = DevEdu; Persist Security Info = True; User ID = student; Password = qwe!23;";
             IDbConnection dbConnection = new SqlConnection(connectionString);
             dbConnection.Open();
-            dbConnection.Query($"delete from Course_Material");
+            /*dbConnection.Query($"delete from Course_Material");
             dbConnection.Query($"delete from Course_Topic");
             dbConnection.Query($"delete from Material");
             dbConnection.Query($"delete from Course_Task");
@@ -64,7 +64,7 @@ namespace GryffindorQAA.Support
             dbConnection.Query($"delete from Homework");
             dbConnection.Query($"delete from Task");
             dbConnection.Query($"delete from [Group]");
-            dbConnection.Query($"delete from Course");
+            dbConnection.Query($"delete from Course");*/
             foreach (var item in emails)
             {
                 dbConnection.Query($"delete from Payment where UserId = (select Id from [User] where Email = '{item}');");
