@@ -18,8 +18,6 @@ namespace GryffindorQAA.Pages
 
             }
         }
-
-
         public override void Open()
         {
             _driver.Navigate().GoToUrl(Urls.NewHomeworkPage);

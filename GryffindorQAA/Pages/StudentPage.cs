@@ -2,7 +2,6 @@
 {
     public class StudentPage :AbstractPage
     {
-        
         public IWebElement ButtonHomeWork
         {
             get
@@ -20,6 +19,5 @@
         {
             ButtonHomeWork.Click();
         }
-
     }
 }

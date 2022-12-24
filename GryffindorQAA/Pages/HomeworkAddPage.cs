@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GryffindorQAA.Pages
+﻿namespace GryffindorQAA.Pages
 {
     public class HomeworkAddPage : AbstractPage
     {
+        public IWebElement SwitchRole => _driver.FindElement(By.XPath(@"//li[text()='Преподаватель']"));
+        public IWebElement CheckGroup => _driver.FindElement(By.XPath(@"//span[text()='Group1']"));
+        public IWebElement TextBoxEndDate => _driver.FindElement(By.XPath(@"//div[text()='Срок сдачи задания']/div[@class='rdt']/div/div[@class='date-picker form-input ']/input"));
+        public IWebElement TextBoxTaskName => _driver.FindElement(By.XPath(@"//div[text()='Название задания']/input"));
+        public IWebElement TextBoxTaskDescription => _driver.FindElement(By.XPath(@"//div[text()='Описание задания']/textarea"));
+        public IWebElement TextBoxTaskLinks => _driver.FindElement(By.XPath(@"//textarea[@placeholder='Вставьте ссылку']"));
+        public IWebElement LinkButton => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ kEeNDb btn btn-fill ellipse flex-container']"));
+        public IWebElement TextBoxCreate => _driver.FindElement(By.XPath(@"//button[text()='Опубликовать']"));
         public IWebElement DropDownRole
         {
             get
@@ -16,8 +18,6 @@ namespace GryffindorQAA.Pages
                 return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//div[@class='drop-down-filter  left']")));
             }
         }
-        public IWebElement SwitchRole => _driver.FindElement(By.XPath(@"//li[text()='Преподаватель']"));
-        public IWebElement CheckGroup => _driver.FindElement(By.XPath(@"//span[text()='Group1']"));
         public IWebElement TextBoxStartDate
         {
             get
@@ -27,13 +27,6 @@ namespace GryffindorQAA.Pages
 
             }
         }
-        public IWebElement TextBoxEndDate => _driver.FindElement(By.XPath(@"//div[text()='Срок сдачи задания']/div[@class='rdt']/div/div[@class='date-picker form-input ']/input"));
-        public IWebElement TextBoxTaskName => _driver.FindElement(By.XPath(@"//div[text()='Название задания']/input"));
-        public IWebElement TextBoxTaskDescription => _driver.FindElement(By.XPath(@"//div[text()='Описание задания']/textarea"));
-        public IWebElement TextBoxTaskLinks => _driver.FindElement(By.XPath(@"//textarea[@placeholder='Вставьте ссылку']"));
-        public IWebElement LinkButton => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ kEeNDb btn btn-fill ellipse flex-container']"));
-        public IWebElement TextBoxCreate => _driver.FindElement(By.XPath(@"//button[text()='Опубликовать']"));
-
 
         public override void Open()
         {

@@ -120,12 +120,10 @@ namespace GryffindorQAA.StepDefinitions
             _authPage.EnterEmail("student1@gmail.com");
             _authPage.EnterPassword("салам1салам");
             _authPage.ClickButtonSignIn();
-            Thread.Sleep(3000);
             _studentPage.ClickHomeWork();
             string expected = Variables.GetInstance().HomeworkName;
             string actual = _homeworkViewPage.GetHomeworkName();
             Assert.Equal(expected, actual);
-
         }
     }
 }

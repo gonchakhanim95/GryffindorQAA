@@ -37,7 +37,7 @@ Scenario: Create HomeWork
 	And Click sign button 
 	And Open NewHomeworkPage 
 	And Fill form for give  out Homework 
-	| StartDate   | EndDate    | HomeworkName | HomeworkDescription   | HomeworkLinks                        |
+	| StartDate  | EndDate    | HomeworkName | HomeworkDescription   | HomeworkLinks                        |
 	| 01.01.2023 | 01.05.2023 | 50 Примеров  | До среды заканчивайте | http://github.com, http://google.com |
 	And Click create button
 	Then Must be created Homework                                                                                                                                                                                                                                  
