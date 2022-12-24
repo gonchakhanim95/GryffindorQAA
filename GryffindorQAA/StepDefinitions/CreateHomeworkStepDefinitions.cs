@@ -107,6 +107,7 @@ namespace GryffindorQAA.StepDefinitions
             _homeworkAddPage.AddTaskLinks(tab[0].HomeworkLinks);
             _homeworkAddPage.ClickLinkButton();
         }
+
         [When(@"Click create button")]
         public void WhenClickCreateButton()
         {
@@ -121,6 +122,11 @@ namespace GryffindorQAA.StepDefinitions
             _authPage.EnterPassword("салам1салам");
             _authPage.ClickButtonSignIn();
             _studentPage.ClickHomeWork();
+        }
+
+        [Then(@"goncha sravnenniye")]
+        public void ThenGonchaSravnenniye()
+        {
             string expected = Variables.GetInstance().HomeworkName;
             string actual = _homeworkViewPage.GetHomeworkName();
             Assert.Equal(expected, actual);

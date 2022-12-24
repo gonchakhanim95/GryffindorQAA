@@ -13,7 +13,7 @@ namespace GryffindorQAA.Pages
         {
             get
             {
-                WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
+                WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(6));
                 return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//span[@class = 'homework-title']")));
 
             }
