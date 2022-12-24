@@ -20,7 +20,7 @@ Scenario: Create HomeWork
 	| Course1 | Budet polezno |
 	And Create group
 	| Name   | GroupStatusId | StartDate  | EndDate    | Timetable | PaymentPerMonth | PaymentsCount |
-	| Group1 | Forming       | 01.01.2022 | 03.03.2022 | 60        | 100             | 9             |
+	| Group1 | Forming       | 01.01.2023 | 03.03.2023 | 60        | 100             | 9             |
 	And Give role Tutor to the new user
 	And Give role Teacher to the new user
 	And Add Tutor in Group
@@ -36,6 +36,8 @@ Scenario: Create HomeWork
 	| teacher@gmail.com | салам1салам |
 	And Click sign button 
 	And Open NewHomeworkPage 
-	And Fill form for give out Homework
+	And Fill form for give  out Homework 
+	| StartDate   | EndDate    | HomeworkName | HomeworkDescription   | HomeworkLinks                        |
+	| 01.01.2023 | 01.05.2023 | 50 Примеров  | До среды заканчивайте | http://github.com, http://google.com |
 	And Click create button
-	Then Must be created Homework                                                                                                                                                                                                                                 
+	Then Must be created Homework                                                                                                                                                                                                                                  

@@ -21,7 +21,7 @@ namespace GryffindorQAA.StepDefinitions
         {
             var tab = table.CreateSet<RequestRegistrationModel>().ToList();
             Email = tab[0].Email;
-            _idTeacher = _client.Registration(tab[0]);
+            Variables.GetInstance().TeacherId = _client.Registration(tab[0]);
         }
 
         [Given(@"Authoraized as admin")]

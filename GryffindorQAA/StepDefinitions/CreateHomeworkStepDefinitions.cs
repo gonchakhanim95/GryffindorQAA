@@ -8,12 +8,19 @@ namespace GryffindorQAA.StepDefinitions
     {
         Clientt clientt;
         HomeworkAddPage _homeworkAddPage;
+        AuthPage _authPage;
+        StudentPage _studentPage;
+        HomeworkViewPage _homeworkViewPage;
         public static List<string> Emails = new List<string>();
 
         public CreateHomeworkStepDefinitions()
         {
             clientt = new Clientt();
             _homeworkAddPage = new HomeworkAddPage();    
+            _authPage = new AuthPage();
+            _studentPage = new StudentPage();
+            _homeworkViewPage = new HomeworkViewPage();
+
         }
         [Given(@"Registration new User for Tutor")]
         public void GivenRegistrationNewUserForTutor(Table table)
@@ -28,16 +35,16 @@ namespace GryffindorQAA.StepDefinitions
         public void GivenRegistrationNewUserForTeacher(Table table)
         {
             var tab = table.CreateSet<RequestRegistrationModel>().ToList();
-            Variables.GetInstance().TeacherId = clientt.Registration(tab[0]);
             Emails.Add(tab[0].Email);
+            Variables.GetInstance().TeacherId = clientt.Registration(tab[0]);
         }
 
         [Given(@"Registration new Users for Students")]
         public void GivenRegistrationNewUsersForStudents(Table table)
         {
             var tab = table.CreateSet<RequestRegistrationModel>().ToList();
-            Variables.GetInstance().StudentId = clientt.Registration(tab[0]);
             Emails.Add(tab[0].Email);
+            Variables.GetInstance().StudentId = clientt.Registration(tab[0]);
         }
 
         [Given(@"Create course")]
@@ -85,20 +92,21 @@ namespace GryffindorQAA.StepDefinitions
         {
             _homeworkAddPage.Open();
         }
-
-        [When(@"Fill form for give out Homework")]
-        public void WhenFillFormForGiveOutHomework()
+        [When(@"Fill form for give  out Homework")]
+        public void WhenFillFormForGiveOutHomework(Table table)
         {
+            var tab = table.CreateSet<NewHomeworkModel>().ToList();
+            Variables.GetInstance().HomeworkName = tab[0].HomeworkName;
             _homeworkAddPage.ClickDropDownRole();
             _homeworkAddPage.ClickSwitchRole();
             _homeworkAddPage.ClickCheckGroup();
-            _homeworkAddPage.EnterStartDate("01.01.2001");
-            _homeworkAddPage.EnterEndDate("02.02.2002");
-            _homeworkAddPage.EnterTaskName("50 Примеров");
-            _homeworkAddPage.EnterTaskDescription("До среды закончите");
-            _homeworkAddPage.AddTaskLinks("github.com");
+            _homeworkAddPage.EnterStartDate(tab[0].StartDate);
+            _homeworkAddPage.EnterEndDate(tab[0].EndDate);
+            _homeworkAddPage.EnterTaskName(tab[0].HomeworkName);
+            _homeworkAddPage.EnterTaskDescription(tab[0].HomeworkDescription);
+            _homeworkAddPage.AddTaskLinks(tab[0].HomeworkLinks);
+            _homeworkAddPage.ClickLinkButton();
         }
-
         [When(@"Click create button")]
         public void WhenClickCreateButton()
         {
@@ -108,7 +116,16 @@ namespace GryffindorQAA.StepDefinitions
         [Then(@"Must be created Homework")]
         public void ThenMustBeCreatedHomework()
         {
-            throw new PendingStepException();
+            _authPage.Open();
+            _authPage.EnterEmail("student1@gmail.com");
+            _authPage.EnterPassword("салам1салам");
+            _authPage.ClickButtonSignIn();
+            Thread.Sleep(3000);
+            _studentPage.ClickHomeWork();
+            string expected = Variables.GetInstance().HomeworkName;
+            string actual = _homeworkViewPage.GetHomeworkName();
+            Assert.Equal(expected, actual);
+
         }
     }
 }

@@ -212,8 +212,8 @@ this.ScenarioInitialize(scenarioInfo);
                 table9.AddRow(new string[] {
                             "Group1",
                             "Forming",
-                            "01.01.2022",
-                            "03.03.2022",
+                            "01.01.2023",
+                            "03.03.2023",
                             "60",
                             "100",
                             "9"});
@@ -269,13 +269,25 @@ this.ScenarioInitialize(scenarioInfo);
 #line 38
  testRunner.And("Open NewHomeworkPage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                            "StartDate",
+                            "EndDate",
+                            "HomeworkName",
+                            "HomeworkDescription",
+                            "HomeworkLinks"});
+                table12.AddRow(new string[] {
+                            "01.01.2023",
+                            "01.05.2023",
+                            "50 Примеров",
+                            "До среды заканчивайте",
+                            "http://github.com, http://google.com"});
 #line 39
- testRunner.And("Fill form for give out Homework", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Fill form for give  out Homework", ((string)(null)), table12, "And ");
 #line hidden
-#line 40
+#line 42
  testRunner.And("Click create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 41
+#line 43
  testRunner.Then("Must be created Homework", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

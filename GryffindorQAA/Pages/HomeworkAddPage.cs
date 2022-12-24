@@ -23,15 +23,18 @@ namespace GryffindorQAA.Pages
             get
             {
                 WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
-                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//div[text()='Дата выдачи задания']/input")));
+                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//div[text()='Дата выдачи задания']/div[@class='rdt']/div/div[@class='date-picker form-input ']/input")));
 
             }
         }
-        public IWebElement TextBoxEndDate => _driver.FindElement(By.XPath(@"//div[text()='Срок сдачи задания']/input"));
+        public IWebElement TextBoxEndDate => _driver.FindElement(By.XPath(@"//div[text()='Срок сдачи задания']/div[@class='rdt']/div/div[@class='date-picker form-input ']/input"));
         public IWebElement TextBoxTaskName => _driver.FindElement(By.XPath(@"//div[text()='Название задания']/input"));
         public IWebElement TextBoxTaskDescription => _driver.FindElement(By.XPath(@"//div[text()='Описание задания']/textarea"));
-        public IWebElement TextBoxTaskLinks => _driver.FindElement(By.XPath(@"//div[text()='Полезные ссылки']/textarea"));
+        public IWebElement TextBoxTaskLinks => _driver.FindElement(By.XPath(@"//textarea[@placeholder='Вставьте ссылку']"));
+        public IWebElement LinkButton => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ kEeNDb btn btn-fill ellipse flex-container']"));
         public IWebElement TextBoxCreate => _driver.FindElement(By.XPath(@"//button[text()='Опубликовать']"));
+
+
         public override void Open()
         {
             _driver.Navigate().GoToUrl(Urls.NewHomeworkPage);
@@ -52,19 +55,17 @@ namespace GryffindorQAA.Pages
         {
             DriverStorage storage = DriverStorage.GetInstance();
 
-            IWebElement StardateBar = storage.Driver.FindElement(By.XPath(@"//div[text()='Дата выдачи занятия']/input"));
+            IWebElement StardateBar = storage.Driver.FindElement(By.XPath(@"//div[text()='Дата выдачи задания']/div[@class='rdt']/div/div[@class='date-picker form-input ']/input"));
             Actions action = new Actions(storage.Driver);
-            action.DoubleClick(StardateBar).Perform();
-            TextBoxStartDate.SendKeys(text);
+            action.DoubleClick(StardateBar).SendKeys(text).Build().Perform();
         }
         public void EnterEndDate(string text)
         {
             DriverStorage storage = DriverStorage.GetInstance();
 
-            IWebElement EnddateBar = storage.Driver.FindElement(By.XPath(@"//div[text()='Срок сдачи занятия']/input"));
+            IWebElement EnddateBar = storage.Driver.FindElement(By.XPath(@"//div[text()='Срок сдачи задания']/div[@class='rdt']/div/div[@class='date-picker form-input ']/input"));
             Actions action = new Actions(storage.Driver);
-            action.DoubleClick(EnddateBar).Perform();
-            TextBoxEndDate.SendKeys(text);
+            action.DoubleClick(EnddateBar).SendKeys(text).Build().Perform();
         }
         public void EnterTaskName(string text)
         {
@@ -74,9 +75,16 @@ namespace GryffindorQAA.Pages
         {
             TextBoxTaskDescription.SendKeys(text);
         }
-        public void AddTaskLinks(string text)
+        public void AddTaskLinks(List<string> text)
         {
-            TextBoxTaskLinks.SendKeys(text);
+            foreach (string link in text)
+            {
+                TextBoxTaskLinks.SendKeys(link);
+            }
+        }
+        public void ClickLinkButton()
+        {
+            LinkButton.Click();
         }
         public void ClickCreateButton()
         {

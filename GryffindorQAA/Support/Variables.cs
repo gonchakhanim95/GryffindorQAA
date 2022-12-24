@@ -15,6 +15,8 @@ namespace GryffindorQAA.Support
         public int TutorId { get; set; }
         public int TeacherId { get; set; }
         public int StudentId { get; set; }
+        public string HomeworkName { get; set; }
+
 
 
         private static Variables _instance;
