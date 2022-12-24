@@ -80,6 +80,14 @@ namespace GryffindorQAA.StepDefinitions
             _methodistPage.ClickDragAndDrop();
         }
 
+        [When(@"Add new Topic")]
+        public void WhenAddNewTopic()
+        {
+            _methodistPage.EnterNumberTopic("7");
+            _methodistPage.EnterNameTopic("Многомерный массив");
+            _methodistPage.EnterTopicHours("2");
+        }
+
         [When(@"Click save")]
         public void WhenClickSave()
         {

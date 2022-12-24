@@ -19,6 +19,7 @@ Scenario: Edit courses like a methodist and sing out
 	And Change role on methodist
 	And Click Edit courses
 	And Make changes
+	And Add new Topic
 	And Click save
 	And Sing out
 	Then Must log out
