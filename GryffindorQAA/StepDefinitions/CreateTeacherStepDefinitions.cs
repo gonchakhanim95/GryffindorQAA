@@ -4,8 +4,7 @@ namespace GryffindorQAA.StepDefinitions
     public class CreateTeacherStepDefinitions
     {
         public static string Email;
-        private string _adminToken;
-        private int _idTeacher;
+        protected int _idTeacher;
         TeacherPage _teacherPage;
         AuthPage _authPage;
         Clientt _client;
@@ -22,20 +21,20 @@ namespace GryffindorQAA.StepDefinitions
         {
             var tab = table.CreateSet<RequestRegistrationModel>().ToList();
             Email = tab[0].Email;
-            _idTeacher = _client.RegistrationStudent(tab[0]);
+            Variables.GetInstance().TeacherId = _client.Registration(tab[0]);
         }
 
         [Given(@"Authoraized as admin")]
         public void GivenAuthoraizedAsAdmin(Table table)
         {
             var tab = table.CreateSet<AuthRequestModel>().ToList();
-            _adminToken = _client.Auth(tab[0]);
+            Variables.GetInstance().AdminToken = _client.Auth(tab[0]);
         }
 
         [Given(@"Give role teacher to the new User")]
         public void GivenGiveRoleTeacherToTheNewUser()
         {
-            _client.GiveRole(_adminToken,_idTeacher, "Teacher");
+            _client.GiveRole(Variables.GetInstance().AdminToken, Variables.GetInstance().TeacherId, "Teacher");
         }
 
         [When(@"Open auuthorization page")]
