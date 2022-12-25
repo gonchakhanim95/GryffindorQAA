@@ -13,10 +13,5 @@ namespace GryffindorQAA.Models
         public string HomeworkName { get; set; }
         public string HomeworkDescription{ get; set; }
         public List<string> HomeworkLinks { get; set; }
-
-
-
-
-
     }
 }

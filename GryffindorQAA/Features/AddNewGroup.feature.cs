@@ -136,7 +136,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "Severus",
                             "Snape",
                             "Basilisk",
-                            "snape@gmail.com",
+                            "snape@gmail.eng",
                             "Snake",
                             "helloworld",
                             "SaintPetersburg",

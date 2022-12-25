@@ -113,7 +113,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  testRunner.Given("Open registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
                             "FirstName",
                             "LastName",
                             "Patronymic",
@@ -122,7 +122,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "RepeatPassword",
                             "Email",
                             "Phone"});
-                table21.AddRow(new string[] {
+                table28.AddRow(new string[] {
                             "Axmedova",
                             "Mina",
                             "Arif",
@@ -132,7 +132,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "mina@gmail.com",
                             "+79991234567"});
 #line 6
- testRunner.When("Fill out forms", ((string)(null)), table21, "When ");
+ testRunner.When("Fill out forms", ((string)(null)), table28, "When ");
 #line hidden
 #line 9
  testRunner.And("Click to button Registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
