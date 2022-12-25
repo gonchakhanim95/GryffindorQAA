@@ -250,7 +250,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("Fill out form Auth", ((string)(null)), table10, "And ");
 #line hidden
 #line 34
- testRunner.And("Click button Sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Press button sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 35
  testRunner.When("Change role on teacher", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

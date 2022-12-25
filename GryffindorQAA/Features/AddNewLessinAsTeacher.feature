@@ -31,6 +31,6 @@ Scenario: Add new lesson as teacher
 	And Fill out form Auth
 	| Email           | Password   |
 	| snape@gmail.eng | helloworld |
-	And Click button Sing in
+	And Press button sing in
 	When Change role on teacher
 	Then Add new lesson

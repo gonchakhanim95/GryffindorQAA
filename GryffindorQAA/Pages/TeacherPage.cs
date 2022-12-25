@@ -5,7 +5,14 @@ namespace GryffindorQAA.Pages
 {
     public class TeacherPage:AbstractPage
     {
-        public IWebElement DropDownRole => _driver.FindElement(By.XPath(@"//div[@class='drop-down-filter  left']"));
+        public IWebElement DropDownRole
+        {
+            get
+            {
+                WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(6));
+                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//div[@class='drop-down-filter  left']")));
+            }
+        }
         public IWebElement SwitchRole
         {
             get
