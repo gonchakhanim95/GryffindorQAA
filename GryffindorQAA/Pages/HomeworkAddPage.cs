@@ -9,7 +9,14 @@
         public IWebElement TextBoxTaskDescription => _driver.FindElement(By.XPath(@"//div[text()='Описание задания']/textarea"));
         public IWebElement TextBoxTaskLinks => _driver.FindElement(By.XPath(@"//textarea[@placeholder='Вставьте ссылку']"));
         public IWebElement LinkButton => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ kEeNDb btn btn-fill ellipse flex-container']"));
-        public IWebElement TextBoxCreate => _driver.FindElement(By.XPath(@"//div[@class='buttons-group']/button[text()='Опубликовать']"));
+        public IWebElement TextBoxCreate
+        {
+            get
+            {
+                WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(6));
+                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//div[@class='buttons-group']/button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']")));
+            }
+        }
         public IWebElement DropDownRole
         {
             get

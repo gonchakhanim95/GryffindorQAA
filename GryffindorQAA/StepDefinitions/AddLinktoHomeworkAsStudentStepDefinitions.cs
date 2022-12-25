@@ -27,6 +27,7 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Go to Homework")]
         public void WhenGoToHomework()
         {
+            Thread.Sleep(3000);
             _studentPage.ClickHomeWork();
             _homeworkView.ClickButtonInHomework();
         }

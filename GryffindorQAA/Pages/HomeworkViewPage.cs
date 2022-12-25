@@ -8,6 +8,14 @@ namespace GryffindorQAA.Pages
 {
     public class HomeworkViewPage:AbstractPage
     {
+        public IWebElement EditHomework
+        {
+            get
+            {
+                WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(6));
+                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//a[text()='Редактировать']")));
+            }
+        }
         public IWebElement SendLinkButton
         {
             get
@@ -38,7 +46,7 @@ namespace GryffindorQAA.Pages
             get
             {
                 WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(6));
-                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//input[@placeholder='Ссылка на GitHub или архив']")));
+                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//div[@class = 'input-link']/input[@placeholder='Ссылка на GitHub или архив']")));
 
             }
         }
@@ -65,7 +73,7 @@ namespace GryffindorQAA.Pages
         }
         public void EnterLinkInput(string text)
         {
-            TextBoxLinkInput.Click();
+            TextBoxLinkInput.Clear();
             TextBoxLinkInput.SendKeys(text);
         }
         public void ClickButtonSendLink()
@@ -76,6 +84,9 @@ namespace GryffindorQAA.Pages
         {
             return HomeworkCompleted.Text;
         }
-
+        public void ClickEditHomework()
+        {
+            EditHomework.Click();
+        }
     }
 }
