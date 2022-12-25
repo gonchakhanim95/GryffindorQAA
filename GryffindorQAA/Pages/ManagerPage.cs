@@ -14,7 +14,7 @@
                 return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//div[@class='drop-down-filter  left']")));
             }
         }
-        public IWebElement SwitchRole
+        public IWebElement SwitchRoleOnManager
         {
             get
             {
@@ -45,7 +45,7 @@
         }
         public void ClickButtongChangeRoleManager()
         {
-            SwitchRole.Click();
+            SwitchRoleOnManager.Click();
         }
         public void ClickButtonUsers()
         {
