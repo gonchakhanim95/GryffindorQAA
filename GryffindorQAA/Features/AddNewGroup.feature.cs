@@ -110,7 +110,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                             "FirstName",
                             "LastName",
                             "Patronymic",
@@ -121,7 +121,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "BirthDate",
                             "GitHubAccount",
                             "PhoneNumber"});
-                table1.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "Albus",
                             "Dumbledore",
                             "Rowling",
@@ -132,7 +132,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "30.06.1881",
                             "@albus",
                             "+78885555555"});
-                table1.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "Severus",
                             "Snape",
                             "Basilisk",
@@ -144,16 +144,16 @@ this.ScenarioInitialize(scenarioInfo);
                             "@snape",
                             "+79995554455"});
 #line 7
- testRunner.Given("Created new user", ((string)(null)), table1, "Given ");
+ testRunner.Given("Created new user", ((string)(null)), table10, "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                             "Email",
                             "Password"});
-                table2.AddRow(new string[] {
+                table11.AddRow(new string[] {
                             "marina@example.com",
                             "marina123456"});
 #line 11
- testRunner.And("Auth as admin", ((string)(null)), table2, "And ");
+ testRunner.And("Auth as admin", ((string)(null)), table11, "And ");
 #line hidden
 #line 14
  testRunner.And("Give role Teacher to the new user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -164,14 +164,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 16
  testRunner.And("Open auth Web page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                             "Email",
                             "Password"});
-                table3.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "marina@example.com",
                             "marina123456"});
 #line 17
- testRunner.When("Fill out form for Admin", ((string)(null)), table3, "When ");
+ testRunner.When("Fill out form for Admin", ((string)(null)), table12, "When ");
 #line hidden
 #line 20
  testRunner.And("Click sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
