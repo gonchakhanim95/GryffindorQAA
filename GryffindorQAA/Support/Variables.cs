@@ -37,7 +37,7 @@ namespace GryffindorQAA.Support
                 _instance = new Variables();
             }
             return _instance;
-        }
+          }
 
     }
 }

@@ -11,17 +11,19 @@ namespace GryffindorQAA.StepDefinitions
         AuthPage _authPage;
         ManagerPage _managerPage;
         PaymentTablePage _paymentTablePage;
+        ManagerPage managerPage;
         public FilterPaymentTableAsManagerStepDefinitions()
         {
             clientt = new Clientt();
             _authPage = new AuthPage();
             _managerPage = new ManagerPage();
             _paymentTablePage = new PaymentTablePage();
+            _managerPage = new ManagerPage();
         }
 
         [Given(@"Registration new User for Manager")]
         public void GivenRegistrationNewUserForManager(Table table)
-        {
+        { 
             var tab = table.CreateSet<RequestRegistrationModel>().ToList();
             Emails.Add(tab[0].Email);
             Variables.GetInstance().ManagerId = clientt.Registration(tab[0]);
@@ -30,10 +32,7 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Add New Students in Group")]
         public void GivenAddNewStudentsInGroup()
         {
-            clientt.AddUserInGroup(Variables.GetInstance().GroupId, Variables.GetInstance().StudentsId[0], "Student", Variables.GetInstance().AdminToken);
-            clientt.AddUserInGroup(Variables.GetInstance().GroupId, Variables.GetInstance().StudentsId[1], "Student", Variables.GetInstance().AdminToken);
-            clientt.AddUserInGroup(Variables.GetInstance().GroupId, Variables.GetInstance().StudentsId[2], "Student", Variables.GetInstance().AdminToken);
-            clientt.AddUserInGroup(Variables.GetInstance().GroupId, Variables.GetInstance().StudentsId[3], "Student", Variables.GetInstance().AdminToken);
+            clientt.AddUserInGroup(Variables.GetInstance().GroupId, Variables.GetInstance().StudentId, "Student", Variables.GetInstance().AdminToken);
         }
         [Given(@"Give role manager")]
         public void GivenGiveRoleManager()
@@ -51,7 +50,6 @@ namespace GryffindorQAA.StepDefinitions
         public void WhenAuthorizedAsManager(Table table)
         {
             var tab = table.CreateSet<AuthRequestModel>().ToList();
-            _authPage.Open();
             _authPage.EnterEmail(tab[0].Email);
             _authPage.EnterPassword(tab[0].Password);
             _authPage.ClickButtonSignIn();
@@ -62,38 +60,16 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Open Payment table page")]
         public void WhenOpenPaymentTablePage()
         {
-            _paymentTablePage.Open();     
+            _managerPage.ClickPaymentTable();
         }
 
-        [Then(@"Filter name column")]
-        public void ThenFilterNameColumn()
+        [Then(@"Must be added Group in Payment page")]
+        public void ThenMustBeAddedGroupInPaymentPage()
         {
-            throw new PendingStepException();
+            string expected = CreateHomeworkStepDefinitions.GroupName;
+            _paymentTablePage.ClickShorAllGroups();
+            string actual = _paymentTablePage.GetChecksGroupName();
+            Assert.Equal(expected, actual);
         }
-
-        [Then(@"Filter one payment column")]
-        public void ThenFilterOnePaymentColumn()
-        {
-            throw new PendingStepException();
-        }
-
-        [Then(@"Filter two payment column")]
-        public void ThenFilterTwoPaymentColumn()
-        {
-            throw new PendingStepException();
-        }
-
-        [Then(@"Filter three payment column")]
-        public void ThenFilterThreePaymentColumn()
-        {
-            throw new PendingStepException();
-        }
-
-        [Then(@"Filter four payment column")]
-        public void ThenFilterFourPaymentColumn()
-        {
-            throw new PendingStepException();
-        }
-
     }
 }

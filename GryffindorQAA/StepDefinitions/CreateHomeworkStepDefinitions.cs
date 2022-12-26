@@ -12,6 +12,7 @@ namespace GryffindorQAA.StepDefinitions
         StudentPage _studentPage;
         HomeworkViewPage _homeworkViewPage;
         public static List<string> Emails = new List<string>();
+        public static string GroupName;
 
         public CreateHomeworkStepDefinitions()
         {
@@ -44,7 +45,7 @@ namespace GryffindorQAA.StepDefinitions
         {
             var tab = table.CreateSet<RequestRegistrationModel>().ToList();
             Emails.Add(tab[0].Email);
-            Variables.GetInstance().StudentsId.Add(clientt.Registration(tab[0]));
+            Variables.GetInstance().StudentId = clientt.Registration(tab[0]);
         }
 
         [Given(@"Create course")]
@@ -59,6 +60,7 @@ namespace GryffindorQAA.StepDefinitions
         {
             var tab = table.CreateSet<GroupRequestModel>().ToList();
             tab[0].CourseId = Variables.GetInstance().CourseId;
+            GroupName = tab[0].Name;
             Variables.GetInstance().GroupId = clientt.CreateGroup(tab[0],Variables.GetInstance().AdminToken);
         }
 

@@ -67,7 +67,7 @@ namespace GryffindorQAA.Support
             dbConnection.Query($"delete from Task");
             dbConnection.Query($"delete from [Group]");
             dbConnection.Query($"delete from Course");*/
-            foreach (var item in emails)
+            /*foreach (var item in emails)
             {
                 dbConnection.Query($"delete from Payment where UserId = (select Id from [User] where Email = '{item}');");
                 dbConnection.Query($"delete from Student_Lesson where UserId = (select Id from [User] where Email = '{item}');");
@@ -82,7 +82,7 @@ namespace GryffindorQAA.Support
                 dbConnection.Query($"delete from Comment where StudentHomeworkId = (select Id from [Student_Homework] where StudentId = (select Id from [User] where Email = '{item}'));");
                 dbConnection.Query($"delete from Student_Homework where StudentId = (select Id from [User] where Email = '{item}');");
                 dbConnection.Query($"delete from [User] where Email = '{item}';");
-            }
+            }*/
             dbConnection.Close();
 
         }
