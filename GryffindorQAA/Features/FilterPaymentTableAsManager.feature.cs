@@ -127,44 +127,44 @@ this.ScenarioInitialize(scenarioInfo);
                             "Fedor",
                             "23.12.1992",
                             "салам1салам",
-                            "student1@gmail.com",
+                            "messi@gmail.com",
                             "+71113332255",
-                            "sstudentt1",
+                            "sstudent",
                             "SaintPetersburg",
-                            "Student1Git"});
+                            "StudentGit"});
                 table39.AddRow(new string[] {
                             "Бабиров",
                             "Student",
                             "Fedor",
                             "23.12.1993",
                             "салам1салам",
-                            "student2@gmail.com",
+                            "ronaldo@gmail.com",
                             "+71113332256",
-                            "sstudentt2",
+                            "studentt",
                             "SaintPetersburg",
-                            "Student2Git"});
+                            "StudentGit"});
                 table39.AddRow(new string[] {
                             "Велиханов",
                             "Student",
                             "Fedor",
                             "23.12.1994",
                             "салам1салам",
-                            "student3@gmail.com",
+                            "mbappe@gmail.com",
                             "+71113332257",
-                            "sstudentt3",
+                            "sstudentt",
                             "SaintPetersburg",
-                            "Student3Git"});
+                            "StudentGit"});
                 table39.AddRow(new string[] {
                             "Джаббаров",
                             "Student",
                             "Fedor",
                             "23.12.1995",
                             "салам1салам",
-                            "student4@gmail.com",
+                            "leletepe@gmail.com",
                             "+71113332258",
-                            "sstudentt4",
+                            "student",
                             "SaintPetersburg",
-                            "Student4Git"});
+                            "StudentGit"});
 #line 7
  testRunner.Given("Registartion Users for Student", ((string)(null)), table39, "Given ");
 #line hidden

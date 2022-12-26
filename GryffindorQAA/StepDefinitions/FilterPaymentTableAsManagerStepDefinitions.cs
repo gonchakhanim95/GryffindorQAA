@@ -26,8 +26,13 @@ namespace GryffindorQAA.StepDefinitions
             for (int i = 0; i < tab.Count; i++)
             {
                 Emails.Add(tab[i].Email);
-                Variables.GetInstance().StudentsId.Add(clientt.Registration(tab[i]));
             }
+            Variables.GetInstance().StudentsId.Add(clientt.Registration(tab[0]));
+            Variables.GetInstance().StudentsId.Add(clientt.Registration(tab[1]));
+            Variables.GetInstance().StudentsId.Add(clientt.Registration(tab[2]));
+            Variables.GetInstance().StudentsId.Add(clientt.Registration(tab[3]));
+
+
         }
 
         [Given(@"Registration User for Manager")]
