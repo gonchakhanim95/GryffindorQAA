@@ -63,6 +63,7 @@ namespace GryffindorQAA.StepDefinitions
             _authPage.ClickButtonSignIn();
 
         }
+       
 
         [When(@"Click to button Настройки")]
         public void WhenClickToButtonНастройки()
