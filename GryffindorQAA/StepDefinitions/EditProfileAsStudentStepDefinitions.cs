@@ -13,7 +13,7 @@ namespace GryffindorQAA.StepDefinitions
         SettingPage _settingPage;
         AuthPage _authPage;
         StudentPage _studentPage;
-        List<RegistrationModel> _table;
+        List<RegistrationModel> tab;
         public static string Email;
         public EditProfileAsStudentStepDefinitions(Table table)
         {
@@ -21,7 +21,7 @@ namespace GryffindorQAA.StepDefinitions
             _settingPage = new SettingPage();
             _authPage = new AuthPage();
             _studentPage = new StudentPage();
-            _table = table.CreateSet<RegistrationModel>().ToList();
+            tab = table.CreateSet<RegistrationModel>().ToList();
         }
 
         [Given(@"Open registration page")]
@@ -70,20 +70,22 @@ namespace GryffindorQAA.StepDefinitions
             _studentPage.ClickSetting();
         }
 
-        [When(@"Fill out form")]
-        public void WhenFillOutForm()
+        [When(@"Fill out forms")]
+        public void WhenFillOutForms(Table table)
         {
-            _settingPage.EnterLastName(_table[2].LastName);
-            _settingPage.EnterFirstName(_table[2].FirstName);
-            _settingPage.EnterParonymic(_table[2].Patronymic);
-            _settingPage.EnterBirthDate(_table[2].BirthDate);
-            _settingPage.EnterOldPassword(_table[2].Password);
-            _settingPage.EnterNewPassword(_table[2].Password);
-            _settingPage.EnterRepeateNewPassword(_table[2].Password);
-            _settingPage.EnterEmail(_table[2].Email);
-            _settingPage.EnterGitHub(_table[2].GitHub);
-            _settingPage.EnterPhone(_table[2].Phone);
+            var tab = table.CreateSet<RegistrationModel>().ToList();
+            _settingPage.EnterLastName(tab[0].LastName);
+            _settingPage.EnterFirstName(tab[0].FirstName);
+            _settingPage.EnterParonymic(tab[0].Patronymic);
+            _settingPage.EnterBirthDate(tab[0].BirthDate);
+            _settingPage.EnterOldPassword(tab[0].Password);
+            _settingPage.EnterNewPassword(tab[0].Password);
+            _settingPage.EnterRepeateNewPassword(tab[0].Password);
+            _settingPage.EnterEmail(tab[0].Email);
+            _settingPage.EnterGitHub(tab[0].GitHub);
+            _settingPage.EnterPhone(tab[0].Phone);
         }
+
 
         [When(@"Click to change password")]
         public void WhenClickToChangePassword()
@@ -94,19 +96,19 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Click to old password")]
         public void WhenClickToOldPassword()
         {
-            _settingPage.EnterOldPassword(_table[2].OldPassword);
+            _settingPage.EnterOldPassword(tab[0].OldPassword);
         }
 
         [When(@"Click new password")]
         public void WhenClickNewPassword()
         {
-            _settingPage.EnterNewPassword(_table[2].NewPassword);
+            _settingPage.EnterNewPassword(tab[0].NewPassword);
         }
 
         [When(@"Click repeat new password")]
         public void WhenClickRepeatNewPassword()
         {
-            _settingPage.EnterNewPassword(_table[2].NewPassword);
+            _settingPage.EnterNewPassword(tab[2].RepeatPassword);
         }
 
         [When(@"Click to button Сохранить Password")]
@@ -127,10 +129,10 @@ namespace GryffindorQAA.StepDefinitions
             _settingPage.EnterSave();
         }
 
-        [Then(@"Must to change")]
-        public void ThenMustToChange()
-        {
-            throw new PendingStepException();
-        }
+        //[Then(@"Must to change")]
+        //public void ThenMustToChange()
+        //{
+        //    throw new PendingStepException();
+        //}
     }
 }
