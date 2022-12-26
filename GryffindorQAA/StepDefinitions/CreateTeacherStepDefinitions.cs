@@ -3,7 +3,7 @@ namespace GryffindorQAA.StepDefinitions
     [Binding]
     public class CreateTeacherStepDefinitions
     {
-        public static string Email;
+        public static List<string> Emails = new List<string>();
         protected int _idTeacher;
         TeacherPage _teacherPage;
         AuthPage _authPage;
@@ -20,7 +20,7 @@ namespace GryffindorQAA.StepDefinitions
         public void GivenRegistrationNewUser(Table table)
         {
             var tab = table.CreateSet<RequestRegistrationModel>().ToList();
-            Email = tab[0].Email;
+            Emails.Add(tab[0].Email);
             Variables.GetInstance().TeacherId = _client.Registration(tab[0]);
         }
 

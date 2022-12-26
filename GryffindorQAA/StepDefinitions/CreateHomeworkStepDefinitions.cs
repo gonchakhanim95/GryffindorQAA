@@ -44,7 +44,7 @@ namespace GryffindorQAA.StepDefinitions
         {
             var tab = table.CreateSet<RequestRegistrationModel>().ToList();
             Emails.Add(tab[0].Email);
-            Variables.GetInstance().StudentId = clientt.Registration(tab[0]);
+            Variables.GetInstance().StudentsId.Add(clientt.Registration(tab[0]));
         }
 
         [Given(@"Create course")]
@@ -77,7 +77,7 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Add Students in Group")]
         public void GivenAddStudentsInGroup()
         {
-            clientt.AddUserInGroup(Variables.GetInstance().GroupId, Variables.GetInstance().StudentId, "Student", Variables.GetInstance().AdminToken);
+            clientt.AddUserInGroup(Variables.GetInstance().GroupId, Variables.GetInstance().StudentsId[0], "Student", Variables.GetInstance().AdminToken);
         }
 
         [Given(@"Create task as Teacher")]

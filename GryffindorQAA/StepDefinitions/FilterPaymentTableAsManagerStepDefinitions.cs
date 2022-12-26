@@ -19,40 +19,24 @@ namespace GryffindorQAA.StepDefinitions
             _paymentTablePage = new PaymentTablePage();
         }
 
-        [Given(@"Registartion Users for Student")]
-        public void GivenRegistartionUsersForStudent(Table table)
-        {
-            var tab = table.CreateSet<RequestRegistrationModel>().ToList();
-            for (int i = 0; i < tab.Count; i++)
-            {
-                Emails.Add(tab[i].Email);
-            }
-            Variables.GetInstance().StudentsId.Add(clientt.Registration(tab[0]));
-            Variables.GetInstance().StudentsId.Add(clientt.Registration(tab[1]));
-            Variables.GetInstance().StudentsId.Add(clientt.Registration(tab[2]));
-            Variables.GetInstance().StudentsId.Add(clientt.Registration(tab[3]));
-
-
-        }
-
-        [Given(@"Registration User for Manager")]
-        public void GivenRegistrationUserForManager(Table table)
+        [Given(@"Registration new User for Manager")]
+        public void GivenRegistrationNewUserForManager(Table table)
         {
             var tab = table.CreateSet<RequestRegistrationModel>().ToList();
             Emails.Add(tab[0].Email);
             Variables.GetInstance().ManagerId = clientt.Registration(tab[0]);
         }
+
         [Given(@"Add New Students in Group")]
         public void GivenAddNewStudentsInGroup()
         {
-            foreach (var item in Variables.GetInstance().StudentsId)
-            {
-                clientt.AddUserInGroup(Variables.GetInstance().GroupId, item, "Student", Variables.GetInstance().AdminToken);
-            }
+            clientt.AddUserInGroup(Variables.GetInstance().GroupId, Variables.GetInstance().StudentsId[0], "Student", Variables.GetInstance().AdminToken);
+            clientt.AddUserInGroup(Variables.GetInstance().GroupId, Variables.GetInstance().StudentsId[1], "Student", Variables.GetInstance().AdminToken);
+            clientt.AddUserInGroup(Variables.GetInstance().GroupId, Variables.GetInstance().StudentsId[2], "Student", Variables.GetInstance().AdminToken);
+            clientt.AddUserInGroup(Variables.GetInstance().GroupId, Variables.GetInstance().StudentsId[3], "Student", Variables.GetInstance().AdminToken);
         }
-
-        [Given(@"Give the role of a manager")]
-        public void GivenGiveTheRoleOfAManager()
+        [Given(@"Give role manager")]
+        public void GivenGiveRoleManager()
         {
             clientt.GiveRole(Variables.GetInstance().AdminToken, Variables.GetInstance().ManagerId, "Manager");
         }
@@ -78,7 +62,7 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Open Payment table page")]
         public void WhenOpenPaymentTablePage()
         {
-            _paymentTablePage.Open();
+            _paymentTablePage.Open();     
         }
 
         [Then(@"Filter name column")]

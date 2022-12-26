@@ -11,13 +11,14 @@ namespace GryffindorQAA.Support
         public void BeforeScenario()
         {
             List<string> emails = new List<string>();
-            emails.Add(CreateTeacherStepDefinitions.Email);
+            emails.AddRange(CreateTeacherStepDefinitions.Emails);
             emails.Add(WatchHomeWorksAsStudentStepDefinitions.Email);
             emails.Add(ViewListOfStudentsAsManagerStepDefinitions.Email);
             emails.Add(AddNewGroupStepDefinitions.Email1);
             emails.Add(AddNewGroupStepDefinitions.Email2);
             emails.Add(EditCoursesAsMethodologistStepDefinitions.Email);
             emails.AddRange(CreateHomeworkStepDefinitions.Emails);
+            emails.AddRange(FilterPaymentTableAsManagerStepDefinitions.Emails);
 
             string connectionString = @"Data Source = 80.78.240.16; Initial Catalog = DevEdu; Persist Security Info = True; User ID = student; Password = qwe!23;";
             IDbConnection dbConnection = new SqlConnection(connectionString);
@@ -41,13 +42,14 @@ namespace GryffindorQAA.Support
         public void AfterScenario()
         {
             List<string> emails = new List<string>();
-            emails.Add(CreateTeacherStepDefinitions.Email);
+            emails.AddRange(CreateTeacherStepDefinitions.Emails);
             emails.Add(WatchHomeWorksAsStudentStepDefinitions.Email);
             emails.Add(ViewListOfStudentsAsManagerStepDefinitions.Email);
             emails.Add(AddNewGroupStepDefinitions.Email1);
             emails.Add(AddNewGroupStepDefinitions.Email2);
             emails.Add(EditCoursesAsMethodologistStepDefinitions.Email);
             emails.AddRange(CreateHomeworkStepDefinitions.Emails);
+            emails.AddRange(FilterPaymentTableAsManagerStepDefinitions.Emails);
             //DriverStorage.GetInstance().Driver.Close();
             string connectionString = @"Data Source = 80.78.240.16; Initial Catalog = DevEdu; Persist Security Info = True; User ID = student; Password = qwe!23;";
             IDbConnection dbConnection = new SqlConnection(connectionString);

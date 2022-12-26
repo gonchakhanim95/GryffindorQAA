@@ -4,15 +4,21 @@ A short summary of the feature
 
 @tag1
 Scenario: FilterPaymentTableAsManager
-	Given  Registartion Users for Student  
-	| LastName  | FirstName | Patronymic | BirthDate  | Password    | Email              | PhoneNumber  | Username   | City            | GitHubAccount |
-	| Абаев     | Student   | Fedor      | 23.12.1992 | салам1салам | messi@gmail.com | +71113332255 | sstudent | SaintPetersburg | StudentGit   |
-	| Бабиров   | Student   | Fedor      | 23.12.1993 | салам1салам | ronaldo@gmail.com | +71113332256 | studentt | SaintPetersburg | StudentGit   |
-	| Велиханов | Student   | Fedor      | 23.12.1994 | салам1салам | mbappe@gmail.com | +71113332257 | sstudentt | SaintPetersburg | StudentGit   |
-	| Джаббаров | Student   | Fedor      | 23.12.1995 | салам1салам | leletepe@gmail.com | +71113332258 | student | SaintPetersburg | StudentGit   |
-	And Registration User for Manager
-	| LastName | FirstName | Patronymic | BirthDate  | Password    | Email             | PhoneNumber  | Username  | City            | GitHubAccount |
-	| Гаджиев  | Manager   | Федор      | 23.12.1992 | салам1салам | manager@gmail.com | +71113332255 | mmanagerr | SaintPetersburg | ManagerGit    |
+	Given  Registration new Users for Students 
+	| LastName | FirstName | Patronymic | BirthDate  | Password    | Email           | PhoneNumber  | Username | City            | GitHubAccount |
+	| Абаев    | Student   | Fedor      | 23.12.1992 | салам1салам | messi@gmail.com | +71113332255 | sstudent | SaintPetersburg | StudentGit    |
+	And Registration new Users for Students
+	| LastName | FirstName | Patronymic | BirthDate  | Password    | Email             | PhoneNumber  | Username | City            | GitHubAccount |
+	| Бабиров  | Student   | Fedor      | 23.12.1993 | салам1салам | ronaldo@gmail.com | +71113332256 | studentt | SaintPetersburg | StudentGit    |
+	And Registration new Users for Students
+	| LastName  | FirstName | Patronymic | BirthDate  | Password    | Email             | PhoneNumber  | Username  | City            | GitHubAccount |
+	| Велиханов | Student   | Fedor      | 23.12.1994 | салам1салам | mbapppe@gmail.com | +71113332257 | sstudentt | SaintPetersburg | StudentGit    |
+	And Registration new Users for Students
+	| LastName  | FirstName | Patronymic | BirthDate  | Password    | Email              | PhoneNumber  | Username | City            | GitHubAccount |
+	| Джаббаров | Student   | Fedor      | 23.12.1995 | салам1салам | leletepe@gmail.com | +71113332258 | student  | SaintPetersburg | StudentGit    |
+	And Registration new User for Manager
+	| LastName | FirstName | Patronymic | BirthDate  | Password    | Email              | PhoneNumber  | Username  | City            | GitHubAccount |
+	| Гаджиев  | Manager   | Федор      | 23.12.1992 | салам1салам | managger@gmail.com | +71113332255 | mmanagerr | SaintPetersburg | ManagerGit    |
 	And Authoraized as admin
 	| Email                 | Password         |
 	| marina@example.com    | marina123456     |
@@ -23,7 +29,7 @@ Scenario: FilterPaymentTableAsManager
 	| Name | GroupStatusId | StartDate  | EndDate    | Timetable | PaymentPerMonth | PaymentsCount |
 	| qaa  | Forming       | 01.01.2023 | 05.05.2023 | 60        | 100             | 4             |
 	And Add New Students in Group
-	And Give the role of a manager
+	And Give role manager
 	And Add Manager in Group
 	When Authorized  as Manager
 	| Email             | Password    |
