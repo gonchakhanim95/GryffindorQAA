@@ -19,7 +19,7 @@ namespace GryffindorQAA.Support
             emails.Add(AddNewGroupStepDefinitions.Email2);
             emails.Add(EditCoursesAsMethodologistStepDefinitions.Email);
 
-            DriverStorage.GetInstance().Driver.Close();
+            //DriverStorage.GetInstance().Driver.Close();
 
             foreach (var item in emails)
             {

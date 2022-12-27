@@ -1,3 +1,5 @@
+using OpenQA.Selenium;
+
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]

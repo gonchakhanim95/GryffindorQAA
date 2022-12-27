@@ -7,7 +7,7 @@ Scenario: Add profile photo as student
 	Given Open  registration page
 	And Fill out form
 	| LastName | FirstName | Patronymic | BirthDate  | Password   | RepeatPassword | Email          | Phone        |
-	| Potter   | Harry     | James      | 31.06.1980 | helloworld | helloworld     | harry@mail.com | +78882211233 |
+	| Potter   | Harry     | James      | 11.06.1980 | helloworld | helloworld     | harry@mail.com | +78882211233 |
 	And Click  button registered
 	And Must  come out inscription "Добро пожаловать!!"
 	And Open  Auth as student 
@@ -19,5 +19,4 @@ Scenario: Add profile photo as student
 	And Click on profile photo
 	And Select photo
 	And Change profile photo
-	And Click Save
 	Then Photo profile should change

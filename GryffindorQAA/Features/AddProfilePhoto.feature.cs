@@ -126,7 +126,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "Potter",
                             "Harry",
                             "James",
-                            "31.06.1980",
+                            "11.06.1980",
                             "helloworld",
                             "helloworld",
                             "harry@mail.com",
@@ -168,9 +168,6 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("Change profile photo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 22
- testRunner.And("Click Save", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 23
  testRunner.Then("Photo profile should change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

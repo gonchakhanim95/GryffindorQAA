@@ -1,3 +1,4 @@
+using OpenQA.Selenium.Support.Extensions;
 using System;
 using TechTalk.SpecFlow;
 
@@ -14,7 +15,7 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Open setting")]
         public void WhenOpenSetting()
         {
-            _settingPage.ClickButtonPesronalDatas();
+            _settingPage.ClickButtonSetting();
         }
 
         [When(@"Click on profile photo")]
@@ -32,13 +33,16 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Change profile photo")]
         public void WhenChangeProfilePhoto()
         {
-            throw new PendingStepException();
+            Task.Delay(1000).Wait();
+            var driver = DriverStorage.GetInstance().Driver;
+            driver.Navigate().GoToUrl(driver.Url);
+            Task.Delay(1000).Wait();
         }
 
         [Then(@"Photo profile should change")]
         public void ThenPhotoProfileShouldChange()
         {
-            throw new PendingStepException();
+            Assert.True(_settingPage.CheckProfilePhotoExists()); 
         }
     }
 }
