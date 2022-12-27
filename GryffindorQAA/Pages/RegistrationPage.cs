@@ -13,7 +13,14 @@ namespace GryffindorQAA.Pages
         public IWebElement CheckBox => _driver.FindElement(By.XPath(@"//label[@class='custom-checkbox']"));
         public IWebElement ButtonRegistration => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']"));
         public IWebElement ButtonChangeToAuth => _driver.FindElement(By.XPath(@"//a[@class='auth-link']"));
-        
+        public IWebElement TextNotification
+        {
+            get
+            {
+                WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
+                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//p[@class='notification-text']")));
+            }
+        }
         public override void Open()
         {
             _driver.Navigate().GoToUrl(Urls.RegistrationPage);
@@ -71,6 +78,10 @@ namespace GryffindorQAA.Pages
         public void ClickChangeButtonToAuth()
         {
             ButtonChangeToAuth.Click();
+        }
+        public void ClickNotitification()
+        {
+            TextNotification.Click();
         }
     }
 }

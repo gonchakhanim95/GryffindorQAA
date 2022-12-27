@@ -12,8 +12,8 @@ Scenario: Receive notifications as student
     And Must come out inscription "Добро пожаловать!!"
 	And Open Auth as student
 	And Fill out form for Auth
-	| Email            | Password    |
-	| "ljr@mail.com    | 12345678    |
+	| Email       | Password |
+	| ljr@mail.ru | 12345678 |
 	And Press button sign in
 	When Select chapter notification
 	Then Get all notifications

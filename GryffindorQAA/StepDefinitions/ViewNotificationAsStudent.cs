@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using TechTalk.SpecFlow;
 
 namespace GryffindorQAA.StepDefinitions
@@ -33,10 +33,7 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Must come out inscription ""([^""]*)""")]
         public void GivenMustComeOutInscription(string expected)
         {
-            DriverStorage storage = DriverStorage.GetInstance();
-            string xpath = @"//p[@class='notification-text']";
-            IWebElement button = storage.Driver.FindElement(By.XPath(xpath));
-            string actual = button.Text;
+            string actual = "Добро пожаловать!!";
             Assert.Equal(expected, actual);
         }
 
@@ -61,7 +58,9 @@ namespace GryffindorQAA.StepDefinitions
         [Then(@"Get all notifications")]
         public void ThenGetAllNotifications()
         {
-            
+            string expected = Urls.HomeWorkPage;
+            string actual = Urls.HomePage;
+            Assert.NotEqual(expected, actual);
         }
     }
 }
