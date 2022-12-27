@@ -70,7 +70,7 @@
         public void EnterTaskName(string text)
         {
             TextBoxTaskName.SendKeys(text);
-        }
+        } 
         public void EnterTaskDescription(string text)
         {
             TextBoxTaskDescription.SendKeys(text);
