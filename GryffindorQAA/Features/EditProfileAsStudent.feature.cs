@@ -111,15 +111,15 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given("Open registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Open  registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                             "LastName",
-                            "FirtsName",
+                            "FirstName",
                             "Patronymic",
                             "BirthDate",
                             "Password",
-                            "Repeat password",
+                            "RepeatPassword",
                             "Email",
                             "Phone"});
                 table10.AddRow(new string[] {
@@ -129,19 +129,19 @@ this.ScenarioInitialize(scenarioInfo);
                             "01.04.1996",
                             "123456789",
                             "123456789",
-                            "mina1234@mail.ru",
+                            "mina123456@mail.ru",
                             "+79991234567"});
 #line 8
  testRunner.And("Fill out form", ((string)(null)), table10, "And ");
 #line hidden
 #line 11
- testRunner.And("Click to button Registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Click  button registered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
- testRunner.And("You have message \"Добро пожаловать!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Must  come out inscription \"Добро пожаловать!!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
- testRunner.And("Open autorization page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Open  Auth as student", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                             "Email",
@@ -150,10 +150,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "mina1234@mail.ru",
                             "123456789"});
 #line 14
- testRunner.And("Fill out form", ((string)(null)), table11, "And ");
+ testRunner.And("Fill out form for Auth", ((string)(null)), table11, "And ");
 #line hidden
 #line 17
- testRunner.And("Click to button Войти", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Press button sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 18
  testRunner.When("Click to button Настройки", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -162,9 +162,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "LastName",
                             "FirstName",
                             "Patronymic",
-                            "Birthdate",
+                            "BirthDate",
                             "OldPassword",
                             "NewPassword",
+                            "RepeatPassword",
                             "Email",
                             "GitHub",
                             "Phone"});
@@ -175,34 +176,17 @@ this.ScenarioInitialize(scenarioInfo);
                             "01.04.1996",
                             "123456789",
                             "mina1234",
-                            "mina@mail.ru",
+                            "mina1234",
+                            "mina1234@mail.ru",
                             "https://github.com/Mina123",
                             "+79991234567"});
 #line 19
  testRunner.And("Fill out forms", ((string)(null)), table12, "And ");
 #line hidden
 #line 22
- testRunner.And("Click to change password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 23
- testRunner.And("Click to old password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 24
- testRunner.And("Click new password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 25
- testRunner.And("Click repeate new password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 26
- testRunner.And("Click to button Сохранить Password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 27
- testRunner.And("Click to button Back", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 28
  testRunner.And("Click to button Сохранить", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 29
+#line 23
  testRunner.Then("Must to change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
