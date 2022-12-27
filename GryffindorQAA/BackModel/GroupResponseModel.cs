@@ -21,34 +21,32 @@ namespace GryffindorQAA.BackModel
             public bool IsDeleted { get; set; }
         }
 
-        public class Root
-        {
-            [JsonPropertyName("id")]
-            public int Id { get; set; }
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
 
-            [JsonPropertyName("name")]
-            public string Name { get; set; }
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
 
-            [JsonPropertyName("course")]
-            public Course Course { get; set; }
+        [JsonPropertyName("course")]
+        public Course CourseModel { get; set; }
 
-            [JsonPropertyName("groupStatus")]
-            public string GroupStatus { get; set; }
+        [JsonPropertyName("groupStatus")]
+        public string GroupStatus { get; set; }
 
-            [JsonPropertyName("startDate")]
-            public string StartDate { get; set; }
+        [JsonPropertyName("startDate")]
+        public string StartDate { get; set; }
 
-            [JsonPropertyName("endDate")]
-            public string EndDate { get; set; }
+        [JsonPropertyName("endDate")]
+        public string EndDate { get; set; }
 
-            [JsonPropertyName("timetable")]
-            public string Timetable { get; set; }
+        [JsonPropertyName("timetable")]
+        public string Timetable { get; set; }
 
-            [JsonPropertyName("paymentPerMonth")]
-            public int PaymentPerMonth { get; set; }
+        [JsonPropertyName("paymentPerMonth")]
+        public int PaymentPerMonth { get; set; }
 
-            [JsonPropertyName("paymentsCount")]
-            public int PaymentsCount { get; set; }
-        }
+        [JsonPropertyName("paymentsCount")]
+        public int PaymentsCount { get; set; }
+        
     }
 }
