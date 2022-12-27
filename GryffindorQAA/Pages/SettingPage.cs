@@ -20,8 +20,15 @@ namespace GryffindorQAA.Pages
         public IWebElement TextBoxPhone => _driver.FindElement(By.XPath(@"//input[@name='phoneNumber']"));
         public IWebElement ButtonSave => _driver.FindElement(By.XPath(@"//button[text()='Сохранить']"));
         public IWebElement ButtonChangeToPassword => _driver.FindElement(By.XPath(@"//a[@href='/change-password']"));
-        public IWebElement ButtonBack => _driver.FindElement(By.XPath(@"//div[text()='Назад']"));
-    
+        public IWebElement ButtonBack => _driver.FindElement(By.XPath(@"//div[text()='Назад']")); 
+        public IWebElement ButtonSetting => _driver.FindElement(By.XPath(@"//div[@class='svg-fond']"));
+
+        public void ClickButtonSetting()
+        {
+            WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
+            driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//div[@class='svg-fond']")));
+            ButtonSetting.Click();
+        }
         public override void Open()
         {
             _driver.Navigate().GoToUrl(Urls.SettingPage);
@@ -29,15 +36,18 @@ namespace GryffindorQAA.Pages
 
         public void EnterLastName(string text)
         {
+            TextBoxLastName.Clear();
             TextBoxLastName.SendKeys(text);
         }
 
         public void EnterFirstName(string text)
         {
+            TextBoxFirstName.Clear();
             TextBoxFirstName.SendKeys(text);
         }
         public void EnterParonymic(string text)
         {
+            TextBoxPatronymic.Clear();
             TextBoxPatronymic.SendKeys(text);
         }
 
@@ -59,18 +69,22 @@ namespace GryffindorQAA.Pages
         }
         public void EnterOldPassword(string text)
         {
+            TextBoxOldPassword.Clear();
             TextBoxOldPassword.SendKeys(text);
         }
         public void EnterNewPassword(string text)
         {
+            TextBoxNewPassword.Clear();
             TextBoxNewPassword.SendKeys(text);
         }
         public void EnterRepeateNewPassword(string text)
         {
+            TextBoxRepeatNewPassword.Clear();
             TextBoxRepeatNewPassword.SendKeys(text);
         }
         public void EnterEmail(string text)
         {
+            TextBoxEmail.Clear();
             TextBoxEmail.SendKeys(text);
         }
         public void EnterGitHub(string text)
@@ -79,6 +93,7 @@ namespace GryffindorQAA.Pages
         }
         public void EnterPhone(string text)
         {
+            TextBoxPhone.Clear();
             TextBoxPhone.SendKeys(text);
         }
         public void EnterSave()
