@@ -19,7 +19,7 @@ namespace GryffindorQAA.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class AddNewGroupFeature : object, Xunit.IClassFixture<AddNewGroupFeature.FixtureData>, System.IDisposable
+    public partial class GetAllUsersFeature : object, Xunit.IClassFixture<GetAllUsersFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -28,10 +28,10 @@ namespace GryffindorQAA.Features
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "AddNewGroup.feature"
+#line 1 "GetAllUsers.feature"
 #line hidden
         
-        public AddNewGroupFeature(AddNewGroupFeature.FixtureData fixtureData, GryffindorQAA_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public GetAllUsersFeature(GetAllUsersFeature.FixtureData fixtureData, GryffindorQAA_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +40,7 @@ namespace GryffindorQAA.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "AddNewGroup", "A short summary of the feature", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "GetAllUsers", "A short summary of the feature", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -80,16 +80,16 @@ namespace GryffindorQAA.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Add new Group as Admin")]
-        [Xunit.TraitAttribute("FeatureTitle", "AddNewGroup")]
-        [Xunit.TraitAttribute("Description", "Add new Group as Admin")]
+        [Xunit.SkippableFactAttribute(DisplayName="Get all user as Manager")]
+        [Xunit.TraitAttribute("FeatureTitle", "GetAllUsers")]
+        [Xunit.TraitAttribute("Description", "Get all user as Manager")]
         [Xunit.TraitAttribute("Category", "tag1")]
-        public virtual void AddNewGroupAsAdmin()
+        public virtual void GetAllUserAsManager()
         {
             string[] tagsOfScenario = new string[] {
                     "tag1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add new Group as Admin", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get all user as Manager", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -110,59 +110,8 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
-                            "FirstName",
-                            "LastName",
-                            "Patronymic",
-                            "Email",
-                            "Username",
-                            "Password",
-                            "City",
-                            "BirthDate",
-                            "GitHubAccount",
-                            "PhoneNumber"});
-                table10.AddRow(new string[] {
-                            "Albus",
-                            "Dumbledore",
-                            "Rowling",
-                            "alnwick@gmail.com",
-                            "Professor",
-                            "helloworld",
-                            "SaintPetersburg",
-                            "30.06.1881",
-                            "@albus",
-                            "+78885555555"});
-                table10.AddRow(new string[] {
-                            "Severus",
-                            "Snape",
-                            "Basilisk",
-                            "snape@gmail.eng",
-                            "Snake",
-                            "helloworld",
-                            "SaintPetersburg",
-                            "19.01.1960",
-                            "@snape",
-                            "+79995554455"});
 #line 7
- testRunner.Given("Created new user", ((string)(null)), table10, "Given ");
-#line hidden
-                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Email",
-                            "Password"});
-                table11.AddRow(new string[] {
-                            "marina@example.com",
-                            "marina123456"});
-#line 11
- testRunner.And("Auth as admin", ((string)(null)), table11, "And ");
-#line hidden
-#line 14
- testRunner.And("Give role Teacher to the new user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 15
- testRunner.And("Give role Tutor to the new user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 16
- testRunner.And("Open auth Web page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("Open auth Web page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                             "Email",
@@ -170,29 +119,17 @@ this.ScenarioInitialize(scenarioInfo);
                 table12.AddRow(new string[] {
                             "marina@example.com",
                             "marina123456"});
-#line 17
- testRunner.When("Fill out form for Admin", ((string)(null)), table12, "When ");
+#line 8
+ testRunner.And("Fill out form Auth", ((string)(null)), table12, "And ");
 #line hidden
-#line 20
- testRunner.And("Click sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("Click button Sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 21
- testRunner.And("Click button create group", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.When("Click button all users", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 22
- testRunner.And("Enter group name \"Slyzerin\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 23
- testRunner.And("Select Tutor and Teacher", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 24
- testRunner.And("Click Save", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 25
- testRunner.And("Click Groups", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 26
- testRunner.Then("View group Slyzerin", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 13
+ testRunner.Then("Get all users", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -205,12 +142,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                AddNewGroupFeature.FeatureSetup();
+                GetAllUsersFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                AddNewGroupFeature.FeatureTearDown();
+                GetAllUsersFeature.FeatureTearDown();
             }
         }
     }

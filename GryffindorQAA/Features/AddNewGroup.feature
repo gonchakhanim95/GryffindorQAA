@@ -7,7 +7,7 @@ Scenario: Add new Group as Admin
 	Given Created new user
 	| FirstName | LastName   | Patronymic | Email             | Username  | Password   | City            | BirthDate  | GitHubAccount | PhoneNumber  |
 	| Albus     | Dumbledore | Rowling    | alnwick@gmail.com | Professor | helloworld | SaintPetersburg | 30.06.1881 | @albus        | +78885555555 |
-	| Severus   | Snape      | Basilisk   | snape@gmail.com   | Snake     | helloworld | SaintPetersburg | 19.01.1960 | @snape        | +79995554455 |
+	| Severus   | Snape      | Basilisk   | snape@gmail.eng   | Snake     | helloworld | SaintPetersburg | 19.01.1960 | @snape        | +79995554455 |
 	And Auth as admin
 	| Email              | Password     |
 	| marina@example.com | marina123456 |
