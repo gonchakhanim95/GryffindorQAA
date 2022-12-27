@@ -5,6 +5,7 @@
         public IWebElement ButtonListStudents => _driver.FindElement(By.XPath(@"//span[text()='Список студентов']"));
         public IWebElement ButtonFilterStudents => _driver.FindElement(By.XPath(@"//div[text()='Сортировать по фамилии']"));
         public IWebElement ButtonChangeFilter => _driver.FindElement(By.XPath(@"//li[text()='Сортировать обратно']"));
+        public IWebElement ButtonUsers => _driver.FindElement(By.XPath(@"//span[text()='Все пользователи']"));
         public IWebElement DropDownRole
         {
             get
@@ -13,7 +14,7 @@
                 return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//div[@class='drop-down-filter  left']")));
             }
         }
-        public IWebElement SwitchRole
+        public IWebElement SwitchRoleOnManager
         {
             get
             {
@@ -44,7 +45,11 @@
         }
         public void ClickButtongChangeRoleManager()
         {
-            SwitchRole.Click();
+            SwitchRoleOnManager.Click();
+        }
+        public void ClickButtonUsers()
+        {
+            ButtonUsers.Click();
         }
     }
 }

@@ -25,9 +25,9 @@ namespace GryffindorQAA.StepDefinitions
         {
             var tablica = table.CreateSet<RequestRegistrationModel>().ToList();
             Email1 = tablica[0].Email;
-            _idTutor = _client.RegistrationStudent(tablica[0]);
+            Variables.GetInstance().TutorId = _client.Registration(tablica[0]);
             Email2 = tablica[1].Email;
-            _idTeacher = _client.RegistrationStudent(tablica[1]);
+            _idTeacher = _client.Registration(tablica[1]);
         }
 
         [Given(@"Auth as admin")]
@@ -40,13 +40,13 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Give role Teacher to the new user")]
         public void GivenGiveRoleTeacherToTheNewUser()
         {
-            _client.GiveRole(_adminToken, _idTeacher, "Teacher");
+            _client.GiveRole(Variables.GetInstance().AdminToken, Variables.GetInstance().TeacherId, "Teacher");
         }
 
         [Given(@"Give role Tutor to the new user")]
         public void GivenGiveRoleTutorToTheNewUser()
         {
-            _client.GiveRole(_adminToken, _idTutor, "Tutor");
+            _client.GiveRole(Variables.GetInstance().AdminToken, Variables.GetInstance().TutorId, "Tutor");
         }
 
         [Given(@"Open auth Web page")]

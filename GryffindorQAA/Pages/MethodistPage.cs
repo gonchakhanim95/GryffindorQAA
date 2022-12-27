@@ -10,6 +10,10 @@ namespace GryffindorQAA.Pages
     {
         public IWebElement DragAndDrop => _driver.FindElement(By.XPath(@"//input[@value='6']"));
         public IWebElement ButtonSingOut => _driver.FindElement(By.XPath(@"//span[text()='Выйти']"));
+        public IWebElement TextBoxNumberTopic => _driver.FindElement(By.XPath(@"//input[@name='position']"));
+        public IWebElement TextBoxNameTopic => _driver.FindElement(By.XPath(@"//input[@name='topicName']"));
+        public IWebElement TextBoxTopicHours => _driver.FindElement(By.XPath(@"//input[@name='hoursCount']"));
+
         public IWebElement DropDownRole
         {
             get
@@ -73,6 +77,18 @@ namespace GryffindorQAA.Pages
         public void ClickSingOut()
         {
             ButtonSingOut.Click();
+        }
+        public void EnterNumberTopic(string numb)
+        {
+            TextBoxNumberTopic.SendKeys(numb);
+        }
+        public void EnterNameTopic(string text)
+        {
+            TextBoxNameTopic.SendKeys(text);
+        }
+        public void EnterTopicHours(string text)
+        {
+            TextBoxTopicHours.SendKeys(text);
         }
     }
 }
