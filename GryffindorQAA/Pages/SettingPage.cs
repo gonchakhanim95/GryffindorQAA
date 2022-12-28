@@ -17,8 +17,15 @@
         public IWebElement ButtonBack => _driver.FindElement(By.XPath(@"//div[text()='Назад']")); 
         public IWebElement ButtonSetting => _driver.FindElement(By.XPath(@"//div[@class='svg-fond']"));
         public IWebElement ButtonPhotoProfile => _driver.FindElement(By.XPath(@"//span[@class='avatar-text']"));
-        public IWebElement ButtonSelectPhoto => _driver.FindElement(By.XPath(@"//label[text()='Выбрать файл']"));
+        public IWebElement ButtonSelectPhoto
+        {
+            get
+            {
 
+                WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
+                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//img[@class='avatar-photo']")));
+            }
+        }
         public override void Open()
         {
             _driver.Navigate().GoToUrl(Urls.SettingPage);
