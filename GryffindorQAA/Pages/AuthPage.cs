@@ -6,7 +6,14 @@ namespace GryffindorQAA.Pages
     { 
         public IWebElement TextBoxEmail => _driver.FindElement(By.XPath(@"//input[@name='email']"));
         public IWebElement TextBoxPassword => _driver.FindElement(By.XPath(@"//input[@name='password']"));
-        public IWebElement ButtonSignIn => _driver.FindElement(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']"));
+        public IWebElement ButtonSignIn
+        {
+            get 
+            {
+                WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
+                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']")));
+            }
+        }
         public IWebElement ButtonChangePage => _driver.FindElement(By.XPath(@"//a[text()='Регистрация']"));
         public override void Open()
         {
