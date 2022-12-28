@@ -24,7 +24,15 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Fill out form for edit")]
         public void WhenFillOutFormForEdit(Table table)
         {
+            _settingPage.EnterSave();
+        }
+
+        [When(@"Fill out forms")]
+        public void WhenFillOutForms(Table table)
+        {
             var tablic = table.CreateSet<SettingModel>().ToList();
+            _settingPage.EnterEmail(tablic[0].Email);
+            _settingPage.EnterFirstName(tablic[0].FirstName);
             _settingPage.EnterLastName(tablic[0].LastName);
             _settingPage.EnterFirstName(tablic[0].FirstName);
             _settingPage.EnterParonymic(tablic[0].Patronymic);

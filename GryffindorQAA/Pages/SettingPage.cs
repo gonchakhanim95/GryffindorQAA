@@ -20,7 +20,7 @@ namespace GryffindorQAA.Pages
         public IWebElement TextBoxPhone => _driver.FindElement(By.XPath(@"//input[@name='phoneNumber']"));
         public IWebElement ButtonSave => _driver.FindElement(By.XPath(@"//button[text()='Сохранить']"));
         public IWebElement ButtonToChangePassword => _driver.FindElement(By.XPath(@"//a[@href='/change-password']"));
-        public IWebElement ButtonBack => _driver.FindElement(By.XPath(@"//div[text()='Назад']"));
+        public IWebElement ButtonBack => _driver.FindElement(By.XPath(@"//div[text()='Назад']")); 
         public IWebElement ButtonSetting => _driver.FindElement(By.XPath(@"//div[@class='svg-fond']"));
 
 
@@ -61,12 +61,16 @@ namespace GryffindorQAA.Pages
 
         public void EnterBirthDate(string text)
         {
-            DriverStorage storage = DriverStorage.GetInstance();
+            TextBoxBirthDate.SendKeys(text);
+           DriverStorage storage = DriverStorage.GetInstance();
+
+            string xpath = @"//input[@class='form-control']";
+            IWebElement birthDateBar = storage.Driver.FindElement(By.XPath(xpath));
             Actions action = new Actions(storage.Driver);
             action.DoubleClick(TextBoxBirthDate).Perform();
             TextBoxBirthDate.SendKeys(text);
         }
-
+        
         public void ClickkChangeToPassword()
         {
             ButtonToChangePassword.Click();
