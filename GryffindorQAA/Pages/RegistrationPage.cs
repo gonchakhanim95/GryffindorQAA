@@ -79,5 +79,9 @@ namespace GryffindorQAA.Pages
         {
             ButtonChangeToAuth.Click();
         }
+        public string GetTextNotification()
+        {
+            return TextNotiification.Text;
+        }
     }
 }

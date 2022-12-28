@@ -48,10 +48,7 @@ namespace GryffindorQAA.StepDefinitions
         [Given(@"Must  come out inscription ""([^""]*)""")]
         public void GivenMustComeOutInscription(string expected)
         {
-            DriverStorage storage = DriverStorage.GetInstance();
-            string xpath = @"//p[@class='notification-text']";
-            IWebElement button =storage.Driver.FindElement(By.XPath(xpath));
-            string actual = button.Text;
+            string actual = _registrationPage.GetTextNotification();
             Assert.Equal(expected, actual);
         }
 
