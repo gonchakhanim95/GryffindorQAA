@@ -40,7 +40,7 @@ namespace GryffindorQAA.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "EditProfileAsStudent", "A short summary of the feature", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "EditProfileAsStudent", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -83,14 +83,12 @@ namespace GryffindorQAA.Features
         [Xunit.SkippableFactAttribute(DisplayName="Edit")]
         [Xunit.TraitAttribute("FeatureTitle", "EditProfileAsStudent")]
         [Xunit.TraitAttribute("Description", "Edit")]
-        [Xunit.TraitAttribute("Category", "tag1")]
         public virtual void Edit()
         {
-            string[] tagsOfScenario = new string[] {
-                    "tag1"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 6
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -110,7 +108,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 5
  testRunner.Given("Open  registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table48 = new TechTalk.SpecFlow.Table(new string[] {
@@ -131,16 +129,16 @@ this.ScenarioInitialize(scenarioInfo);
                             "123456789",
                             "mina123456@mail.ru",
                             "+79991234567"});
-#line 8
+#line 6
  testRunner.And("Fill out form", ((string)(null)), table48, "And ");
 #line hidden
-#line 11
+#line 9
  testRunner.And("Click  button registered", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 12
+#line 10
  testRunner.And("Must  come out inscription \"Добро пожаловать!!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 13
+#line 11
  testRunner.And("Open  Auth as student", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table49 = new TechTalk.SpecFlow.Table(new string[] {
@@ -149,13 +147,13 @@ this.ScenarioInitialize(scenarioInfo);
                 table49.AddRow(new string[] {
                             "mina123456@mail.ru",
                             "123456789"});
-#line 14
+#line 12
  testRunner.And("Fill out form for Auth", ((string)(null)), table49, "And ");
 #line hidden
-#line 17
+#line 15
  testRunner.And("Press button sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 18
+#line 16
  testRunner.When("Click to button Настройки", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table50 = new TechTalk.SpecFlow.Table(new string[] {
@@ -180,13 +178,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "mina1234@mail.ru",
                             "https://github.com/Mina123",
                             "79991234567"});
-#line 19
+#line 17
  testRunner.And("Fill out form for edit", ((string)(null)), table50, "And ");
 #line hidden
-#line 22
+#line 20
  testRunner.And("Click to button Сохранить", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 23
+#line 21
  testRunner.Then("Must to change", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

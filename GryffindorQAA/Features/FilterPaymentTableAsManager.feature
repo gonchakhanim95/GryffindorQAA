@@ -1,8 +1,5 @@
 ﻿Feature: FilterPaymentTableAsManager
 
-A short summary of the feature
-
-@tag1
 Scenario: FilterPaymentTableAsManager
 	And Authoraized as admin
 	| Email                 | Password         |

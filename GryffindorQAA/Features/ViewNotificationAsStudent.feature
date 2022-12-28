@@ -1,6 +1,6 @@
 ﻿Feature: ReceiveNotifications
 
-A short summary of the feature
+
 
 @tag1
 Scenario: Receive notifications as student

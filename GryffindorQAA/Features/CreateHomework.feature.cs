@@ -40,7 +40,7 @@ namespace GryffindorQAA.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "CreateHomework", "A short summary of the feature", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "CreateHomework", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -88,7 +88,7 @@ namespace GryffindorQAA.Features
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create HomeWork", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 5
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -130,7 +130,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "ttutorr",
                             "SaintPetersburg",
                             "TutorGit"});
-#line 6
+#line 5
  testRunner.Given("Registration new User for Tutor", ((string)(null)), table24, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
@@ -155,7 +155,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "tteacherr",
                             "SaintPetersburg",
                             "TeacherGit"});
-#line 9
+#line 8
  testRunner.And("Registration new User for Teacher", ((string)(null)), table25, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
@@ -180,7 +180,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "sstudentt1",
                             "SaintPetersburg",
                             "Student1Git"});
-#line 12
+#line 11
  testRunner.And("Registration new Users for Students", ((string)(null)), table26, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
@@ -189,7 +189,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table27.AddRow(new string[] {
                             "marina@example.com",
                             "marina123456"});
-#line 15
+#line 14
  testRunner.And("Authoraized as admin", ((string)(null)), table27, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
@@ -198,7 +198,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table28.AddRow(new string[] {
                             "Course1",
                             "Budet polezno"});
-#line 18
+#line 17
  testRunner.And("Create course", ((string)(null)), table28, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
@@ -217,22 +217,22 @@ this.ScenarioInitialize(scenarioInfo);
                             "60",
                             "100",
                             "9"});
-#line 21
+#line 20
  testRunner.And("Create group", ((string)(null)), table29, "And ");
 #line hidden
-#line 24
+#line 23
  testRunner.And("Give role Tutor to the new user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 25
+#line 24
  testRunner.And("Give role Teacher to the new user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 26
+#line 25
  testRunner.And("Add Tutor in Group", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 27
+#line 26
  testRunner.And("Add Teacher in Group", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 28
+#line 27
  testRunner.And("Add Students in Group", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
@@ -245,13 +245,13 @@ this.ScenarioInitialize(scenarioInfo);
                             "taskliviy den",
                             "github.com",
                             "true"});
-#line 29
+#line 28
  testRunner.And("Create task as Teacher", ((string)(null)), table30, "And ");
 #line hidden
-#line 32
+#line 31
  testRunner.When("Open auuthorization page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 33
+#line 32
  testRunner.And("Skip bezopasnost", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
@@ -260,13 +260,13 @@ this.ScenarioInitialize(scenarioInfo);
                 table31.AddRow(new string[] {
                             "teacher@gmail.com",
                             "салам1салам"});
-#line 34
+#line 33
  testRunner.And("Fill sign in form as teacher", ((string)(null)), table31, "And ");
 #line hidden
-#line 37
+#line 36
  testRunner.And("Click sign button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 38
+#line 37
  testRunner.And("Open NewHomeworkPage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
@@ -281,16 +281,16 @@ this.ScenarioInitialize(scenarioInfo);
                             "50 Примеров",
                             "До среды заканчивайте",
                             "http://github.com, http://google.com"});
-#line 39
+#line 38
  testRunner.And("Fill form for give  out Homework", ((string)(null)), table32, "And ");
 #line hidden
-#line 42
+#line 41
  testRunner.And("Click create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 43
+#line 42
  testRunner.Then("Must be created Homework", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 44
+#line 43
  testRunner.And("goncha sravnenniye", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

@@ -40,7 +40,7 @@ namespace GryffindorQAA.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "FilterPaymentTableAsManager", "A short summary of the feature", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "FilterPaymentTableAsManager", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -83,14 +83,12 @@ namespace GryffindorQAA.Features
         [Xunit.SkippableFactAttribute(DisplayName="FilterPaymentTableAsManager")]
         [Xunit.TraitAttribute("FeatureTitle", "FilterPaymentTableAsManager")]
         [Xunit.TraitAttribute("Description", "FilterPaymentTableAsManager")]
-        [Xunit.TraitAttribute("Category", "tag1")]
         public virtual void FilterPaymentTableAsManager()
         {
-            string[] tagsOfScenario = new string[] {
-                    "tag1"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("FilterPaymentTableAsManager", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 6
+#line 3
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -116,7 +114,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table51.AddRow(new string[] {
                             "marina@example.com",
                             "marina123456"});
-#line 7
+#line 4
  testRunner.And("Authoraized as admin", ((string)(null)), table51, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table52 = new TechTalk.SpecFlow.Table(new string[] {
@@ -125,7 +123,7 @@ this.ScenarioInitialize(scenarioInfo);
                 table52.AddRow(new string[] {
                             "dev",
                             "Budet polezno"});
-#line 10
+#line 7
  testRunner.And("Create course", ((string)(null)), table52, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table53 = new TechTalk.SpecFlow.Table(new string[] {
@@ -144,7 +142,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "60",
                             "100",
                             "4"});
-#line 13
+#line 10
  testRunner.And("Create group", ((string)(null)), table53, "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table54 = new TechTalk.SpecFlow.Table(new string[] {
@@ -169,10 +167,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "sstudent",
                             "SaintPetersburg",
                             "StudentGit"});
-#line 16
+#line 13
  testRunner.Given("Registration new Users for Students", ((string)(null)), table54, "Given ");
 #line hidden
-#line 19
+#line 16
  testRunner.And("Add New Students in Group", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table55 = new TechTalk.SpecFlow.Table(new string[] {
@@ -197,10 +195,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "studentt",
                             "SaintPetersburg",
                             "StudentGit"});
-#line 20
+#line 17
  testRunner.And("Registration new Users for Students", ((string)(null)), table55, "And ");
 #line hidden
-#line 23
+#line 20
  testRunner.And("Add New Students in Group", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table56 = new TechTalk.SpecFlow.Table(new string[] {
@@ -225,10 +223,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "sstudentt",
                             "SaintPetersburg",
                             "StudentGit"});
-#line 24
+#line 21
  testRunner.And("Registration new Users for Students", ((string)(null)), table56, "And ");
 #line hidden
-#line 27
+#line 24
  testRunner.And("Add New Students in Group", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table57 = new TechTalk.SpecFlow.Table(new string[] {
@@ -253,10 +251,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "student",
                             "SaintPetersburg",
                             "StudentGit"});
-#line 28
+#line 25
  testRunner.And("Registration new Users for Students", ((string)(null)), table57, "And ");
 #line hidden
-#line 31
+#line 28
  testRunner.And("Add New Students in Group", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table58 = new TechTalk.SpecFlow.Table(new string[] {
@@ -281,16 +279,16 @@ this.ScenarioInitialize(scenarioInfo);
                             "mmanagerr",
                             "SaintPetersburg",
                             "ManagerGit"});
-#line 32
+#line 29
  testRunner.And("Registration new User for Manager", ((string)(null)), table58, "And ");
 #line hidden
-#line 35
+#line 32
  testRunner.And("Give role manager", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 36
+#line 33
  testRunner.And("Add Manager in Group", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 37
+#line 34
  testRunner.And("Open auth Web page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
@@ -299,13 +297,13 @@ this.ScenarioInitialize(scenarioInfo);
                 table59.AddRow(new string[] {
                             "managger@gmail.com",
                             "салам1салам"});
-#line 38
+#line 35
  testRunner.When("Authorized  as Manager", ((string)(null)), table59, "When ");
 #line hidden
-#line 41
+#line 38
  testRunner.And("Open Payment table page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 42
+#line 39
  testRunner.Then("Must be added Group in Payment page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -1,6 +1,5 @@
 ﻿Feature: CreateHomework
 
-A short summary of the feature
 
 Scenario: Create HomeWork
 	Given Registration new User for Tutor

@@ -1,6 +1,5 @@
 ﻿Feature: AuthorizationStudent
 
-A short summary of the feature
 
 Scenario: Authorization As student
 	Given Open web registration page 

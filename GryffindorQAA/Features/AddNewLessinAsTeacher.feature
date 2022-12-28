@@ -1,8 +1,6 @@
 ﻿Feature: AddNewLessinAsTeacher
 
-A short summary of the feature
 
-@tag1
 Scenario: Add new lesson as teacher
 	Given Registration new User for Tutor
 	| LastName | FirstName | Patronymic | BirthDate  | Password   | Email           | PhoneNumber  | Username | City            | GitHubAccount |

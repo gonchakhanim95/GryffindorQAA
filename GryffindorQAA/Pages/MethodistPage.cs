@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GryffindorQAA.Pages
+﻿namespace GryffindorQAA.Pages
 {
     public class MethodistPage : AbstractPage
     {
@@ -13,7 +7,7 @@ namespace GryffindorQAA.Pages
         public IWebElement TextBoxNumberTopic => _driver.FindElement(By.XPath(@"//input[@name='position']"));
         public IWebElement TextBoxNameTopic => _driver.FindElement(By.XPath(@"//input[@name='topicName']"));
         public IWebElement TextBoxTopicHours => _driver.FindElement(By.XPath(@"//input[@name='hoursCount']"));
-
+        
         public IWebElement DropDownRole
         {
             get
@@ -30,7 +24,6 @@ namespace GryffindorQAA.Pages
                 return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//li[text()='Методист']")));
             }
         }
-
         public IWebElement ButtonEditCourses
         {
             get
@@ -39,7 +32,6 @@ namespace GryffindorQAA.Pages
                 return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//span[text()='Редактировать курсы']")));
             }
         }
-        
         public IWebElement ButtonSave
         {
             get
@@ -48,7 +40,6 @@ namespace GryffindorQAA.Pages
                 return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//button[text()='Сохранить']")));
             }
         }
-
         public override void Open()
         {
             _driver.Navigate().GoToUrl(Urls.AuthPage);

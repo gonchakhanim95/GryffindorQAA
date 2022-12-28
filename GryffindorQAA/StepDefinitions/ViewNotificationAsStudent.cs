@@ -1,7 +1,4 @@
-﻿using System;
-using TechTalk.SpecFlow;
-
-namespace GryffindorQAA.StepDefinitions
+﻿namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
     public class ViewNotificationAsStudent

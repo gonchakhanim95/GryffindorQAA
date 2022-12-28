@@ -13,7 +13,6 @@
             var responseRegistrationModel = responseMessage.Content.ReadFromJsonAsync<ResponseRegistrationModel>().Result;
             return responseRegistrationModel.Id;
         }
-
         public string Auth(AuthRequestModel model)
         {
             HttpStatusCode expectedCode = HttpStatusCode.OK;
@@ -23,7 +22,6 @@
             Assert.Equal(expectedCode, actualCode);
             return responseMessage.Content.ReadAsStringAsync().Result;
         }
-
         public void GiveRole(string token, int id, string role)
         {
             HttpStatusCode expectedCode = HttpStatusCode.NoContent;
@@ -31,7 +29,6 @@
             HttpStatusCode actuaLCode = responseMessage.StatusCode;
             Assert.Equal(expectedCode, actuaLCode);
         }
-
         public int CreateCourse(CourseRequestModel model, string token = null)
         {
             HttpStatusCode expectedCode = HttpStatusCode.Created;
@@ -69,8 +66,6 @@
             TaskResponseModel responseBody = responseMessage.Content.ReadFromJsonAsync<TaskResponseModel>().Result;
             return responseBody.Id;
         }
-
-
         private static HttpResponseMessage SendRequest(HttpMethod httpMethod, string url, string content = null, string authorizationToken = null)
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
@@ -81,11 +76,8 @@
                 Method = httpMethod,
                 RequestUri = new Uri($"{HOST}{url}")
             };
-
             if (!string.IsNullOrWhiteSpace(content)) message.Content = new StringContent(content, Encoding.UTF8, "application/json");
-
             if (!string.IsNullOrWhiteSpace(authorizationToken)) client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authorizationToken);
-
             return client.Send(message);
         }
     }

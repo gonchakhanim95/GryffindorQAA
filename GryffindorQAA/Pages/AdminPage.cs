@@ -4,6 +4,8 @@
     {
         public IWebElement ButtonOnRole => _driver.FindElement(By.XPath(@"//div[@class='drop-down-filter  left']"));
         public IWebElement ButtonChanheRoleAdmin => _driver.FindElement(By.XPath(@"//div[text()='Администратор']"));
+        public IWebElement ButtonSaveGroup => _driver.FindElement(By.XPath(@"//button[text()='Сохранить']"));
+        public IWebElement NameGroup => _driver.FindElement(By.XPath(@"//div[text()='Bryaka']"));
         public IWebElement ButtonGroup
         {
             get
@@ -44,9 +46,6 @@
                 return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//span[text()='Severus Snape']")));
             }
         }
-        public IWebElement ButtonSaveGroup => _driver.FindElement(By.XPath(@"//button[text()='Сохранить']"));
-        public IWebElement NameGroup => _driver.FindElement(By.XPath(@"//div[text()='Bryaka']"));
-
         public override void Open()
         {
             _driver.Navigate().GoToUrl(Urls.HomePage);

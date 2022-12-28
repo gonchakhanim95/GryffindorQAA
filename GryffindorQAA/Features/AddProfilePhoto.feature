@@ -1,8 +1,6 @@
 ﻿Feature: AddProfilePhoto
 
-A short summary of the feature
 
-@tag1
 Scenario: Add profile photo as student
 	Given Open  registration page
 	And Fill out form

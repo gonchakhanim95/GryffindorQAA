@@ -38,7 +38,6 @@ namespace GryffindorQAA.Pages
 
             TextBoxLastName.SendKeys(text);
         }
-
         public void EnterFirstName(string text)
         {
             TextBoxFirstName.SendKeys(text);

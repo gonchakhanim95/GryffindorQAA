@@ -1,6 +1,3 @@
-using System;
-using TechTalk.SpecFlow;
-
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
@@ -12,7 +9,6 @@ namespace GryffindorQAA.StepDefinitions
         Clientt _client;
         AuthPage _authPage;
         MethodistPage _methodistPage;
-
         public EditCoursesAsMethodologistStepDefinitions()
         {
             _authPage = new AuthPage();
@@ -108,6 +104,5 @@ namespace GryffindorQAA.StepDefinitions
             string actual = storage.Driver.Url;
             Assert.Equal(expected, actual);
         }
-
     }
 }

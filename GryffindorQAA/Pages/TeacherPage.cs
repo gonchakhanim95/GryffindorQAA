@@ -1,7 +1,4 @@
-﻿using GryffindorQAA.Support;
-using System;
-using System.Collections.Generic;
-namespace GryffindorQAA.Pages
+﻿namespace GryffindorQAA.Pages
 {
     public class TeacherPage:AbstractPage
     {

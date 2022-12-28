@@ -40,7 +40,7 @@ namespace GryffindorQAA.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "EditCoursesAsMethodologist", "A short summary of the feature", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "EditCoursesAsMethodologist", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -83,14 +83,12 @@ namespace GryffindorQAA.Features
         [Xunit.SkippableFactAttribute(DisplayName="Edit courses like a methodist and sing out")]
         [Xunit.TraitAttribute("FeatureTitle", "EditCoursesAsMethodologist")]
         [Xunit.TraitAttribute("Description", "Edit courses like a methodist and sing out")]
-        [Xunit.TraitAttribute("Category", "tag1")]
         public virtual void EditCoursesLikeAMethodistAndSingOut()
         {
-            string[] tagsOfScenario = new string[] {
-                    "tag1"};
+            string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit courses like a methodist and sing out", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 6
+#line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -132,7 +130,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "madam",
                             "SaintPetersburg",
                             "@minevra34"});
-#line 7
+#line 5
  testRunner.Given("Created new User", ((string)(null)), table36, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
@@ -141,13 +139,13 @@ this.ScenarioInitialize(scenarioInfo);
                 table37.AddRow(new string[] {
                             "marina@example.com",
                             "marina123456"});
-#line 10
+#line 8
  testRunner.And("Auth as  Admin", ((string)(null)), table37, "And ");
 #line hidden
-#line 13
+#line 11
  testRunner.And("Give role a methodist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 14
+#line 12
  testRunner.And("Open web auth page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
@@ -156,31 +154,31 @@ this.ScenarioInitialize(scenarioInfo);
                 table38.AddRow(new string[] {
                             "minerrva@mail.ru",
                             "helloworld"});
-#line 15
+#line 13
  testRunner.When("Fill form", ((string)(null)), table38, "When ");
 #line hidden
-#line 18
+#line 16
  testRunner.And("Sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 19
+#line 17
  testRunner.And("Change role on methodist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 20
+#line 18
  testRunner.And("Click Edit courses", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 21
+#line 19
  testRunner.And("Make changes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 22
+#line 20
  testRunner.And("Add new Topic", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 23
+#line 21
  testRunner.And("Click save", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 24
+#line 22
  testRunner.And("Sing out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 25
+#line 23
  testRunner.Then("Must log out", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

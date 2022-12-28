@@ -1,6 +1,6 @@
 ﻿Feature: ViewListOfStudentsAsManager
 
-A short summary of the feature
+
 
 Scenario: View List Students As Manager
 	Given Registration as student 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GryffindorQAA.Drivers;
-namespace GryffindorQAA.Models
+﻿namespace GryffindorQAA.Models
 {
     public class RegistrationModel
     {

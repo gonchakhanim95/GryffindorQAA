@@ -24,9 +24,9 @@
         {                                                                                                                                                                                     
             ButtonHomeWork.Click();
         }
-        public void ClickSetting()
+        /*public void ClickSetting()
         {
             ButtonSetting.Click();
-        }
+        }*/
     }
 }

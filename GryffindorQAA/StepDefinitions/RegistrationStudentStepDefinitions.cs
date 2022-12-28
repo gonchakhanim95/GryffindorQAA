@@ -1,7 +1,3 @@
-using GryffindorQAA.Pages;
-using System;
-using TechTalk.SpecFlow;
-
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
@@ -10,7 +6,6 @@ namespace GryffindorQAA.StepDefinitions
         RegistrationPage _registrationPage;
         AuthPage _authPage;
         public static string Email;
-
         public RegistrationStudentStepDefinitions()
         {
             _registrationPage = new RegistrationPage();

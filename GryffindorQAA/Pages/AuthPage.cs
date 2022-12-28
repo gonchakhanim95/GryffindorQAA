@@ -1,11 +1,11 @@
-﻿using GryffindorQAA.Support;
-using System;
-namespace GryffindorQAA.Pages
+﻿namespace GryffindorQAA.Pages
 {
     public class AuthPage:AbstractPage
     { 
         public IWebElement TextBoxEmail => _driver.FindElement(By.XPath(@"//input[@name='email']"));
         public IWebElement TextBoxPassword => _driver.FindElement(By.XPath(@"//input[@name='password']"));
+        public IWebElement ButtonChangePage => _driver.FindElement(By.XPath(@"//a[text()='Регистрация']"));
+
         public IWebElement ButtonSignIn
         {
             get 
@@ -14,7 +14,6 @@ namespace GryffindorQAA.Pages
                 return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//button[@class='sc-bczRLJ iJvUkY btn btn-fill flex-container']")));
             }
         }
-        public IWebElement ButtonChangePage => _driver.FindElement(By.XPath(@"//a[text()='Регистрация']"));
         public override void Open()
         {
             _driver.Navigate().GoToUrl(Urls.AuthPage);

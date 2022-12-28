@@ -1,8 +1,6 @@
 ﻿Feature: AddNewGroup
 
-A short summary of the feature
 
-@tag1
 Scenario: Add new Group as Admin
 	Given Created new user
 	| FirstName | LastName   | Patronymic | Email             | Username  | Password   | City            | BirthDate  | GitHubAccount | PhoneNumber  |

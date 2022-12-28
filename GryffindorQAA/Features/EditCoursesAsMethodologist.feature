@@ -1,8 +1,6 @@
 ﻿Feature: EditCoursesAsMethodologist
 
-A short summary of the feature
 
-@tag1
 Scenario: Edit courses like a methodist and sing out
 	Given Created new User
 	| LastName   | FirstName | Patronymic | BirthDate  | Password   | Email            | PhoneNumber  | Username | City            | GitHubAccount |

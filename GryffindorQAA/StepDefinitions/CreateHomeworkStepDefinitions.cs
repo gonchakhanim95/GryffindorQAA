@@ -10,7 +10,6 @@ namespace GryffindorQAA.StepDefinitions
         HomeworkViewPage _homeworkViewPage;
         public static List<string> Emails = new List<string>();
         public static string GroupName;
-
         public CreateHomeworkStepDefinitions()
         {
             clientt = new Clientt();
@@ -18,7 +17,6 @@ namespace GryffindorQAA.StepDefinitions
             _authPage = new AuthPage();
             _studentPage = new StudentPage();
             _homeworkViewPage = new HomeworkViewPage();
-
         }
         [Given(@"Registration new User for Tutor")]
         public void GivenRegistrationNewUserForTutor(Table table)
@@ -26,7 +24,6 @@ namespace GryffindorQAA.StepDefinitions
             var tab = table.CreateSet<RequestRegistrationModel>().ToList();
             Emails.Add(tab[0].Email);
             Variables.GetInstance().TutorId=clientt.Registration(tab[0]);
-            
         }
 
         [Given(@"Registration new User for Teacher")]

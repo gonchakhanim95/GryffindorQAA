@@ -1,7 +1,3 @@
-using GryffindorQAA.Pages;
-using System;
-using TechTalk.SpecFlow;
-
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
@@ -24,7 +20,7 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Fill out form for edit")]
         public void WhenFillOutFormForEdit(Table table)
         {
-            _settingPage.EnterSave();
+            _settingPage.ClickButtonSave();
         }
 
         [When(@"Fill out forms")]

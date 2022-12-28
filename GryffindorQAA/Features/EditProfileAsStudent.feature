@@ -1,8 +1,6 @@
 ﻿Feature: EditProfileAsStudent
 
-A short summary of the feature
 
-@tag1
 Scenario: Edit
 	Given Open  registration page
 	And Fill out form

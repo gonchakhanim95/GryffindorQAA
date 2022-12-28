@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GryffindorQAA.Support
+﻿namespace GryffindorQAA.Support
 {
     public class Variables
     {
@@ -21,8 +15,6 @@ namespace GryffindorQAA.Support
 
         public string HomeworkName { get; set; }
 
-
-
         private static Variables _instance;
 
         private Variables()
@@ -32,12 +24,11 @@ namespace GryffindorQAA.Support
 
         public static Variables GetInstance()
         {
-            if(_instance == null )
+            if (_instance == null)
             {
                 _instance = new Variables();
             }
             return _instance;
-          }
-
+        }
     }
 }

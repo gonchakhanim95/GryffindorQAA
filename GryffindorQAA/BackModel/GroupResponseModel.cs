@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-
-namespace GryffindorQAA.BackModel
+﻿namespace GryffindorQAA.BackModel
 {
     public class GroupResponseModel
     {
@@ -20,7 +13,7 @@ namespace GryffindorQAA.BackModel
             [JsonPropertyName("isDeleted")]
             public bool IsDeleted { get; set; }
         }
-
+        
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
@@ -47,6 +40,5 @@ namespace GryffindorQAA.BackModel
 
         [JsonPropertyName("paymentsCount")]
         public int PaymentsCount { get; set; }
-        
     }
 }

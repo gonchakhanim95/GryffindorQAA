@@ -8,7 +8,6 @@ namespace GryffindorQAA.StepDefinitions
         TeacherPage _teacherPage;
         AuthPage _authPage;
         Clientt _client;
-
         public CreateTeacherStepDefinitions()
         {
             _authPage = new AuthPage();

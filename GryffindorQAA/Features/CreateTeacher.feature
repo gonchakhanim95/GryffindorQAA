@@ -1,7 +1,6 @@
 ﻿Feature: CreateTeacher
 
 
-@admistrator
 Scenario: Create Teacher
 	Given Registration new User
 	| LastName | FirstName | Patronymic | BirthDate  | Password    | Email                | PhoneNumber  | Username | City            | GitHubAccount |

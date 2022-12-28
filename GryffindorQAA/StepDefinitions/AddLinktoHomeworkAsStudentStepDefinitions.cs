@@ -1,6 +1,3 @@
-using System;
-using TechTalk.SpecFlow;
-
 namespace GryffindorQAA.StepDefinitions
 {
     [Binding]
@@ -27,7 +24,7 @@ namespace GryffindorQAA.StepDefinitions
         [When(@"Go to Homework")]
         public void WhenGoToHomework()
         {
-            Thread.Sleep(3000);
+            Task.Delay(3000).Wait();
             _studentPage.ClickHomeWork();
             _homeworkView.ClickButtonInHomework();
         }
