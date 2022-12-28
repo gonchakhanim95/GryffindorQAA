@@ -22,20 +22,20 @@ namespace GryffindorQAA.StepDefinitions
         {
             var tablica = table.CreateSet<RequestRegistrationModel>().ToList();
             Email= tablica[0].Email;
-            _idManager = _client.RegistrationStudent(tablica[0]);
+            Variables.GetInstance().ManagerId = _client.Registration(tablica[0]);
         }
 
         [Given(@"Auth as Admin")]
         public void GivenAuthAsAdmin(Table table)
         {
             var tablica = table.CreateSet<AuthRequestModel>().ToList();
-            _adminToken = _client.Auth(tablica[0]);
+            Variables.GetInstance().AdminToken = _client.Auth(tablica[0]);
         }
 
         [Given(@"Give the student the role of a manager")]
         public void GivenGiveTheStudentTheRoleOfAManager()
         {
-            _client.GiveRole(_adminToken, _idManager,"Manager");
+            _client.GiveRole(Variables.GetInstance().AdminToken, Variables.GetInstance().ManagerId,"Manager");
         }
 
         [Given(@"Open auth page for Manager")]
