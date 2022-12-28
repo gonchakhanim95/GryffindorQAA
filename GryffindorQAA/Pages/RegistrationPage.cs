@@ -12,12 +12,20 @@ namespace GryffindorQAA.Pages
         public IWebElement TextBoxPhone => _driver.FindElement(By.XPath(@"//input[@name='phoneNumber']"));
         public IWebElement CheckBox => _driver.FindElement(By.XPath(@"//label[@class='custom-checkbox']"));
         public IWebElement ButtonChangeToAuth => _driver.FindElement(By.XPath(@"//a[@class='auth-link']"));
+        public IWebElement ButtonRegistration
+        {
+            get
+            {
+                WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
+                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//button[text()='Зарегистрироваться']")));
+            }
+        }
         public IWebElement TextNotification
         {
             get
             {
                 WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
-                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//p[@class='notification-text']")));
+                return driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//p[text()='Добро пожаловать!!']")));
             }
         }
         public override void Open()
@@ -80,7 +88,7 @@ namespace GryffindorQAA.Pages
         }
         public string GetTextNotification()
         {
-            return TextNotiification.Text;
+            return TextNotification.Text;
         }
     }
 }

@@ -24,13 +24,22 @@ namespace GryffindorQAA.Pages
         public IWebElement ButtonToChangePassword => _driver.FindElement(By.XPath(@"//a[@href='/change-password']"));
         public IWebElement ButtonBack => _driver.FindElement(By.XPath(@"//div[text()='Назад']")); 
         public IWebElement ButtonSetting => _driver.FindElement(By.XPath(@"//div[@class='svg-fond']"));
-
+        public IWebElement ButtonPhotoProfile => _driver.FindElement(By.XPath(@"//span[@class='avatar-text']"));
+        public IWebElement ButtonSelectPhoto => _driver.FindElement(By.XPath(@"//label[text()='Выбрать файл']"));
 
         public void ClickButtonSetting()
         {
             WebDriverWait driverWait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
             driverWait.Until(ExpectedConditions.ElementExists(By.XPath(@"//div[@class='svg-fond']")));
             ButtonSetting.Click();
+        }
+        public void ClickButtonSelectPhoto()
+        {
+            ButtonSelectPhoto.Click();
+        }
+        public void ClickButtonPhotoProfile()
+        {
+            ButtonPhotoProfile.Click();
         }
         public override void Open()
         {

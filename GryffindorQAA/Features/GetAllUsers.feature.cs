@@ -113,14 +113,14 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
  testRunner.Given("Open auth Web page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table55 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table60 = new TechTalk.SpecFlow.Table(new string[] {
                             "Email",
                             "Password"});
-                table55.AddRow(new string[] {
+                table60.AddRow(new string[] {
                             "marina@example.com",
                             "marina123456"});
 #line 8
- testRunner.And("Fill out form Auth", ((string)(null)), table55, "And ");
+ testRunner.And("Fill out form Auth", ((string)(null)), table60, "And ");
 #line hidden
 #line 11
  testRunner.And("Click button Sing in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

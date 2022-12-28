@@ -17,5 +17,6 @@ namespace GryffindorQAA.Support
         public const string StudentListPage = @"https://piter-education.ru:7074/students-list";
         public const string AllUserPage = @"https://piter-education.ru:7074/all-users";
         public const string PaymentTablePage = @"https://piter-education.ru:7074/payment-table";
+        public const string SettingPage = @"https://piter-education.ru:7074/settings";
     }
 }
